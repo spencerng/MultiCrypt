@@ -6,139 +6,49 @@
 #include <ctime>
 using namespace std;
 
-vector< vector<int> > toMMatrix(vector< vector<int> > A, int column) {
-	int m = 0, n = 0;
-	vector< vector<int> > mMatrix(A.size() - 1, vector<int>(A.size() - 1));
-	for (int i = 1; i < A.size(); i++) {
-		for (int j = 0; j < A.size(); j++) {
-			if (j != column) {
-				mMatrix[m][n] = A[i][j];
-				n++;
-			}
-		}
-		m++;
-		n = 0;
-	}
-	return mMatrix;
-}
-
-int det(vector< vector<int> > A) {
-	int determinant=0;
-
-	if (A.size() == 2) 
-		determinant = A[0][0] * A[1][1] - A[0][1] * A[1][0];
+//Functions used for general matrix multiplication
 	
-	else for (int j = 0; j < A.size(); j++) 
-		determinant += pow(-1, j+2)*A[0][j] * (det(toMMatrix(A, j)));
-	
-	
-	return determinant;
-}
+	vector< vector<int> > toMMatrix(vector< vector<int> > A, int column);
+	// Creates the minor matrix of A across the first row and a given column
+	// Used in the det and toCofMatrix functions
 
-vector< vector<int> > multiply(vector< vector<int> > A, vector< vector<int> > B) {
-	vector< vector<int> > productMatrix(A.size(), vector<int>(B[0].size(), 0));
-	int m = 0, n = 0;
+	int det(vector< vector<int> > A);
+	// Uses cofactor expansion (and the minor matrix) to return the determinant of a given n x n matrix. Is recursive, and requires n! multiplications
+	// Used to check if a given n x n is invertible. Also used in the toCofMatrix function
 
-	for (int i = 0; i < A.size(); i++) 
-		for (int j = 0; j < B[0].size(); j++) 
-			for (int m = 0; m < A[0].size(); m++)
-				productMatrix[i][j] += A[i][m] * B[m][j];
-			
-	return productMatrix;
-}
+	vector< vector<int> > multiply(vector< vector<int> > A, vector< vector<int> > B);
+	// Returns the product of a m x n matrix and a n x m matrix. Used to encrypt and decrypt messages
 
-vector< vector<int> > rref(vector< vector<int> > A) {
-	vector< vector<int> > reducedMatrix(A.size(), vector<int>(A[0].size()));
-	int index, temp;
-	if (A.size() > A[0].size())
-		index = A.size();
-	else index = A[0].size();
-	reducedMatrix = A;
-	for (int i = 0; i < index; i++) {
-		
-		
-		for (int k = 0; k < reducedMatrix.size()&& reducedMatrix[i][i] == 0; k++) {
-			if (reducedMatrix[k][i] != 0) {
-				for (int j = 0; j < reducedMatrix[0].size(); j++) {
-					temp = reducedMatrix[i][j];
-					reducedMatrix[i][j] = reducedMatrix[k][j];
-					reducedMatrix[k][j] = temp;
-				}
-			}
-		}
-		
-		if (reducedMatrix[i][i] != 1)
-			for (int j = 0; j < reducedMatrix[0].size(); j++) 
-				reducedMatrix[i][j] /= reducedMatrix[i][i];
-		for (int k = 0; k < reducedMatrix.size(); k++) {
-			if (reducedMatrix[k][j] != 0&&k!=i&&j!=i) {
-				for (int j = 0; j < reducedMatrix[0].size(); j++)
-					;
-			}
+	vector< vector<int> > transpose(vector< vector<int> > A);
+	// Returns the transpose of a m x n matrix, has not been written yet. Will be used in the toAdjMatrix function.
 
-		}
-			
-	}
-		
+	vector < vector<int > > toCofMatrix(vector< vector<int> > A);
+	// Returns the cofactor matrix of a given matrix, utilizing determinant and minor matrix with a definition for a 2 x 2.
+	// Used for the adjugate matrix, not yet written.
+
+	vector< vector<int> > toAdjMatrix(vector< vector<int> > A);
+	// Calculates the adjugate matrix, or the transpose of the cofactor matrix. Not yet written.
+
+	vector< vector<int> > inverse(vector< vector<int> > A);
+	// Calculates the inverse of a matrix, equal to Adj(A) * (1/det(A)). Not yet written.
 
 
-	
+vector< vector<int> > randomMatrix(int size);
+// Generates a random n x n invertible matrix. Could be optimized for a determinant of 1 to eliminate error.
 
-	return reducedMatrix;
+vector< char > toLowerCase(vector<char> charArray);
+// Converts a given char vector with mixed case letters to all lowercase
 
-}
-vector< vector<int> > inverse(vector< vector<int> > A) {
-	vector< vector<int> > inverseMatrix(A.size(), vector<int>());
+vector< vector<int> > toNumbMatrix(vector<char> message);
+// Converts a char array to a 3 x k matrix to represent a message in numerical form. Partially written.
 
-	return inverseMatrix;
+vector<char> stringToCharVec(string input);
+// Converts a string to a vector filled with char entries. Has not been tested.
 
-}
+void printMatrix(vector< vector<int> > A);
+// Prints any given matrix, with formatting.
 
-
-vector< vector<int> > randomMatrix(int size) {
-	srand(time(NULL));
-	vector< vector<int> > randomM(size, vector<int>(size));
-	do {
-		
-		for (int i = 0; i < size; i++)
-			for (int j = 0; j < size; j++)
-				randomM[i][j] = rand() % 100 + 1;
-	} while (det(randomM) == 0);
-	return randomM;
-
-
-
-}
-
-vector< char > toLowerCase (vector<char> charArray) {
-	vector<char> output = charArray;
-	for (int i = 0; i < charArray.size(); i++) {
-		if (output[i] >= 'A' && output[i] <= 'Z')
-			output[i] = tolower(output[i]);
-	}
-
-	return output;
-}
-
-vector< vector<int> > toNumbMatrix(vector<char> message) {
-	int dimension = message.size();
-	while (dimension % 3 != 0)
-		dimension++;
-	vector< vector<int> > encodedMatrix(3, vector<int>(dimension));
-
-	message = toLowerCase(message);
-	char alphabet[27] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ' };
-
-
-	return encodedMatrix;
-}
-
-vector<char> stringToCharVec(string input) {
-	vector<char> output(input.begin(), input.end());
-
-	return output;
-
-}
+//Further functions will be needed for file I/O. Main function will need a good user interface with additional features as necessary.
 
 int main() {
 	
@@ -258,4 +168,103 @@ int main() {
 	}
 
 	return 0;
+}
+
+vector< vector<int> > toMMatrix(vector< vector<int> > A, int column) {
+	int m = 0, n = 0;
+	vector< vector<int> > mMatrix(A.size() - 1, vector<int>(A.size() - 1));
+	for (int i = 1; i < A.size(); i++) {
+		for (int j = 0; j < A.size(); j++) {
+			if (j != column) {
+				mMatrix[m][n] = A[i][j];
+				n++;
+			}
+		}
+		m++;
+		n = 0;
+	}
+	return mMatrix;
+}
+
+int det(vector< vector<int> > A) {
+	int determinant = 0;
+
+	if (A.size() == 2)
+		determinant = A[0][0] * A[1][1] - A[0][1] * A[1][0];
+
+	else for (int j = 0; j < A.size(); j++)
+		determinant += pow(-1, j + 2)*A[0][j] * (det(toMMatrix(A, j)));
+
+
+	return determinant;
+}
+
+vector< vector<int> > multiply(vector< vector<int> > A, vector< vector<int> > B) {
+	vector< vector<int> > productMatrix(A.size(), vector<int>(B[0].size(), 0));
+	int m = 0, n = 0;
+
+	for (int i = 0; i < A.size(); i++)
+		for (int j = 0; j < B[0].size(); j++)
+			for (int m = 0; m < A[0].size(); m++)
+				productMatrix[i][j] += A[i][m] * B[m][j];
+
+	return productMatrix;
+}
+
+vector< vector<int> > inverse(vector< vector<int> > A) {
+	vector< vector<int> > inverseMatrix(A.size(), vector<int>());
+
+	//Needs to be done, will be based on rref
+
+	return inverseMatrix;
+}
+
+vector< vector<int> > randomMatrix(int size) {
+	srand(time(NULL));
+	vector< vector<int> > randomM(size, vector<int>(size));
+	do {
+
+		for (int i = 0; i < size; i++)
+			for (int j = 0; j < size; j++)
+				randomM[i][j] = rand() % 100 + 1;
+	} while (det(randomM) == 0);
+	return randomM;
+}
+vector< char > toLowerCase(vector<char> charArray) {
+	vector<char> output = charArray;
+	for (int i = 0; i < charArray.size(); i++) {
+		if (output[i] >= 'A' && output[i] <= 'Z')
+			output[i] = tolower(output[i]);
+	}
+
+	return output;
+}
+vector< vector<int> > toNumbMatrix(vector<char> message) {
+	int dimension = message.size();
+	while (dimension % 3 != 0)
+		dimension++;
+	vector< vector<int> > encodedMatrix(3, vector<int>(dimension));
+
+	message = toLowerCase(message);
+	char alphabet[27] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ' };
+
+	// Incomplete. Needs to substitute each character in message for a number (index position?) and construct an appropriate 3 x m matrix
+	return encodedMatrix;
+}
+
+// I believe this works. Not sure, however.
+vector<char> stringToCharVec(string input) {
+	vector<char> output(input.begin(), input.end());
+
+	return output;
+
+}
+
+void printMatrix(vector< vector<int> > A) {
+	for (int i = 0; i < A.size(); i++) {
+		for (int j = 0; j < A[0].size(); j++)
+			cout << setw(3) << A[i][j];
+		cout << endl;
+	}
+
 }

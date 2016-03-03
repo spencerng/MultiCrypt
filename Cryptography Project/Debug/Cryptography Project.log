@@ -1,21 +1,19 @@
 ﻿  Cryptography.cpp
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(12): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(13): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(31): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(32): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(42): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(43): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(44): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(59): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(61): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(63): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(87): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(103): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(155): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(156): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(168): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(169): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(178): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(179): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography project\cryptography project\cryptography.cpp(231): warning C4390: ';': empty controlled statement found; is this the intent?
-  Cryptography Project.vcxproj -> C:\Users\sng\Documents\Visual Studio 2015\Projects\Cryptography Project\Debug\Cryptography Project.exe
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(55): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(56): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(68): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(69): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(78): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(79): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(131): warning C4390: ';': empty controlled statement found; is this the intent?
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(154): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(155): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(173): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(174): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(184): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(185): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(186): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(210): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(222): warning C4018: '<': signed/unsigned mismatch
+  LINK : C:\Users\sng\OneDrive\Documents\9th Grade\Engineering\Cryptography-Project\Debug\Cryptography Project.exe not found or not built by the last incremental link; performing full link
+  Cryptography Project.vcxproj -> C:\Users\sng\OneDrive\Documents\9th Grade\Engineering\Cryptography-Project\Debug\Cryptography Project.exe
