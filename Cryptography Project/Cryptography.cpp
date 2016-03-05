@@ -17,9 +17,9 @@ using namespace std;
 	// Used to check if a given n x n is invertible. Also used in the toCofMatrix function
 
 	vector< vector<int> > multiply(vector< vector<int> > A, vector< vector<int> > B);
-	// Returns the product of a m x n matrix and a n x m matrix. Used to encrypt and decrypt messages
+	// Returns the product of a m x n matrix and a n x m matrix. Used to encrypt and decrypt messages	
 
-	vector< vector<int> > scalarMultiply(int scalar, vector < vector<int> >A);
+	vector< vector<int> > scalarMultiply(double scalar, vector < vector<int> >A);
 	// Used to multiply a m x n matrix by a scalar;
 	// Written but not tested
 
@@ -54,6 +54,9 @@ void printMatrix(vector< vector<int> > A);
 void printMatrix(vector< vector<double> > A);
 // Prints any given matrix, with formatting.
 
+void cls();
+// Replaces the need for system call to clear the screen. Another function to replace system("pause") should be creaqted
+
 //Further functions will be needed for file I/O. Main function will need a good user interface with additional features as necessary.
 
 int main() {
@@ -70,7 +73,7 @@ int main() {
 		cout << "(7) Debug\n";
 		char choice;
 		cin >> choice;
-		system("cls");
+		cls();
 		int sizeI, sizeJ, size, entry;
 		
 		
@@ -84,10 +87,20 @@ int main() {
 			vector< vector<int> > debugMatrix(sizeI, vector<int>(sizeI));
 			cout << "\nEnter the " << sizeI << " x " << sizeI << " matrix.\n";
 			
+			// Standard code to input a n x n matrix. Copy as necessary
 			for (int i = 0; i < sizeI; i++)
 				for (int j = 0; j < sizeI; j++)
 					cin >> debugMatrix[i][j];
-
+			cout << "Determinant: " << det(debugMatrix) << endl;
+			cout << "Transpose: \n";
+			printMatrix(transpose(debugMatrix));
+			cout << endl;
+			cout << "Cofactor: \n";
+			printMatrix(toCofMatrix(debugMatrix));
+			cout << endl;
+			cout << "Inverse: \n";
+			printMatrix(inverse(debugMatrix));
+			
 
 		}
 		if (choice == '6') {
@@ -158,7 +171,7 @@ int main() {
 vector< vector<int> > toMMatrix(vector< vector<int> > A, int row, int column) {
 	int m = 0, n = 0;
 	vector< vector<int> > mMatrix(A.size() - 1, vector<int>(A.size() - 1));
-	for (int i = 1; i < A.size(); i++) {
+	for (int i = 0; i < A.size(); i++) {
 		if (i != row) {
 			for (int j = 0; j < A.size(); j++) {
 				if (j != column) {
@@ -249,7 +262,7 @@ vector<char> stringToCharVec(string input) {
 void printMatrix(vector< vector<int> > A) {
 	for (int i = 0; i < A.size(); i++) {
 		for (int j = 0; j < A[0].size(); j++)
-			cout << setw(3) << A[i][j];
+			cout << setw(10) << A[i][j];
 		cout << endl;
 	}
 
@@ -257,10 +270,21 @@ void printMatrix(vector< vector<int> > A) {
 
 void printMatrix(vector< vector<double> > A) {
 	for (int i = 0; i < A.size(); i++) {
+		cout << setprecision(3);
 		for (int j = 0; j < A[0].size(); j++)
-			cout << setw(3) << A[i][j];
+			cout << setw(15) << A[i][j];
 		cout << endl;
 	}
+
+}
+
+void cls() {
+	int i = 100;
+	while (i != 0) {
+		cout << endl;
+		i--;
+	}
+
 
 }
 
@@ -282,7 +306,7 @@ vector < vector<int > > toCofMatrix(vector< vector<int> > A) {
 	return cofMatrix;
 }
 
-vector< vector<double> > scalarMultiply(int scalar, vector < vector<double> >A) {
+vector< vector<double> > scalarMultiply(double scalar, vector < vector<double> >A) {
 	vector< vector<double> > product = A;
 	for (int i = 0; i < product.size(); i++)
 		for (int j = 0; j < product[0].size(); j++)
@@ -300,7 +324,7 @@ vector< vector<int> > toAdjMatrix(vector< vector<int> > A) {
 vector< vector<double> > toFloatMatrix(vector < vector<int> >A) {
 	vector< vector<double> > result(A.size(), vector<double>(A[0].size()));
 	for (int i = 0; i < A.size(); i++)
-		for (int j = 0; i < A.size(); j++)
+		for (int j = 0; j < A.size(); j++)
 			result[i][j] = (double)A[i][j];
 	return result;
 
@@ -317,7 +341,7 @@ vector< vector<double> > inverse(vector< vector<int> > A) {
 	}
 	else result = toFloatMatrix(toAdjMatrix(A));
 
-	result = scalarMultiply((1 / det(A)), result);
+	result = scalarMultiply(((double)1 / det(A)), result);
 
 	return result;
 
