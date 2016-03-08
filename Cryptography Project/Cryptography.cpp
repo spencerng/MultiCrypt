@@ -54,6 +54,9 @@ void printMatrix(vector< vector<int> > A);
 void printMatrix(vector< vector<double> > A);
 // Prints any given matrix, with formatting.
 
+void inputMatrix(vector< vector<int> >& matrix);
+// User inputs int values for any m x n matrix
+
 void cls();
 // Replaces the need for system call to clear the screen. Another function to replace system("pause") should be creaqted
 
@@ -70,16 +73,26 @@ int main() {
 		cout << "(4) Generate a decryption key\n";
 		cout << "(5) Exit the program\n";
 		cout << "(6) Multiply two matrices\n";
-		cout << "(7) Debug\n";
-		char choice;
-		cin >> choice;
-		cls();
+		cout << "(7) Debug Math\n";
+		cout << "(8) Debug String to Matrix\n";
+
+		char choice=getchar();
+		system("cls");
 		int sizeI, sizeJ, size, entry;
 		
 		
 		
-		if (choice == '1')
-		{
+		if (choice == '8'){
+			
+			cout << "Please enter your message.";
+			
+			string input;
+			
+			getline(cin, input);
+			vector<char> output = stringToCharVec(input);
+			for (int i = 0; i < output.size(); i++)
+				cout << input.size();
+			system("pause");
 		}
 		if (choice == '7') {
 			cout << "Enter the size of an n x n matrix: ";
@@ -87,10 +100,8 @@ int main() {
 			vector< vector<int> > debugMatrix(sizeI, vector<int>(sizeI));
 			cout << "\nEnter the " << sizeI << " x " << sizeI << " matrix.\n";
 			
-			// Standard code to input a n x n matrix. Copy as necessary
-			for (int i = 0; i < sizeI; i++)
-				for (int j = 0; j < sizeI; j++)
-					cin >> debugMatrix[i][j];
+			inputMatrix(debugMatrix);
+
 			cout << "Determinant: " << det(debugMatrix) << endl;
 			cout << "Transpose: \n";
 			printMatrix(transpose(debugMatrix));
@@ -229,6 +240,7 @@ vector< vector<int> > randomMatrix(int size) {
 	} while (det(randomM) == 0);
 	return randomM;
 }
+
 vector< char > toLowerCase(vector<char> charArray) {
 	vector<char> output = charArray;
 	for (int i = 0; i < charArray.size(); i++) {
@@ -238,24 +250,52 @@ vector< char > toLowerCase(vector<char> charArray) {
 
 	return output;
 }
+
+//Not finished
 vector< vector<int> > toNumbMatrix(vector<char> message) {
 	int dimension = message.size();
 	while (dimension % 3 != 0)
 		dimension++;
-	vector< vector<int> > encodedMatrix(3, vector<int>(dimension));
+	vector< vector<int> > encodedMatrix(3, vector<int>(dimension / 3));
 
 	message = toLowerCase(message);
 	char alphabet[27] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ' };
+	int pos = 0;
+	for (int i = 0; i < dimension / 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (pos >= message.size())
+				encodedMatrix[j][i] = ' ';
+			else {
+				int alphPos = 0;
+				do {
 
-	// Incomplete. Needs to substitute each character in message for a number (index position?) and construct an appropriate 3 x m matrix
+					alphPos++;
+				} while (message[pos] != alphabet[alphPos]);
+				encodedMatrix[j][i] = alphabet[alphPos];
+
+			}
+
+		}
+		pos++;
+
+	}
+	
 	return encodedMatrix;
 }
 
 // I believe this works. Not sure, however.
 vector<char> stringToCharVec(string input) {
-	vector<char> output(input.begin(), input.end());
-
+	vector<char> output;
+	for (int i = 0; i < input.size(); i++)
+		output.push_back(input[i]);
 	return output;
+
+}
+
+void inputMatrix(vector< vector<int> >& matrix) {
+	for (int i = 0; i < matrix.size(); i++)
+		for (int j = 0; j < matrix[0].size(); j++)
+			cin >> matrix[i][j];
 
 }
 
@@ -265,7 +305,7 @@ void printMatrix(vector< vector<int> > A) {
 			cout << setw(10) << A[i][j];
 		cout << endl;
 	}
-
+	return;
 }
 
 void printMatrix(vector< vector<double> > A) {
@@ -330,22 +370,23 @@ vector< vector<double> > toFloatMatrix(vector < vector<int> >A) {
 
 }
 
-vector< vector<double> > inverse(vector< vector<int> > A) {
-	vector< vector<double> > result = toFloatMatrix(A);
+	vector< vector<double> > inverse(vector< vector<int> > A) {
+		vector< vector<double> > result = toFloatMatrix(A);
 
-	if (A.size() == 2) {
-		result[0][0] = A[1][1];
-		result[0][1] = -1 * A[0][1];
-		result[1][0] = -1 * A[1][0];
-		result[1][1] = A[0][0];
+		if (A.size() == 2) {
+			result[0][0] = A[1][1];
+			result[0][1] = -1 * A[0][1];
+			result[1][0] = -1 * A[1][0];
+			result[1][1] = A[0][0];
+		}
+		else result = toFloatMatrix(toAdjMatrix(A));
+
+		result = scalarMultiply(((double)1 / det(A)), result);
+
+		return result;
+
 	}
-	else result = toFloatMatrix(toAdjMatrix(A));
 
-	result = scalarMultiply(((double)1 / det(A)), result);
-
-	return result;
-
-}
 
 
 
