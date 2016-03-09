@@ -21,24 +21,25 @@ using namespace std;
 
 	vector< vector<int> > scalarMultiply(double scalar, vector < vector<int> >A);
 	// Used to multiply a m x n matrix by a scalar;
-	// Written but not tested
+	
 
 	vector< vector<int> > transpose(vector< vector<int> > A);
 	// Returns the transpose of a m x n matrix. Will be used in the toAdjMatrix function.
-	// Written but not tested
+	
 
 	vector < vector<int > > toCofMatrix(vector< vector<int> > A);
 	// Returns the cofactor matrix of a given matrix, utilizing determinant and minor matrix with a definition for a 2 x 2.
-	// Used for the adjugate matrix. Written but not tested.
+	// Used for the adjugate matrix. 
 
 	vector< vector<int> > toAdjMatrix(vector< vector<int> > A);
-	// Calculates the adjugate matrix, or the transpose of the cofactor matrix.  Written but not tested
+	// Calculates the adjugate matrix, or the transpose of the cofactor matrix.  
 
 	vector< vector<double> > inverse(vector< vector<int> > A);
-	// Calculates the inverse of a matrix, equal to Adj(A) * (1/det(A)).  Written but not tested
+	// Calculates the inverse of a matrix, equal to Adj(A) * (1/det(A)).  
+	vector< vector<int> > inverseInt(vector< vector<int> > A);
 
 
-vector< vector<int> > randomMatrix(int size);
+vector< vector<int> > randomMatrix();
 // Generates a random n x n invertible matrix. Could be optimized for a determinant of 1 to eliminate error.
 
 vector< char > toLowerCase(vector<char> charArray);
@@ -54,8 +55,20 @@ void printMatrix(vector< vector<int> > A);
 void printMatrix(vector< vector<double> > A);
 // Prints any given matrix, with formatting.
 
+void inputMatrix(vector< vector<int> >& matrix);
+// User inputs int values for any m x n matrix
+
 void cls();
-// Replaces the need for system call to clear the screen. Another function to replace system("pause") should be creaqted
+// Replaces the need for system call to clear the screen. Another function to replace system("pause") should be created
+
+void debugMath();
+//Allows user to input matrix to displays the result of transpose, cofactor, and inverse
+
+void debugRandom();
+// Generates a random unimodular matrix and displays it, along with debugMath functions
+
+char printChoices();
+// Prompts for input at the beginning of the program
 
 //Further functions will be needed for file I/O. Main function will need a good user interface with additional features as necessary.
 
@@ -64,43 +77,28 @@ int main() {
 	while (true) {
 		
 
-		cout << "(1) Encode a message\n";
-		cout << "(2) Decode a message\n";
-		cout << "(3) Generate an encryption key\n";
-		cout << "(4) Generate a decryption key\n";
-		cout << "(5) Exit the program\n";
-		cout << "(6) Multiply two matrices\n";
-		cout << "(7) Debug\n";
-		char choice;
-		cin >> choice;
-		cls();
+		char choice = printChoices();
+		system("cls");
 		int sizeI, sizeJ, size, entry;
 		
+		if (choice == '9')
+			debugRandom();
 		
-		
-		if (choice == '1')
-		{
+		if (choice == '8'){
+			
+			cout << "Please enter your message.";
+			
+			string input;
+			
+			getline(cin, input);
+			vector<char> output = stringToCharVec(input);
+			for (int i = 0; i < output.size(); i++)
+				cout << input.size();
+			system("pause");
 		}
 		if (choice == '7') {
-			cout << "Enter the size of an n x n matrix: ";
-			cin >> sizeI;
-			vector< vector<int> > debugMatrix(sizeI, vector<int>(sizeI));
-			cout << "\nEnter the " << sizeI << " x " << sizeI << " matrix.\n";
 			
-			// Standard code to input a n x n matrix. Copy as necessary
-			for (int i = 0; i < sizeI; i++)
-				for (int j = 0; j < sizeI; j++)
-					cin >> debugMatrix[i][j];
-			cout << "Determinant: " << det(debugMatrix) << endl;
-			cout << "Transpose: \n";
-			printMatrix(transpose(debugMatrix));
-			cout << endl;
-			cout << "Cofactor: \n";
-			printMatrix(toCofMatrix(debugMatrix));
-			cout << endl;
-			cout << "Inverse: \n";
-			printMatrix(inverse(debugMatrix));
-			
+			debugMath();
 
 		}
 		if (choice == '6') {
@@ -208,7 +206,7 @@ int det(vector< vector<int> > A) {
 
 vector< vector<int> > multiply(vector< vector<int> > A, vector< vector<int> > B) {
 	vector< vector<int> > productMatrix(A.size(), vector<int>(B[0].size(), 0));
-	int m = 0, n = 0;
+	
 
 	for (int i = 0; i < A.size(); i++)
 		for (int j = 0; j < B[0].size(); j++)
@@ -218,17 +216,66 @@ vector< vector<int> > multiply(vector< vector<int> > A, vector< vector<int> > B)
 	return productMatrix;
 }
 
-vector< vector<int> > randomMatrix(int size) {
+vector< vector<int> > randomMatrix() {
 	srand(time(NULL));
-	vector< vector<int> > randomM(size, vector<int>(size));
-	do {
-
-		for (int i = 0; i < size; i++)
-			for (int j = 0; j < size; j++)
-				randomM[i][j] = rand() % 100 + 1;
-	} while (det(randomM) == 0);
+	int n = rand() % 7 + 1;
+	vector< vector<int> > randomM(3, vector<int>(3));
+	randomM[0][0] = 8 * n*n + 8 * n;
+	randomM[0][1] = 2 * n + 1;
+	randomM[0][2] = 4 * n;
+	randomM[1][0] = 4 * n*n + 4 * n;
+	randomM[1][1] =  n + 1;
+	randomM[1][2] = 2 * n + 1;
+	randomM[2][0] = 4 * n*n + 4 * n + 1;
+	randomM[2][1] = n;
+	randomM[2][2] = 2*n - 1;
+	
 	return randomM;
 }
+
+vector< vector<int> > unimodMatrix(int n) {
+	vector< vector<int> > randomM(3, vector<int>(3));
+	randomM[0][0] = 8 * n*n + 8 * n;
+	randomM[0][1] = 2 * n + 1;
+	randomM[0][2] = 4 * n;
+	randomM[1][0] = 4 * n*n + 4 * n;
+	randomM[1][1] = n + 1;
+	randomM[1][2] = 2 * n + 1;
+	randomM[2][0] = 4 * n*n + 4 * n + 1;
+	randomM[2][1] = n;
+	randomM[2][2] = 2 * n - 1;
+
+	return randomM;
+}
+
+void modEntries(vector<  vector<int> >& matrix,int base) {
+	for (int i = 0; i < matrix.size(); i++)
+		for (int j = 0; j < matrix[0].size(); j++)
+			matrix[i][j] = matrix[i][j] % base;
+
+
+}
+
+vector< vector<int> > moreRandomMatrix() {
+	srand(time(NULL));
+	vector< vector<int> > randomM;
+	do {
+		randomM = randomMatrix();
+		int iterations = rand() % 20 + 10;
+		for (int i = 0; i < iterations; i++) {
+			int isInverted = rand();
+			if (isInverted % 2 == 0)
+				randomM = inverseInt(randomM);
+			randomM = multiply(randomM, randomMatrix());
+
+
+		}
+	} while (inverse(randomM)[0][0] > 1000000 || inverse(randomM)[0][0] < -1000000);
+	
+
+	return randomM;
+}
+
 vector< char > toLowerCase(vector<char> charArray) {
 	vector<char> output = charArray;
 	for (int i = 0; i < charArray.size(); i++) {
@@ -238,24 +285,52 @@ vector< char > toLowerCase(vector<char> charArray) {
 
 	return output;
 }
+
+//Not finished
 vector< vector<int> > toNumbMatrix(vector<char> message) {
 	int dimension = message.size();
 	while (dimension % 3 != 0)
 		dimension++;
-	vector< vector<int> > encodedMatrix(3, vector<int>(dimension));
+	vector< vector<int> > encodedMatrix(3, vector<int>(dimension / 3));
 
 	message = toLowerCase(message);
 	char alphabet[27] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ' };
+	int pos = 0;
+	for (int i = 0; i < dimension / 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (pos >= message.size())
+				encodedMatrix[j][i] = ' ';
+			else {
+				int alphPos = 0;
+				do {
 
-	// Incomplete. Needs to substitute each character in message for a number (index position?) and construct an appropriate 3 x m matrix
+					alphPos++;
+				} while (message[pos] != alphabet[alphPos]);
+				encodedMatrix[j][i] = alphabet[alphPos];
+
+			}
+
+		}
+		pos++;
+
+	}
+	
 	return encodedMatrix;
 }
 
 // I believe this works. Not sure, however.
 vector<char> stringToCharVec(string input) {
-	vector<char> output(input.begin(), input.end());
-
+	vector<char> output;
+	for (int i = 0; i < input.size(); i++)
+		output.push_back(input[i]);
 	return output;
+
+}
+
+void inputMatrix(vector< vector<int> >& matrix) {
+	for (int i = 0; i < matrix.size(); i++)
+		for (int j = 0; j < matrix[0].size(); j++)
+			cin >> matrix[i][j];
 
 }
 
@@ -265,7 +340,7 @@ void printMatrix(vector< vector<int> > A) {
 			cout << setw(10) << A[i][j];
 		cout << endl;
 	}
-
+	return;
 }
 
 void printMatrix(vector< vector<double> > A) {
@@ -315,6 +390,15 @@ vector< vector<double> > scalarMultiply(double scalar, vector < vector<double> >
 
 }
 
+vector< vector<int> > scalarMultiplyInt(int scalar, vector < vector<int> >A) {
+	vector< vector<int> > product = A;
+	for (int i = 0; i < product.size(); i++)
+		for (int j = 0; j < product[0].size(); j++)
+			product[i][j] *= scalar;
+	return product;
+
+}
+
 vector< vector<int> > toAdjMatrix(vector< vector<int> > A) {
 
 	return transpose(toCofMatrix(A));
@@ -346,6 +430,90 @@ vector< vector<double> > inverse(vector< vector<int> > A) {
 	return result;
 
 }
+vector< vector<int> > inverseInt(vector< vector<int> > A) {
+	vector< vector<int> > result = A;
+
+	if (A.size() == 2) {
+		result[0][0] = A[1][1];
+		result[0][1] = -1 * A[0][1];
+		result[1][0] = -1 * A[1][0];
+		result[1][1] = A[0][0];
+	}
+	else result = toAdjMatrix(A);
+
+	result = scalarMultiplyInt((1 / det(A)), result);
+
+	return result;
+
+}
+
+void debugRandom(){
+	
+	vector< vector<int> > debugMatrix = moreRandomMatrix();
+	printMatrix(debugMatrix);
+			
+
+			
+
+			cout << "Determinant: " << det(debugMatrix) << endl;
+			cout << "Transpose: \n";
+			printMatrix(transpose(debugMatrix));
+			cout << endl;
+			cout << "Cofactor: \n";
+			printMatrix(toCofMatrix(debugMatrix));
+			cout << endl;
+			cout << "Inverse: \n";
+			printMatrix(inverse(debugMatrix));
+	
+	
+}
+
+void debugMath() {
+	cout << "Enter the size of an n x n matrix: ";
+	int sizeI;
+	cin >> sizeI;
+	vector< vector<int> > debugMatrix(sizeI, vector<int>(sizeI));
+	
+	
+	cout << "\nEnter the " << sizeI << " x " << sizeI << " matrix.\n";
+
+	inputMatrix(debugMatrix);
 
 
 
+	cout << "Determinant: " << det(debugMatrix) << endl;
+	cout << "Transpose: \n";
+	printMatrix(transpose(debugMatrix));
+	cout << endl;
+	cout << "Cofactor: \n";
+	printMatrix(toCofMatrix(debugMatrix));
+	cout << endl;
+	cout << "Inverse: \n";
+	printMatrix(inverse(debugMatrix));
+
+
+}
+
+char printChoices() {
+	cout << "(1) Encode a message\n";
+	cout << "(2) Decode a message\n";
+	cout << "(3) Generate an encryption key\n";
+	cout << "(4) Generate a decryption key\n";
+	cout << "(5) Exit the program\n";
+	cout << "(6) Multiply two matrices\n";
+	cout << "(7) Debug Math\n";
+	cout << "(8) Debug String to Matrix\n";
+	cout << "(9) Debug Random Matrix Generator\n";
+
+	char choice = getchar();
+	return choice;
+
+}
+
+void encodeMessage() {
+
+}
+
+void decodeMessage() {
+
+}
