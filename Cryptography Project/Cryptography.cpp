@@ -6,6 +6,7 @@
 #include <ctime>
 using namespace std;
 
+//test
 //Functions used for general matrix operations
 	
 	vector< vector<int> > toMMatrix(vector< vector<int> > A, int row, int column);
@@ -70,6 +71,8 @@ void debugRandom();
 char printChoices();
 // Prompts for input at the beginning of the program
 
+string getString();
+
 //Further functions will be needed for file I/O. Main function will need a good user interface with additional features as necessary.
 
 int main() {
@@ -88,9 +91,8 @@ int main() {
 			
 			cout << "Please enter your message.";
 			
-			string input;
+			string input = getString();
 			
-			getline(cin, input);
 			vector<char> output = stringToCharVec(input);
 			for (int i = 0; i < output.size(); i++)
 				cout << input.size();
@@ -216,22 +218,6 @@ vector< vector<int> > multiply(vector< vector<int> > A, vector< vector<int> > B)
 	return productMatrix;
 }
 
-vector< vector<int> > randomMatrix() {
-	srand(time(NULL));
-	int n = rand() % 7 + 1;
-	vector< vector<int> > randomM(3, vector<int>(3));
-	randomM[0][0] = 8 * n*n + 8 * n;
-	randomM[0][1] = 2 * n + 1;
-	randomM[0][2] = 4 * n;
-	randomM[1][0] = 4 * n*n + 4 * n;
-	randomM[1][1] =  n + 1;
-	randomM[1][2] = 2 * n + 1;
-	randomM[2][0] = 4 * n*n + 4 * n + 1;
-	randomM[2][1] = n;
-	randomM[2][2] = 2*n - 1;
-	
-	return randomM;
-}
 
 vector< vector<int> > unimodMatrix(int n) {
 	vector< vector<int> > randomM(3, vector<int>(3));
@@ -256,21 +242,24 @@ void modEntries(vector<  vector<int> >& matrix,int base) {
 
 }
 
-vector< vector<int> > moreRandomMatrix() {
+vector< vector<int> > randomMatrix() {
 	srand(time(NULL));
+	int seed;
 	vector< vector<int> > randomM;
 	do {
-		randomM = randomMatrix();
-		int iterations = rand() % 20 + 10;
+		seed = rand() % 7 + 1;
+		randomM = unimodMatrix(seed);
+		int iterations = rand() % 15 + 5;
 		for (int i = 0; i < iterations; i++) {
 			int isInverted = rand();
 			if (isInverted % 2 == 0)
 				randomM = inverseInt(randomM);
-			randomM = multiply(randomM, randomMatrix());
+			seed = rand() % 7 + 1;
+			randomM = multiply(randomM, unimodMatrix(seed));
 
 
 		}
-	} while (inverse(randomM)[0][0] > 1000000 || inverse(randomM)[0][0] < -1000000);
+	} while (inverseInt(randomM)[0][0] > 100000 || inverseInt(randomM)[0][0] < -1000000);
 	
 
 	return randomM;
@@ -449,7 +438,7 @@ vector< vector<int> > inverseInt(vector< vector<int> > A) {
 
 void debugRandom(){
 	
-	vector< vector<int> > debugMatrix = moreRandomMatrix();
+	vector< vector<int> > debugMatrix = randomMatrix();
 	printMatrix(debugMatrix);
 			
 
@@ -515,5 +504,14 @@ void encodeMessage() {
 }
 
 void decodeMessage() {
+
+}
+
+string getString() {
+	string input;
+	cin.clear();
+	getline(cin, input);
+	return input;
+
 
 }
