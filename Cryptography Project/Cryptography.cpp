@@ -35,6 +35,8 @@ void debugRandom();
 
 void debugString();
 
+void debugMultiply();
+
 char printChoices();
 // Prompts for input at the beginning of the program
 
@@ -64,45 +66,7 @@ int main() {
 
 		}
 		if (choice == '6') {
-			cout << "Enter the size of the m x n matrix A: ";
-
-			cin >> sizeI >> sizeJ;
-			vector< vector<int> > A(sizeI, vector<int> (sizeJ));
-			for (int i = 0; i < A.size(); i++) {
-				for (int j = 0; j < A[0].size(); j++) {
-					cin >> entry;
-					
-					// 
-					A[i][j] = entry;
-
-				}
-
-			}
-			cout << "Enter the size of B: ";
-			cin >> sizeI >> sizeJ;
-			vector< vector<int> > B(sizeI, vector<int>(sizeJ));
-			for (int i = 0; i < B.size(); i++) {
-				for (int j = 0; j <B[0].size(); j++) {
-					cin >> entry;
-					B[i][j] = entry;
-
-				}
-
-			}
-			cout << endl << "A * B =\n\n";
-			vector< vector<int> > product = multiply(A, B);
-			for (int i = 0; i < product.size(); i++) {
-				for (int j = 0; j < product[0].size(); j++) {
-					cout << setw(4);
-					cout << product[i][j] << " ";
-					
-
-				}
-				cout << endl;
-
-			}
-			
-			system("pause");
+			debugMultiply();
 		}
 		if (choice == '3') {
 		}
@@ -123,13 +87,7 @@ int main() {
 	return 0;
 }
 
-void modEntries(vector<  vector<int> >& matrix,int base) {
-	for (int i = 0; i < matrix.size(); i++)
-		for (int j = 0; j < matrix[0].size(); j++)
-			matrix[i][j] = matrix[i][j] % base;
 
-
-}
 
 vector< char > toLowerCase(vector<char> charArray) {
 	vector<char> output = charArray;
@@ -217,17 +175,6 @@ void cls() {
 
 }
 
-vector< vector<double> > toFloatMatrix(vector < vector<int> >A) {
-	vector< vector<double> > result(A.size(), vector<double>(A[0].size()));
-	for (int i = 0; i < A.size(); i++)
-		for (int j = 0; j < A.size(); j++)
-			result[i][j] = (double)A[i][j];
-	return result;
-
-}
-
-
-
 void debugRandom(){
 	
 	vector< vector<int> > debugMatrix = randomMatrix();
@@ -291,11 +238,25 @@ char printChoices() {
 
 }
 
-void encodeMessage() {
+void debugMultiply() {
+	int sizeI, sizeJ;
+	cout << "Enter the size of the m x n matrix A: ";
 
-}
+	cin >> sizeI >> sizeJ;
+	vector< vector<int> > A(sizeI, vector<int>(sizeJ));
+	inputMatrix(A);
 
-void decodeMessage() {
+	cout << "Enter the size of B: ";
+	cin >> sizeI >> sizeJ;
+
+	vector< vector<int> > B(sizeI, vector<int>(sizeJ));
+	inputMatrix(B);
+
+	cout << endl << "A * B =\n\n";
+	vector< vector<int> > product = multiply(A, B);
+	printMatrix(product);
+
+	system("pause");
 
 }
 
@@ -318,3 +279,15 @@ void debugString() {
 	system("pause");
 
 }
+
+
+void encodeMessage() {
+
+}
+
+void decodeMessage() {
+
+}
+
+
+

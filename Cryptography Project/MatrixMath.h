@@ -39,4 +39,6 @@ vector< vector<double> > toFloatMatrix(vector < vector<int> >A);
 
 int cofactor(vector< vector<int> > A, int row, int column);
 
+void modEntries(vector<  vector<int> >& matrix, int base);
+
 #endif

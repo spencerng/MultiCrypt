@@ -129,3 +129,19 @@ vector< vector<int> > scalarMultiplyInt(int scalar, vector < vector<int> >A) {
 
 }
 
+vector< vector<double> > toFloatMatrix(vector < vector<int> >A) {
+	vector< vector<double> > result(A.size(), vector<double>(A[0].size()));
+	for (int i = 0; i < A.size(); i++)
+		for (int j = 0; j < A.size(); j++)
+			result[i][j] = (double)A[i][j];
+	return result;
+
+}
+
+void modEntries(vector<  vector<int> >& matrix, int base) {
+	for (int i = 0; i < matrix.size(); i++)
+		for (int j = 0; j < matrix[0].size(); j++)
+			matrix[i][j] = matrix[i][j] % base;
+
+
+}
