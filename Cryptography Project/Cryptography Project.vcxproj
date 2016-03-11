@@ -147,6 +147,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Cryptography.cpp" />
+    <ClCompile Include="KeyGenerate.cpp" />
+    <ClCompile Include="MatrixMath.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="KeyGenerate.h" />
+    <ClInclude Include="MatrixMath.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

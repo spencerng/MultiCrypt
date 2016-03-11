@@ -4,44 +4,9 @@
 #include <vector>
 #include <string>
 #include <ctime>
+#include "MatrixMath.h"
+#include "KeyGenerate.h"
 using namespace std;
-
-//test
-//Functions used for general matrix operations
-	
-	vector< vector<int> > toMMatrix(vector< vector<int> > A, int row, int column);
-	// Creates the minor matrix of A across the first row and a given column
-	// Used in the det and toCofMatrix functions
-
-	int det(vector< vector<int> > A);
-	// Uses cofactor expansion (and the minor matrix) to return the determinant of a given n x n matrix. Is recursive, and requires n! multiplications
-	// Used to check if a given n x n is invertible. Also used in the toCofMatrix function
-
-	vector< vector<int> > multiply(vector< vector<int> > A, vector< vector<int> > B);
-	// Returns the product of a m x n matrix and a n x m matrix. Used to encrypt and decrypt messages	
-
-	vector< vector<int> > scalarMultiply(double scalar, vector < vector<int> >A);
-	// Used to multiply a m x n matrix by a scalar;
-	
-
-	vector< vector<int> > transpose(vector< vector<int> > A);
-	// Returns the transpose of a m x n matrix. Will be used in the toAdjMatrix function.
-	
-
-	vector < vector<int > > toCofMatrix(vector< vector<int> > A);
-	// Returns the cofactor matrix of a given matrix, utilizing determinant and minor matrix with a definition for a 2 x 2.
-	// Used for the adjugate matrix. 
-
-	vector< vector<int> > toAdjMatrix(vector< vector<int> > A);
-	// Calculates the adjugate matrix, or the transpose of the cofactor matrix.  
-
-	vector< vector<double> > inverse(vector< vector<int> > A);
-	// Calculates the inverse of a matrix, equal to Adj(A) * (1/det(A)).  
-	vector< vector<int> > inverseInt(vector< vector<int> > A);
-
-
-vector< vector<int> > randomMatrix();
-// Generates a random n x n invertible matrix. Could be optimized for a determinant of 1 to eliminate error.
 
 vector< char > toLowerCase(vector<char> charArray);
 // Converts a given char vector with mixed case letters to all lowercase
@@ -68,6 +33,8 @@ void debugMath();
 void debugRandom();
 // Generates a random unimodular matrix and displays it, along with debugMath functions
 
+void debugString();
+
 char printChoices();
 // Prompts for input at the beginning of the program
 
@@ -89,14 +56,7 @@ int main() {
 		
 		if (choice == '8'){
 			
-			cout << "Please enter your message.";
-			
-			string input = getString();
-			
-			vector<char> output = stringToCharVec(input);
-			for (int i = 0; i < output.size(); i++)
-				cout << input.size();
-			system("pause");
+			debugString();
 		}
 		if (choice == '7') {
 			
@@ -148,7 +108,6 @@ int main() {
 		}
 		if (choice == '4') {
 
-
 		}
 		if (choice == '2') {
 			string encryptedMessage;
@@ -157,81 +116,11 @@ int main() {
 		if (choice == '5') {
 			return 0;
 		}
-		else {
-			cout << "Invalid input. Please try again.\n\n";
-			system("pause");
-		}
 
 		
 	}
 
 	return 0;
-}
-
-vector< vector<int> > toMMatrix(vector< vector<int> > A, int row, int column) {
-	int m = 0, n = 0;
-	vector< vector<int> > mMatrix(A.size() - 1, vector<int>(A.size() - 1));
-	for (int i = 0; i < A.size(); i++) {
-		if (i != row) {
-			for (int j = 0; j < A.size(); j++) {
-				if (j != column) {
-					mMatrix[m][n] = A[i][j];
-					n++;
-				}
-			}
-			m++;
-			n = 0;
-
-		}
-		
-	}
-	return mMatrix;
-}
-
-int cofactor(vector< vector<int> > A, int row, int column) {
-	int cof = pow(-1, row + column + 2) * det(toMMatrix(A, row, column));
-	return cof;
-}
-
-int det(vector< vector<int> > A) {
-	int determinant = 0;
-
-	if (A.size() == 2)
-		determinant = A[0][0] * A[1][1] - A[0][1] * A[1][0];
-
-	else for (int j = 0; j < A.size(); j++)
-		determinant += A[0][j] * cofactor(A, 0, j);
-
-
-	return determinant;
-}
-
-vector< vector<int> > multiply(vector< vector<int> > A, vector< vector<int> > B) {
-	vector< vector<int> > productMatrix(A.size(), vector<int>(B[0].size(), 0));
-	
-
-	for (int i = 0; i < A.size(); i++)
-		for (int j = 0; j < B[0].size(); j++)
-			for (int m = 0; m < A[0].size(); m++)
-				productMatrix[i][j] += A[i][m] * B[m][j];
-
-	return productMatrix;
-}
-
-
-vector< vector<int> > unimodMatrix(int n) {
-	vector< vector<int> > randomM(3, vector<int>(3));
-	randomM[0][0] = 8 * n*n + 8 * n;
-	randomM[0][1] = 2 * n + 1;
-	randomM[0][2] = 4 * n;
-	randomM[1][0] = 4 * n*n + 4 * n;
-	randomM[1][1] = n + 1;
-	randomM[1][2] = 2 * n + 1;
-	randomM[2][0] = 4 * n*n + 4 * n + 1;
-	randomM[2][1] = n;
-	randomM[2][2] = 2 * n - 1;
-
-	return randomM;
 }
 
 void modEntries(vector<  vector<int> >& matrix,int base) {
@@ -240,29 +129,6 @@ void modEntries(vector<  vector<int> >& matrix,int base) {
 			matrix[i][j] = matrix[i][j] % base;
 
 
-}
-
-vector< vector<int> > randomMatrix() {
-	srand(time(NULL));
-	int seed;
-	vector< vector<int> > randomM;
-	do {
-		seed = rand() % 7 + 1;
-		randomM = unimodMatrix(seed);
-		int iterations = rand() % 15 + 5;
-		for (int i = 0; i < iterations; i++) {
-			int isInverted = rand();
-			if (isInverted % 2 == 0)
-				randomM = inverseInt(randomM);
-			seed = rand() % 7 + 1;
-			randomM = multiply(randomM, unimodMatrix(seed));
-
-
-		}
-	} while (inverseInt(randomM)[0][0] > 100000 || inverseInt(randomM)[0][0] < -1000000);
-	
-
-	return randomM;
 }
 
 vector< char > toLowerCase(vector<char> charArray) {
@@ -307,7 +173,6 @@ vector< vector<int> > toNumbMatrix(vector<char> message) {
 	return encodedMatrix;
 }
 
-// I believe this works. Not sure, however.
 vector<char> stringToCharVec(string input) {
 	vector<char> output;
 	for (int i = 0; i < input.size(); i++)
@@ -352,48 +217,6 @@ void cls() {
 
 }
 
-vector< vector<int> > transpose(vector< vector<int> > A) {
-	vector< vector<int> > transMatrix(A[0].size(), vector<int>(A.size()));
-	for (int i = 0; i < transMatrix.size(); i++)
-		for (int j = 0; j < transMatrix[0].size(); j++)
-			transMatrix[i][j] = A[j][i];
-	return transMatrix;
-}
-
-vector < vector<int > > toCofMatrix(vector< vector<int> > A) {
-	vector< vector<int> > cofMatrix(A.size(), vector<int>(A[0].size()));
-
-	for (int i = 0; i < cofMatrix.size(); i++)
-		for (int j = 0; j < cofMatrix[0].size(); j++)
-			cofMatrix[i][j] = cofactor(A, i, j);
-
-	return cofMatrix;
-}
-
-vector< vector<double> > scalarMultiply(double scalar, vector < vector<double> >A) {
-	vector< vector<double> > product = A;
-	for (int i = 0; i < product.size(); i++)
-		for (int j = 0; j < product[0].size(); j++)
-			product[i][j] *= scalar;
-	return product;
-
-}
-
-vector< vector<int> > scalarMultiplyInt(int scalar, vector < vector<int> >A) {
-	vector< vector<int> > product = A;
-	for (int i = 0; i < product.size(); i++)
-		for (int j = 0; j < product[0].size(); j++)
-			product[i][j] *= scalar;
-	return product;
-
-}
-
-vector< vector<int> > toAdjMatrix(vector< vector<int> > A) {
-
-	return transpose(toCofMatrix(A));
-
-}
-
 vector< vector<double> > toFloatMatrix(vector < vector<int> >A) {
 	vector< vector<double> > result(A.size(), vector<double>(A[0].size()));
 	for (int i = 0; i < A.size(); i++)
@@ -403,38 +226,7 @@ vector< vector<double> > toFloatMatrix(vector < vector<int> >A) {
 
 }
 
-vector< vector<double> > inverse(vector< vector<int> > A) {
-	vector< vector<double> > result = toFloatMatrix(A);
 
-	if (A.size() == 2) {
-		result[0][0] = A[1][1];
-		result[0][1] = -1 * A[0][1];
-		result[1][0] = -1 * A[1][0];
-		result[1][1] = A[0][0];
-	}
-	else result = toFloatMatrix(toAdjMatrix(A));
-
-	result = scalarMultiply(((double)1 / det(A)), result);
-
-	return result;
-
-}
-vector< vector<int> > inverseInt(vector< vector<int> > A) {
-	vector< vector<int> > result = A;
-
-	if (A.size() == 2) {
-		result[0][0] = A[1][1];
-		result[0][1] = -1 * A[0][1];
-		result[1][0] = -1 * A[1][0];
-		result[1][1] = A[0][0];
-	}
-	else result = toAdjMatrix(A);
-
-	result = scalarMultiplyInt((1 / det(A)), result);
-
-	return result;
-
-}
 
 void debugRandom(){
 	
@@ -444,15 +236,15 @@ void debugRandom(){
 
 			
 
-			cout << "Determinant: " << det(debugMatrix) << endl;
-			cout << "Transpose: \n";
-			printMatrix(transpose(debugMatrix));
-			cout << endl;
-			cout << "Cofactor: \n";
-			printMatrix(toCofMatrix(debugMatrix));
-			cout << endl;
-			cout << "Inverse: \n";
-			printMatrix(inverse(debugMatrix));
+	cout << "Determinant: " << det(debugMatrix) << endl;
+	cout << "Transpose: \n";
+	printMatrix(transpose(debugMatrix));
+	cout << endl;
+	cout << "Cofactor: \n";
+	printMatrix(toCofMatrix(debugMatrix));
+	cout << endl;
+	cout << "Inverse: \n";
+	printMatrix(inverse(debugMatrix));
 	
 	
 }
@@ -479,7 +271,7 @@ void debugMath() {
 	cout << endl;
 	cout << "Inverse: \n";
 	printMatrix(inverse(debugMatrix));
-
+	system("pause");
 
 }
 
@@ -509,9 +301,20 @@ void decodeMessage() {
 
 string getString() {
 	string input;
-	cin.clear();
+	cin.ignore();
 	getline(cin, input);
 	return input;
+}
 
+void debugString() {
+	cout << "Please enter your message.\n";
+
+	string input = getString();
+
+	vector<char> output = stringToCharVec(input);
+	for (int i = 0; i < output.size(); i++)
+		cout << input[i];
+	cout << endl;
+	system("pause");
 
 }
