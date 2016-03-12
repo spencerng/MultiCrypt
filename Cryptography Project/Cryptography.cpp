@@ -6,26 +6,9 @@
 #include <ctime>
 #include "MatrixMath.h"
 #include "KeyGenerate.h"
+#include "Conversions.h"
+#include "IO.h"
 using namespace std;
-
-vector< char > toLowerCase(vector<char> charArray);
-// Converts a given char vector with mixed case letters to all lowercase
-
-vector< vector<int> > toNumbMatrix(vector<char> message);
-// Converts a char array to a 3 x k matrix to represent a message in numerical form. Partially written.
-
-vector<char> stringToCharVec(string input);
-// Converts a string to a vector filled with char entries. Has not been tested.
-
-void printMatrix(vector< vector<int> > A);
-void printMatrix(vector< vector<double> > A);
-// Prints any given matrix, with formatting.
-
-void inputMatrix(vector< vector<int> >& matrix);
-// User inputs int values for any m x n matrix
-
-void cls();
-// Replaces the need for system call to clear the screen. Another function to replace system("pause") should be created
 
 void debugMath();
 //Allows user to input matrix to displays the result of transpose, cofactor, and inverse
@@ -37,19 +20,15 @@ void debugString();
 
 void debugMultiply();
 
-char printChoices();
-// Prompts for input at the beginning of the program
-
-string getString();
-
 //Further functions will be needed for file I/O. Main function will need a good user interface with additional features as necessary.
 
 int main() {
 	
 	while (true) {
-		
+		system("cls");
+		printChoices();
 
-		char choice = printChoices();
+		char choice = getChar();
 		system("cls");
 		int sizeI, sizeJ, size, entry;
 		
@@ -89,92 +68,6 @@ int main() {
 
 
 
-vector< char > toLowerCase(vector<char> charArray) {
-	vector<char> output = charArray;
-	for (int i = 0; i < charArray.size(); i++) {
-		if (output[i] >= 'A' && output[i] <= 'Z')
-			output[i] = tolower(output[i]);
-	}
-
-	return output;
-}
-
-//Not finished
-vector< vector<int> > toNumbMatrix(vector<char> message) {
-	int dimension = message.size();
-	while (dimension % 3 != 0)
-		dimension++;
-	vector< vector<int> > encodedMatrix(3, vector<int>(dimension / 3));
-
-	message = toLowerCase(message);
-	char alphabet[27] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',' ' };
-	int pos = 0;
-	for (int i = 0; i < dimension / 3; i++) {
-		for (int j = 0; j < 3; j++) {
-			if (pos >= message.size())
-				encodedMatrix[j][i] = ' ';
-			else {
-				int alphPos = 0;
-				do {
-
-					alphPos++;
-				} while (message[pos] != alphabet[alphPos]);
-				encodedMatrix[j][i] = alphabet[alphPos];
-
-			}
-
-		}
-		pos++;
-
-	}
-	
-	return encodedMatrix;
-}
-
-vector<char> stringToCharVec(string input) {
-	vector<char> output;
-	for (int i = 0; i < input.size(); i++)
-		output.push_back(input[i]);
-	return output;
-
-}
-
-void inputMatrix(vector< vector<int> >& matrix) {
-	for (int i = 0; i < matrix.size(); i++)
-		for (int j = 0; j < matrix[0].size(); j++)
-			cin >> matrix[i][j];
-
-}
-
-void printMatrix(vector< vector<int> > A) {
-	for (int i = 0; i < A.size(); i++) {
-		for (int j = 0; j < A[0].size(); j++)
-			cout << setw(10) << A[i][j];
-		cout << endl;
-	}
-	return;
-}
-
-void printMatrix(vector< vector<double> > A) {
-	for (int i = 0; i < A.size(); i++) {
-		cout << setprecision(3);
-		for (int j = 0; j < A[0].size(); j++)
-			cout << setw(15) << A[i][j];
-		cout << endl;
-	}
-
-}
-
-void cls() {
-	int i = 100;
-	while (i != 0) {
-		cout << endl;
-		i--;
-	}
-
-
-}
-
 void debugRandom(){
 	
 	vector< vector<int> > debugMatrix = randomMatrix();
@@ -193,7 +86,7 @@ void debugRandom(){
 	cout << "Inverse: \n";
 	printMatrix(inverse(debugMatrix));
 	
-	
+	system("pause");
 }
 
 void debugMath() {
@@ -222,21 +115,7 @@ void debugMath() {
 
 }
 
-char printChoices() {
-	cout << "(1) Encode a message\n";
-	cout << "(2) Decode a message\n";
-	cout << "(3) Generate an encryption key\n";
-	cout << "(4) Generate a decryption key\n";
-	cout << "(5) Exit the program\n";
-	cout << "(6) Multiply two matrices\n";
-	cout << "(7) Debug Math\n";
-	cout << "(8) Debug String to Matrix\n";
-	cout << "(9) Debug Random Matrix Generator\n";
 
-	char choice = getchar();
-	return choice;
-
-}
 
 void debugMultiply() {
 	int sizeI, sizeJ;
@@ -260,12 +139,7 @@ void debugMultiply() {
 
 }
 
-string getString() {
-	string input;
-	cin.ignore();
-	getline(cin, input);
-	return input;
-}
+
 
 void debugString() {
 	cout << "Please enter your message.\n";
