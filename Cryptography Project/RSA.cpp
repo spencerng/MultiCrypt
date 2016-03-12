@@ -1,21 +1,70 @@
 #include<string>
 #include <ctime>
 #include <vector>
+#include <iostream>
 #include "RSA.h"
 using namespace std;
 
-int xGCD(int a, int b, int &x, int &y) {
-	if (b == 0) {
-		x = 1;
-		y = 0;
-		return a;
+vector<char> linearCipherEncrypt(vector<char>message) {
+	vector<int> plaintext = charToIntArr(message);
+	cout << "\nEnter password:\n";
+	string password = getString();
+	int product=1, sum=0;
+	unsigned long long pos;
+	for (int i = 0; i < password.length(); i++) {
+		product *= password[i];
+		sum += password[i];
+	}
+	
+	
+	
+	for (int i = 0; i < message.size(); i++) {
+		plaintext[i] +=product;
+		plaintext[i] %= 128;
+		
+		cout << plaintext[i] << " ";
+		
 	}
 
-	int x1, y1, gcd = xGCD(b, a % b, x1, y1);
-	x = y1;
-	y = x1 - (a / b) * y1;
-	return gcd;
+	return intToCharArr(plaintext);
 }
+
+vector<char> linearCipherDecrypt(vector<char>message) {
+	cout << "\nEnter password:\n";
+	string password = getString();
+	int product = 1, sum = 0;
+	for (int i = 0; i < password.length(); i++) {
+		product *= password[i];
+		sum += password[i];
+	}
+	
+	int pos;
+	for (int i = 0; i < message.size(); i++) {
+
+		pos = message[i];
+		pos -= product;
+		
+		
+		message[i] = pos;
+		
+
+	}
+
+	return message;
+}
+
+	int xGCD(int a, int b, int &x, int &y) {
+		if (b == 0) {
+			x = 1;
+			y = 0;
+			return a;
+		}
+
+		int x1, y1, gcd = xGCD(b, a % b, x1, y1);
+		x = y1;
+		y = x1 - (a / b) * y1;
+		return gcd;
+	}
 
 int gcd(int a, int b) {
 	if (b == 0)
@@ -30,6 +79,20 @@ int lcm(int a, int b) {
 }
 
 int multiInverse(int num, int base, int &x, int &y) {
+	if (base == 0) {
+		x = 1;
+		y = 0;
+		return num;
+	}
+
+	int x1, y1, gcd = xGCD(base, num % base, x1, y1);
+	x = y1;
+	y = x1 - (num / base) * y1;
+	return x;
+}
+
+int multiInverse(int num, int base) {
+	int x, y;
 	if (base == 0) {
 		x = 1;
 		y = 0;
