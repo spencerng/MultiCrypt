@@ -146,12 +146,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Conversions.cpp" />
     <ClCompile Include="Cryptography.cpp" />
+    <ClCompile Include="IO.cpp" />
     <ClCompile Include="KeyGenerate.cpp" />
     <ClCompile Include="MatrixMath.cpp" />
     <ClCompile Include="RSA.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IO.h" />
+    <ClInclude Include="Conversions.h" />
     <ClInclude Include="KeyGenerate.h" />
     <ClInclude Include="MatrixMath.h" />
     <ClInclude Include="RSA.h" />
