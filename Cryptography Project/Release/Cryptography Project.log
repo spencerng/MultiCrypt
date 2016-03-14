@@ -1,0 +1,43 @@
+﻿  Conversions.cpp
+Conversions.cpp(8): warning C4018: '<': signed/unsigned mismatch
+Conversions.cpp(27): warning C4018: '<': signed/unsigned mismatch
+  Cryptography.cpp
+Cryptography.cpp(34): warning C4101: 'sizeJ': unreferenced local variable
+Cryptography.cpp(34): warning C4101: 'entry': unreferenced local variable
+Cryptography.cpp(34): warning C4101: 'size': unreferenced local variable
+Cryptography.cpp(34): warning C4101: 'sizeI': unreferenced local variable
+Cryptography.cpp(152): warning C4018: '<': signed/unsigned mismatch
+  IO.cpp
+IO.cpp(43): warning C4018: '<': signed/unsigned mismatch
+IO.cpp(44): warning C4018: '<': signed/unsigned mismatch
+IO.cpp(50): warning C4018: '<': signed/unsigned mismatch
+IO.cpp(52): warning C4018: '<': signed/unsigned mismatch
+IO.cpp(59): warning C4018: '<': signed/unsigned mismatch
+IO.cpp(60): warning C4018: '<': signed/unsigned mismatch
+  KeyGenerate.cpp
+KeyGenerate.cpp(8): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  MatrixMath.cpp
+MatrixMath.cpp(9): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(11): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(32): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(40): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+MatrixMath.cpp(48): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(49): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(98): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(99): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(100): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(108): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(109): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(116): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(117): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(125): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(126): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(134): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(135): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(142): warning C4018: '<': signed/unsigned mismatch
+MatrixMath.cpp(143): warning C4018: '<': signed/unsigned mismatch
+  RSA.cpp
+  Generating code
+  All 508 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Cryptography Project.vcxproj -> C:\Users\sng\Documents\Visual Studio 2015\Projects\Cryptography-Project\Release\Cryptography Project.exe

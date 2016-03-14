@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <ctime>
+#include <stdlib.h>
 #include "MatrixMath.h"
 #include "KeyGenerate.h"
 #include "Conversions.h"
@@ -25,11 +26,11 @@ void debugMultiply();
 int main() {
 	
 	while (true) {
-		system("cls");
+		
 		printChoices();
 
 		char choice = getChar();
-		system("cls");
+		cls();
 		int sizeI, sizeJ, size, entry;
 		
 		if (choice == '9')
@@ -86,7 +87,8 @@ void debugRandom(){
 	cout << "Inverse: \n";
 	printMatrix(inverse(debugMatrix));
 	
-	system("pause");
+	pause();
+	
 }
 
 void debugMath() {
@@ -111,8 +113,8 @@ void debugMath() {
 	cout << endl;
 	cout << "Inverse: \n";
 	printMatrix(inverse(debugMatrix));
-	system("pause");
-
+	pause();
+	
 }
 
 
@@ -135,8 +137,8 @@ void debugMultiply() {
 	vector< vector<int> > product = multiply(A, B);
 	printMatrix(product);
 
-	system("pause");
-
+	pause();
+	
 }
 
 
@@ -150,16 +152,16 @@ void debugString() {
 	for (int i = 0; i < output.size(); i++)
 		cout << input[i];
 	cout << endl;
-	system("pause");
-
+	pause();
+	
 }
 
 
-void encodeMessage() {
+void encrypt() {
 
 }
 
-void decodeMessage() {
+void decrypt() {
 
 }
 
