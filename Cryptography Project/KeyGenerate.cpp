@@ -1,6 +1,5 @@
 #include "headers\KeyGenerate.h"
 #include "headers\MatrixMath.h"
-#include <vector>
 #include <ctime>
 using std::vector;
 

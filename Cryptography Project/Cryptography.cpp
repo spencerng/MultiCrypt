@@ -7,7 +7,9 @@ using namespace std;
 #include "Headers\IO.h"
 #include "Headers\RSA.h"
 #include "Headers\Conversions.h"
-
+#include "Headers\FileIO.h"
+#include "Headers\Encrypt.h"
+#include "Headers\Decrypt.h"
 
 void debugMath();
 //Allows user to input matrix to displays the result of transpose, cofactor, and inverse
@@ -171,13 +173,3 @@ void debugDecrypt() {
 
 }
 
-void encrypt() {
-
-}
-
-void decrypt() {
-
-}
-
-
-// No, it works for any matrix

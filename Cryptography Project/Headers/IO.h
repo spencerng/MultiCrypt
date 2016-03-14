@@ -1,5 +1,5 @@
-#ifndef DECRYPT_H
-#define DECRYPT_H
+#ifndef IO
+#define IO
 #include <string>
 #include <vector>
 using std::string;
