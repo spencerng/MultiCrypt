@@ -1,7 +1,6 @@
-#include "MatrixMath.h"
-#include <vector>
+#include "headers\MatrixMath.h"
 #include <cmath>
-using namespace std;
+using std::vector;
 
 vector< vector<int> > toMMatrix(vector< vector<int> > A, int row, int column) {
 	int m = 0, n = 0;

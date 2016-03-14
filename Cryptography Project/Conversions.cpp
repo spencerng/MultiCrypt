@@ -22,6 +22,28 @@ vector< vector<int> > toNumbMatrix(vector<char> message) {
 	return encodedMatrix;
 }
 
+//Not finished
+string matrixToString(vector< vector<int> > input) {
+	string output = "";
+	//Complete here
+	return output;
+}
+
+vector<int> charVecToInt(vector<char> input) {
+	vector<int> output;
+	for (int i = 0; i < input.size(); i++)
+		output.push_back(int(input[i]));
+	return output;
+
+}
+
+vector<char> intVecToChar(vector<int> input) {
+	vector<char> output;
+	for (int i = 0; i < input.size(); i++)
+		output.push_back(char(input[i]));
+	return output;
+
+}
 vector< char > toLowerCase(vector<char> charArray) {
 	vector<char> output = charArray;
 	for (int i = 0; i < charArray.size(); i++) {
