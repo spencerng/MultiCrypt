@@ -1,0 +1,17 @@
+﻿  Conversions.cpp
+Conversions.cpp(16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Cryptography.cpp
+Cryptography.cpp(34): warning C4101: 'sizeJ': unreferenced local variable
+Cryptography.cpp(34): warning C4101: 'entry': unreferenced local variable
+Cryptography.cpp(34): warning C4101: 'size': unreferenced local variable
+Cryptography.cpp(34): warning C4101: 'sizeI': unreferenced local variable
+  IO.cpp
+  KeyGenerate.cpp
+KeyGenerate.cpp(8): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  MatrixMath.cpp
+MatrixMath.cpp(40): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  RSA.cpp
+  Generating code
+  All 508 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Cryptography Project.vcxproj -> C:\Users\sng\Documents\Visual Studio 2015\Projects\Cryptography-Project\x64\Release\Cryptography Project.exe

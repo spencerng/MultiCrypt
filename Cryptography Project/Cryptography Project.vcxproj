@@ -146,7 +146,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Conversions.cpp" />
     <ClCompile Include="Cryptography.cpp" />
+    <ClCompile Include="Decrypt.cpp" />
+    <ClCompile Include="Encrypt.cpp" />
+    <ClCompile Include="FileIO.cpp" />
+    <ClCompile Include="IO.cpp" />
+    <ClCompile Include="KeyGenerate.cpp" />
+    <ClCompile Include="MatrixMath.cpp" />
+    <ClCompile Include="RSA.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Headers\Conversions.h" />
+    <ClInclude Include="Headers\Decrypt.h" />
+    <ClInclude Include="Headers\Encrypt.h" />
+    <ClInclude Include="Headers\FileIO.h" />
+    <ClInclude Include="Headers\IO.h" />
+    <ClInclude Include="Headers\KeyGenerate.h" />
+    <ClInclude Include="Headers\MatrixMath.h" />
+    <ClInclude Include="Headers\RSA.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
