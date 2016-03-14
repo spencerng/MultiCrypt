@@ -2,6 +2,8 @@
 #include<string>
 #include <vector>
 #include <iomanip>
+#include <conio.h>
+#include "IO.h"
 using std::string;
 using std::getline;
 using std::cin;
@@ -19,6 +21,7 @@ string getString() {
 }
 
 void printChoices() {
+	cls();
 	cout << "(1) Encode a message\n";
 	cout << "(2) Decode a message\n";
 	cout << "(3) Generate an encryption key\n";
@@ -62,10 +65,13 @@ void printMatrix(vector< vector<int> > A) {
 }
 
 void cls() {
-	int i = 50;
-	while (i != 0) {
-		cout << endl;
-		i--;
-	}
+	
+	cout << "\x1B[2J\x1B[H";
 }
 
+void pause() {
+	cout << "Press any key to continue.";
+	cin.ignore();
+	_getch();
+
+}
