@@ -1,11 +1,13 @@
 #include<iostream>
 #include <stdlib.h>
-#include "MatrixMath.h"
-#include "KeyGenerate.h"
-#include "Conversions.h"
-#include "IO.h"
-#include "RSA.h"
 using namespace std;
+#include "Headers\MatrixMath.h"
+#include "Headers\KeyGenerate.h"
+#include "Headers\Conversions.h"
+#include "Headers\IO.h"
+#include "Headers\RSA.h"
+#include "Headers\Conversions.h"
+
 
 void debugMath();
 //Allows user to input matrix to displays the result of transpose, cofactor, and inverse
@@ -13,7 +15,8 @@ void debugMath();
 void debugRandom();
 // Generates a random unimodular matrix and displays it, along with debugMath functions
 
-void debugString();
+void debugEncrypt();
+void debugDecrypt();
 
 void debugMultiply();
 
@@ -34,7 +37,7 @@ int main() {
 		
 		if (choice == '8'){
 			
-			debugString();
+			
 		}
 		if (choice == '7') {
 			
@@ -45,9 +48,10 @@ int main() {
 			debugMultiply();
 		}
 		if (choice == '3') {
+			debugEncrypt();
 		}
 		if (choice == '4') {
-
+			debugDecrypt();
 		}
 		if (choice == '2') {
 			string encryptedMessage;
@@ -139,7 +143,21 @@ void debugMultiply() {
 
 
 
-void debugString() {
+void debugEncrypt() {
+	cout << "Please enter your message.\n";
+
+	string input = getString();
+
+	vector<char> output = linearCipherEncrypt(stringToCharVec(input));
+	cout << endl;
+	printCharVec(output);
+	cout << endl;
+	pause();
+	
+}
+
+
+void debugDecrypt() {
 	cout << "Please enter your message.\n";
 
 	string input = getString();
@@ -147,11 +165,11 @@ void debugString() {
 	vector<char> output = linearCipherDecrypt(stringToCharVec(input));
 	cout << endl;
 	printCharVec(output);
-	
-	pause();
-	
-}
+	cout << endl;
 
+	pause();
+
+}
 
 void encrypt() {
 
@@ -162,4 +180,4 @@ void decrypt() {
 }
 
 
-
+// No, it works for any matrix

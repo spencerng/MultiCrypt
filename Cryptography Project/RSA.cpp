@@ -1,20 +1,21 @@
 #include<string>
 #include <ctime>
 #include <iostream>
-#include "RSA.h"
-#include "IO.h"
-#include "Conversions.h"
+#include "headers\RSA.h"
+#include "headers\IO.h"
+#include "headers\Conversions.h"
 using std::vector;
 using std::cout;
 
 char revShift(char input, int multiply, int add) {
+	//return char((((multiInverse(input, 95)*multiply) % 95) + (multiInverse(input, 95)*add) % 95) - 32) % 95) + 32);
 
-	return char(((((multiInverse(multiply,95)*(int(input) - 32)  + (95 - (add % 95))) % 95) + 32)));
+	return char(((((multiInverse(multiply,95)*((int(input) - 32)  + (95 - (add % 95)))) % 95) + 32)));
 }
 
 char shift(char input, int multiply, int add) {
 
-	return char(((((int(input) - 32)*multiply + add) % 95) + 32));
+	return char((((((int(input)*multiply%95) - 32) + add) % 95) + 32));
 }
 
 void passwordValues(string password, int&sum, int&product) {

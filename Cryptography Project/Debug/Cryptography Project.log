@@ -1,6 +1,1 @@
-﻿  Cryptography.cpp
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\cryptography.cpp(30): warning C4101: 'sizeJ': unreferenced local variable
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\cryptography.cpp(30): warning C4101: 'entry': unreferenced local variable
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\cryptography.cpp(30): warning C4101: 'size': unreferenced local variable
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\cryptography.cpp(30): warning C4101: 'sizeI': unreferenced local variable
-  Cryptography Project.vcxproj -> C:\Users\sng\Documents\Visual Studio 2015\Projects\Cryptography-Project\Debug\Cryptography Project.exe
+﻿  Cryptography Project.vcxproj -> C:\Users\sng\Documents\Visual Studio 2015\Projects\Cryptography-Project\Debug\Cryptography Project.exe

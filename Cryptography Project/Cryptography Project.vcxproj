@@ -154,11 +154,11 @@
     <ClCompile Include="RSA.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Conversions.h" />
-    <ClInclude Include="IO.h" />
-    <ClInclude Include="KeyGenerate.h" />
-    <ClInclude Include="MatrixMath.h" />
-    <ClInclude Include="RSA.h" />
+    <ClInclude Include="Headers\Conversions.h" />
+    <ClInclude Include="Headers\IO.h" />
+    <ClInclude Include="Headers\KeyGenerate.h" />
+    <ClInclude Include="Headers\MatrixMath.h" />
+    <ClInclude Include="Headers\RSA.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
