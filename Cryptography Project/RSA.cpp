@@ -53,18 +53,18 @@ vector<char> linearCipherDecrypt(vector<char>message) {
 	return message;
 }
 
-	int xGCD(int a, int b, int &x, int &y) {
-		if (b == 0) {
-			x = 1;
-			y = 0;
-			return a;
-		}
-
-		int x1, y1, gcd = xGCD(b, a % b, x1, y1);
-		x = y1;
-		y = x1 - (a / b) * y1;
-		return gcd;
+int xGCD(int a, int b, int &x, int &y) {
+	if (b == 0) {
+		x = 1;
+		y = 0;
+		return a;
 	}
+
+	int x1, y1, gcd = xGCD(b, a % b, x1, y1);
+	x = y1;
+	y = x1 - (a / b) * y1;
+	return gcd;
+}
 
 int gcd(int a, int b) {
 	if (b == 0)
@@ -78,32 +78,12 @@ int lcm(int a, int b) {
 
 }
 
-int multiInverse(int num, int base, int &x, int &y) {
-	if (base == 0) {
-		x = 1;
-		y = 0;
-		return num;
-	}
-
-	int x1, y1, gcd = xGCD(base, num % base, x1, y1);
-	x = y1;
-	y = x1 - (num / base) * y1;
-	return x;
-}
-
 int multiInverse(int num, int base) {
-	int x, y;
-	if (base == 0) {
-		x = 1;
-		y = 0;
-		return num;
-	}
 
-	int x1, y1, gcd = xGCD(base, num % base, x1, y1);
-	x = y1;
-	y = x1 - (num / base) * y1;
-	return x;
+	int x, y, gcd = xGCD(base, num % base, x, y);
+	return y;
 }
+
 
 /*int rsaEncrypt(string password) {
 	srand(time(NULL));

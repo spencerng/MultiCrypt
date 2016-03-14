@@ -1,3 +1,23 @@
+<<<<<<< HEAD
+﻿  RSA.cpp
+  Cryptography.cpp
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\cryptography.cpp(34): warning C4101: 'sizeJ': unreferenced local variable
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\cryptography.cpp(34): warning C4101: 'entry': unreferenced local variable
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\cryptography.cpp(34): warning C4101: 'size': unreferenced local variable
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\cryptography.cpp(34): warning C4101: 'sizeI': unreferenced local variable
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\cryptography.cpp(152): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Compiling...
+  IO.cpp
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(43): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(44): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(50): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(52): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(59): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(60): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Cryptography Project.vcxproj -> C:\Users\sng\Documents\Visual Studio 2015\Projects\Cryptography-Project\Debug\Cryptography Project.exe
+=======
 ﻿  MatrixMath.cpp
 c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(9): warning C4018: '<': signed/unsigned mismatch
 c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(11): warning C4018: '<': signed/unsigned mismatch
@@ -37,3 +57,4 @@ c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\crypt
 c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(276): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
   Cryptography Project.vcxproj -> C:\Users\sng\OneDrive\Documents\9th Grade\Engineering\Cryptography-Project\Debug\Cryptography Project.exe
+>>>>>>> origin/spencer-develop
