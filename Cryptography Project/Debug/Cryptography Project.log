@@ -1,39 +1,39 @@
-﻿  Cryptography.cpp
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(96): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(110): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(111): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(123): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(124): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(133): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(134): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(84): warning C4101: 'size': unreferenced local variable
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(173): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(175): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(191): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(201): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(212): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(213): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(214): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(237): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(238): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(245): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(269): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(289): warning C4018: '>=': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(312): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(319): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(320): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(326): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(327): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(335): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(337): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(356): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(357): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(365): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(366): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(374): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(375): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(383): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(384): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(398): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(399): warning C4018: '<': signed/unsigned mismatch
+﻿  MatrixMath.cpp
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(9): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(11): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(32): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(40): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(48): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(49): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(98): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(99): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(100): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(108): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(109): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(116): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(117): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(125): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(126): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(134): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(135): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(142): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\matrixmath.cpp(143): warning C4018: '<': signed/unsigned mismatch
+  KeyGenerate.cpp
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\keygenerate.cpp(8): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Cryptography.cpp
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(54): warning C4101: 'sizeJ': unreferenced local variable
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(54): warning C4101: 'entry': unreferenced local variable
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(54): warning C4101: 'size': unreferenced local variable
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(54): warning C4101: 'sizeI': unreferenced local variable
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(94): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(114): warning C4018: '>=': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(136): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(143): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(144): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(150): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(151): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(159): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(161): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\onedrive\documents\9th grade\engineering\cryptography-project\cryptography project\cryptography.cpp(276): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   Cryptography Project.vcxproj -> C:\Users\sng\OneDrive\Documents\9th Grade\Engineering\Cryptography-Project\Debug\Cryptography Project.exe
