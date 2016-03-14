@@ -21,6 +21,8 @@ void printMatrix(vector< vector<double> > A);
 void printMatrix(vector< vector<int> > A);
 // Displays formatted matrices of either type int or type double.
 
+void printCharVec(vector<char>);
+
 void cls();
 //Utilizes an ANSI escape sequence to clear the screen. Works only on 32-bit applications. Tested on Windows 10 but not in OSX or Linux
 

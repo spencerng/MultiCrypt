@@ -1,56 +1,66 @@
 #include<string>
 #include <ctime>
-#include <vector>
 #include <iostream>
 #include "RSA.h"
-using namespace std;
+#include "IO.h"
+#include "Conversions.h"
+using std::vector;
+using std::cout;
 
-vector<char> linearCipherEncrypt(vector<char>message) {
-	vector<int> plaintext = charToIntArr(message);
-	cout << "\nEnter password:\n";
-	string password = getString();
-	int product=1, sum=0;
-	unsigned long long pos;
-	for (int i = 0; i < password.length(); i++) {
-		product *= password[i];
-		sum += password[i];
-	}
-	
-	
-	
-	for (int i = 0; i < message.size(); i++) {
-		plaintext[i] +=product;
-		plaintext[i] %= 128;
-		
-		cout << plaintext[i] << " ";
-		
-	}
+char revShift(char input, int multiply, int add) {
 
-	return intToCharArr(plaintext);
+	return char(((((multiInverse(multiply,95)*(int(input) - 32)  + (95 - (add % 95))) % 95) + 32)));
 }
 
-vector<char> linearCipherDecrypt(vector<char>message) {
-	cout << "\nEnter password:\n";
-	string password = getString();
-	int product = 1, sum = 0;
-	for (int i = 0; i < password.length(); i++) {
+char shift(char input, int multiply, int add) {
+
+	return char(((((int(input) - 32)*multiply + add) % 95) + 32));
+}
+
+void passwordValues(string password, int&sum, int&product) {
+	sum = 0;
+	product = 1;
+	for (int i = 0; i < password.size(); i++) {
 		product *= password[i];
 		sum += password[i];
+
 	}
+}
+
+vector<char> linearCipherEncrypt(vector<char>message) {
+	vector<int> plaintext = charVecToInt(message);
+	cout << "\nEnter password:\n";
+	string password = getString();
+	int product, sum;
+	passwordValues(password, sum, product);
 	
-	int pos;
+	
 	for (int i = 0; i < message.size(); i++) {
+		plaintext[i] = shift(plaintext[i], 1, product);
+		
+		
+		
+	}
 
-		pos = message[i];
-		pos -= product;
+	return intVecToChar(plaintext);
+}
+
+
+
+vector<char> linearCipherDecrypt(vector<char>message) {
+	vector<int> plaintext = charVecToInt(message);
+	cout << "\nEnter password:\n";
+	string password = getString();
+	int sum, product;
+	passwordValues(password, sum, product);
+	
+	for (int i = 0; i < message.size(); i++) {	
 		
-		
-		message[i] = pos;
-		
+		plaintext[i] = revShift(plaintext[i],1,product);	
 
 	}
 
-	return message;
+	return intVecToChar(plaintext);
 }
 
 int xGCD(int a, int b, int &x, int &y) {

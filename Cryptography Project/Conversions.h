@@ -11,10 +11,10 @@ string charVecToString(vector<char>);
 //Not defined
 
 vector<int> charVecToInt(vector<char>);
-//Not defined
+
 
 vector<char> intVecToChar(vector<int>);
-//Not defined
+
 
 vector< vector<int> > toNumbMatrix(vector<char> message);
 //Not finished

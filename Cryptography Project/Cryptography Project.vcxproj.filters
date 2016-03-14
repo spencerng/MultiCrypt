@@ -27,6 +27,12 @@
     <ClCompile Include="RSA.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Conversions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MatrixMath.h">
@@ -36,6 +42,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RSA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Conversions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IO.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

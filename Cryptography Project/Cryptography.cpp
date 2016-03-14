@@ -1,14 +1,10 @@
-#include <iostream>
-#include <iomanip>
-#include <cmath>
-#include <vector>
-#include <string>
-#include <ctime>
+#include<iostream>
 #include <stdlib.h>
 #include "MatrixMath.h"
 #include "KeyGenerate.h"
 #include "Conversions.h"
 #include "IO.h"
+#include "RSA.h"
 using namespace std;
 
 void debugMath();
@@ -148,10 +144,10 @@ void debugString() {
 
 	string input = getString();
 
-	vector<char> output = stringToCharVec(input);
-	for (int i = 0; i < output.size(); i++)
-		cout << input[i];
+	vector<char> output = linearCipherDecrypt(stringToCharVec(input));
 	cout << endl;
+	printCharVec(output);
+	
 	pause();
 	
 }

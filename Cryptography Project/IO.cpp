@@ -64,6 +64,12 @@ void printMatrix(vector< vector<int> > A) {
 	return;
 }
 
+void printCharVec(vector<char> input) {
+	for (int i = 0; i < input.size(); i++)
+		cout << input[i];
+
+}
+
 void cls() {
 	
 	cout << "\x1B[2J\x1B[H";
@@ -71,7 +77,7 @@ void cls() {
 
 void pause() {
 	cout << "Press any key to continue.";
-	cin.ignore();
+	
 	_getch();
 
 }
