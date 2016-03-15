@@ -2,8 +2,8 @@
 #define IO
 #include <string>
 #include <vector>
-using std::string;
 using std::vector;
+using std::string;
 
 string getString();
 //Returns a user inputted string
