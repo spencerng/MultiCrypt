@@ -1,2 +1,46 @@
-﻿  Cryptography.cpp
+﻿  Sounds.cpp
+  RSA.cpp
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\rsa.cpp(24): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\rsa.cpp(39): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\rsa.cpp(58): warning C4018: '<': signed/unsigned mismatch
+  MatrixMath.cpp
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(8): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(10): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(31): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(39): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(47): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(48): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(97): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(98): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(99): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(107): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(108): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(115): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(116): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(124): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(125): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(133): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(134): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(141): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(142): warning C4018: '<': signed/unsigned mismatch
+  KeyGenerate.cpp
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\keygenerate.cpp(7): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  IO.cpp
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(41): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(42): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(48): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(50): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(57): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(58): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(66): warning C4018: '<': signed/unsigned mismatch
+  FileIO.cpp
+  Encrypt.cpp
+  Decrypt.cpp
+  Cryptography.cpp
+  Conversions.cpp
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\conversions.cpp(8): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\conversions.cpp(35): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\conversions.cpp(43): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\conversions.cpp(50): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   Cryptography Project.vcxproj -> C:\Users\sng\Documents\Visual Studio 2015\Projects\Cryptography-Project\Debug\Cryptography Project.exe

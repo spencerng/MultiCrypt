@@ -1,15 +1,1 @@
-﻿  RSA.cpp
-  MatrixMath.cpp
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(40): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  KeyGenerate.cpp
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\keygenerate.cpp(8): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  IO.cpp
-  Cryptography.cpp
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\cryptography.cpp(34): warning C4101: 'sizeJ': unreferenced local variable
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\cryptography.cpp(34): warning C4101: 'entry': unreferenced local variable
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\cryptography.cpp(34): warning C4101: 'size': unreferenced local variable
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\cryptography.cpp(34): warning C4101: 'sizeI': unreferenced local variable
-  Conversions.cpp
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\conversions.cpp(16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
-  Cryptography Project.vcxproj -> C:\Users\sng\Documents\Visual Studio 2015\Projects\Cryptography-Project\x64\Debug\Cryptography Project.exe
+﻿  Cryptography Project.vcxproj -> C:\Users\sng\Documents\Visual Studio 2015\Projects\Cryptography-Project\x64\Debug\Cryptography Project.exe

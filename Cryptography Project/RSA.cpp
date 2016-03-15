@@ -24,7 +24,7 @@ void passwordValues(string password, int&sum, int&product) {
 	for (int i = 0; i < password.size(); i++) {
 		product *= password[i];
 		sum += password[i];
-
+		product =  product % 1000;
 	}
 }
 

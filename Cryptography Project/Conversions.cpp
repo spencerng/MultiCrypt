@@ -25,6 +25,7 @@ vector< vector<int> > toNumbMatrix(vector<char> message) {
 //Not finished
 string matrixToString(vector< vector<int> > input) {
 	string output = "";
+	output += char(input[0][0]);
 	//Complete here
 	return output;
 }

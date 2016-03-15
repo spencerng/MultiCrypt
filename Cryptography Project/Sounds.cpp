@@ -36,5 +36,5 @@ void exitProgramSound(){
 
 void errorSound(){
 	
-	PlaySound(TEXT("C:\\"), NULL, SND_FILENAME | SND_ASYNC );
+	PlaySound(TEXT("C:\\Users\\sng\\Documents\\Visual Studio 2015\\Projects\\Cryptography-Project\\Cryptography Project\\Audio Files\\B.wav"), NULL, SND_FILENAME | SND_ASYNC );
 }
