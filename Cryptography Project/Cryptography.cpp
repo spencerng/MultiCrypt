@@ -1,6 +1,5 @@
 #include<iostream>
 #include <stdlib.h>
-#include<windows.h>
 using namespace std;
 #include "Headers\MatrixMath.h"
 #include "Headers\KeyGenerate.h"
