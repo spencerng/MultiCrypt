@@ -1,13 +1,8 @@
-﻿  Cryptography.cpp
-c:\users\parth savla\documents\github\cryptography-project\cryptography project\cryptography.cpp(43): warning C4101: 'sizeJ': unreferenced local variable
-c:\users\parth savla\documents\github\cryptography-project\cryptography project\cryptography.cpp(43): warning C4101: 'entry': unreferenced local variable
-c:\users\parth savla\documents\github\cryptography-project\cryptography project\cryptography.cpp(43): warning C4101: 'size': unreferenced local variable
-c:\users\parth savla\documents\github\cryptography-project\cryptography project\cryptography.cpp(43): warning C4101: 'sizeI': unreferenced local variable
-  Conversions.cpp
+﻿  Conversions.cpp
 c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(8): warning C4018: '<': signed/unsigned mismatch
 c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(24): warning C4018: '<': signed/unsigned mismatch
-c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(43): warning C4018: '<': signed/unsigned mismatch
-c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(51): warning C4018: '<': signed/unsigned mismatch
-c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(58): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
+c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(36): warning C4018: '<': signed/unsigned mismatch
+c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(48): warning C4018: '<': signed/unsigned mismatch
+c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(56): warning C4018: '<': signed/unsigned mismatch
+c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(63): warning C4018: '<': signed/unsigned mismatch
   Cryptography Project.vcxproj -> C:\Users\Parth Savla\Documents\GitHub\Cryptography-Project\Debug\Cryptography Project.exe

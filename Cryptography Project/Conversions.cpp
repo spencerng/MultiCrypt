@@ -11,10 +11,10 @@ vector<char> stringToCharVec(string input) {
 
 }
 
-//Not finished
+
 vector< vector<int> > toNumbMatrix(vector<char> message) {
 	int dimension = message.size();
-	while (dimension % 3 != 0) 
+	while (dimension % 3 != 0)
 	{
 		dimension++;
 		message.push_back(' ');
@@ -24,17 +24,22 @@ vector< vector<int> > toNumbMatrix(vector<char> message) {
 	for (int j = 0; j < encodedMatrix[0].size(); j++)
 		for (int i = 0; i < 3; i++)
 		{
-			
+
 			encodedMatrix[i][j] = message[counter++];
 
 		}
 	return encodedMatrix;
 }
-
 //Not finished
 string matrixToString(vector< vector<int> > input) {
 	string output = "";
-	//Complete here
+	for (int j = 0; j < input[0].size(); j++)
+		for (int i = 0; i < 3; i++)
+		{
+
+			output += input[i][j] ;
+
+		}
 	return output;
 }
 

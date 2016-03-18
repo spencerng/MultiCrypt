@@ -25,6 +25,7 @@ void debugToNumbMatrix() {
 	string input = getString();
 	vector<char> vec = stringToCharVec(input);
 	printMatrix(toNumbMatrix(vec));
+	cout << matrixToString(toNumbMatrix(vec));
 	pause();
 
 
