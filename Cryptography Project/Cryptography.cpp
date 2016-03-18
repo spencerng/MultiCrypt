@@ -21,6 +21,14 @@ void debugEncrypt();
 void debugDecrypt();
 
 void debugMultiply();
+void debugToNumbMatrix() {
+	string input = getString();
+	vector<char> vec = stringToCharVec(input);
+	printMatrix(toNumbMatrix(vec));
+	pause();
+
+
+}
 
 //Further functions will be needed for file I/O. Main function will need a good user interface with additional features as necessary.
 
@@ -42,8 +50,8 @@ int main() {
 			
 		}
 		if (choice == '7') {
-			
-			debugMath();
+			debugToNumbMatrix();
+			//debugMath();
 
 		}
 		if (choice == '6') {
