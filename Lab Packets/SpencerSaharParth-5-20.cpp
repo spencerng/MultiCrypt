@@ -7,12 +7,18 @@
 // more advanced computer-science courses that there are many interesting problems
 // for which there is no known algorithmic approach other than sheer brute force. 
 
-#include<iostream>
+#include <iostream>
+#include <cmath>
 using namespace std;
 
-int main(){
-	
-	
-	
-	return 0;
+#define MAX 500
+
+int main()
+{
+	int side1, side2, hypo;
+	for (side1 = 1; side1 <= MAX; side1++)
+		for (side2 = 1; side2 <= MAX; side2++)
+			for (hypo = 1; hypo <= MAX; hypo++)
+				if (pow(side1, 2) + pow(side2, 2) == pow(hypo, 2) && side1 < side2)
+					cout << side1 << "," << side2 << "," << hypo << endl;
 }
