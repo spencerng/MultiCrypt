@@ -2,8 +2,6 @@
 #define CONVERSIONS_H
 #include<vector>
 #include <string>
-using std::string;
-using std::vector;
 
 vector<char> stringToCharVec(string input);
 

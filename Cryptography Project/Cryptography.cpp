@@ -10,6 +10,13 @@ using namespace std;
 #include "Headers\FileIO.h"
 #include "Headers\Encrypt.h"
 #include "Headers\Decrypt.h"
+#include "Headers\Sounds.h"
+
+//To do:
+//Better graphics (GUI?)
+//Sounds
+//Introduct to program
+
 
 void debugMath();
 //Allows user to input matrix to displays the result of transpose, cofactor, and inverse
@@ -24,15 +31,19 @@ void debugMultiply();
 
 //Further functions will be needed for file I/O. Main function will need a good user interface with additional features as necessary.
 
+
+
+
 int main() {
-	
+	playSong('m');
 	while (true) {
 		
 		printChoices();
 
 		char choice = getChar();
 		cls();
-		int sizeI, sizeJ, size, entry;
+		selectChoiceSound();
+		
 		
 		if (choice == '9')
 			debugRandom();
@@ -60,7 +71,8 @@ int main() {
 			toNumbMatrix(stringToCharVec(encryptedMessage));
 		}
 		if (choice == '5') {
-			return 0;
+			exitProgramSound();
+			return 1;
 		}
 
 		
@@ -88,7 +100,7 @@ void debugRandom(){
 	cout << endl;
 	cout << "Inverse: \n";
 	printMatrix(inverse(debugMatrix));
-	
+	exitProgramSound();
 	pause();
 	
 }
