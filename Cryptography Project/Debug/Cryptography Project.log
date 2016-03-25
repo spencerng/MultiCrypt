@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  Sounds.cpp
   RSA.cpp
 c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\rsa.cpp(24): warning C4018: '<': signed/unsigned mismatch
@@ -44,3 +45,13 @@ c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptogr
 c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\conversions.cpp(50): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
   Cryptography Project.vcxproj -> C:\Users\sng\Documents\Visual Studio 2015\Projects\Cryptography-Project\Debug\Cryptography Project.exe
+=======
+﻿  Conversions.cpp
+c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(8): warning C4018: '<': signed/unsigned mismatch
+c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(24): warning C4018: '<': signed/unsigned mismatch
+c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(36): warning C4018: '<': signed/unsigned mismatch
+c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(48): warning C4018: '<': signed/unsigned mismatch
+c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(56): warning C4018: '<': signed/unsigned mismatch
+c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(63): warning C4018: '<': signed/unsigned mismatch
+  Cryptography Project.vcxproj -> C:\Users\Parth Savla\Documents\GitHub\Cryptography-Project\Debug\Cryptography Project.exe
+>>>>>>> develop
