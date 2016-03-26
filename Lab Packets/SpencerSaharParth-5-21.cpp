@@ -14,7 +14,9 @@
 
 
 
+
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 int main()
@@ -48,9 +50,9 @@ int main()
             
             case 2:
                 cout << "Enter hours worked by the hourly worker: ";
-                cin >> hourlyPayRate;
-                cout << "Enter fixed hourly wage for the worker: ";
                 cin >> hoursWorked;
+                cout << "Enter fixed hourly wage for the worker: ";
+                cin >> hourlyPayRate;
                 if (hoursWorked > 40)
                     totalSalary = (hourlyPayRate * 1.5) * hoursWorked;
                 else
@@ -74,13 +76,17 @@ int main()
             
             default:
                 cout << "Invalid input!!!Please try again";
-                break;
+                continue;
+                //break;
        
         }
     
-        cout << "The total weekly pay is $" << totalSalary << endl;
+        
+        cout << "The total weekly pay is $" << setprecision(4)<< totalSalary << endl;
         cout << "Please enter the paycode for the worker or -1 to exit: ";
         cin >> paycode;
+       
+        
     }
 
     
