@@ -153,6 +153,7 @@
     <ClCompile Include="Decrypt.cpp" />
     <ClCompile Include="Encrypt.cpp" />
     <ClCompile Include="FileIO.cpp" />
+    <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="IO.cpp" />
     <ClCompile Include="KeyGenerate.cpp" />
     <ClCompile Include="MatrixMath.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="Headers\Decrypt.h" />
     <ClInclude Include="Headers\Encrypt.h" />
     <ClInclude Include="Headers\FileIO.h" />
+    <ClInclude Include="Headers\Graphics.h" />
     <ClInclude Include="Headers\IO.h" />
     <ClInclude Include="Headers\KeyGenerate.h" />
     <ClInclude Include="Headers\MatrixMath.h" />

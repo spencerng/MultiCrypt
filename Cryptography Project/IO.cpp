@@ -1,7 +1,8 @@
 #include<iostream>
 #include <iomanip>
+#include<SDL.h>
 #include <conio.h>
-#include "headers\IO.h"
+#include "Headers/IO.h"
 using std::string;
 using std::getline;
 using std::cin;
@@ -11,11 +12,29 @@ using std::setprecision;
 using std::setw;
 using std::endl;
 
+// define DOS for DOS-based OS (Windows) or UNIX (Linux, OS X, etc.)
+#define DOS
+
 string getString() {
 	string input;
 	cin.ignore();
 	getline(cin, input);
 	return input;
+}
+
+bool isASCII(string s) {
+	for (int i = 0; i < s.length(); i++)
+		if (isASCII(s[i]) == false)
+			return false;
+	return true;
+}
+
+bool isASCII(char c) {
+	if (c >= 32 && c < 127)
+		return true;
+	return false;
+
+
 }
 
 void printChoices() {
@@ -69,8 +88,13 @@ void printCharVec(vector<char> input) {
 }
 
 void cls() {
-	
-	cout << "\x1B[2J\x1B[H";
+#ifdef DOS
+	system("cls");
+#endif
+#ifdef UNIX
+	system("clear");
+#endif
+
 }
 
 void pause() {

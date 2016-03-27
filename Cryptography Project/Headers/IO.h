@@ -8,6 +8,10 @@ using std::string;
 string getString();
 //Returns a user inputted string
 
+bool isASCII(string);
+bool isASCII(char);
+// Defensive programming feature designed to check if an entered string will work with encryption and output to a text file.
+
 void printChoices();
 //Prints the main menu of the program
 
@@ -24,10 +28,10 @@ void printMatrix(vector< vector<int> > A);
 void printCharVec(vector<char>);
 
 void cls();
-//Utilizes an ANSI escape sequence to clear the screen. Works only on 32-bit applications. Tested on Windows 10 but not in OSX or Linux
+//Utilizes an ANSI escape sequence to clear the screen. Works only on 32-bit applications. Preprocessor derivatives control output for DOS/UNIX OSes
 
 void pause();
-//Uses the _getc() function to ask for input to replace the system function call. Tested only on Windows 10.
+//Uses the _getc() function to ask for input to replace the system function call. 
 
 
 #endif
