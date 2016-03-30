@@ -1,4 +1,3 @@
-﻿  Graphics.cpp
-  Cryptography.cpp
-  Generating Code...
+﻿  Cryptography.cpp
+c:\users\sng\documents\github\cryptography-project\cryptography project\cryptography.cpp(68): warning C4267: '=': conversion from 'size_t' to 'DWORD', possible loss of data
   Cryptography Project.vcxproj -> C:\Users\sng\Documents\GitHub\Cryptography-Project\x64\Debug\Cryptography Project.exe

@@ -1,6 +1,7 @@
 #ifndef IO
 #define IO
 #include <string>
+#include <iomanip>
 #include <vector>
 using std::vector;
 using std::string;
@@ -24,6 +25,12 @@ void inputMatrix(vector< vector<int> >& matrix);
 void printMatrix(vector< vector<double> > A);
 void printMatrix(vector< vector<int> > A);
 // Displays formatted matrices of either type int or type double.
+
+void printCenter(string s);
+void printCenter(vector<string> s);
+
+void printTitle();
+// Prints some kind of centered header to the project
 
 void printCharVec(vector<char>);
 

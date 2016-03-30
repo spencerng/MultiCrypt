@@ -38,7 +38,7 @@ bool isASCII(char c) {
 }
 
 void printChoices() {
-	cls();
+	
 	cout << "(1) Encode a message\n";
 	cout << "(2) Decode a message\n";
 	cout << "(3) Debug Encryption\n";
@@ -81,9 +81,33 @@ void printMatrix(vector< vector<int> > A) {
 	return;
 }
 
+void printCenter(string s) {
+	
+	for (int i = 0; i < ((240 - s.length()) / 2); i++)
+		cout << ' ';
+	cout << s << endl;
+
+}
+
+void printCenter(vector<string> s) {
+	
+	for (int i = 0; i < s.size(); i++)
+		printCenter(s[i]);
+	
+}
+
 void printCharVec(vector<char> input) {
 	for (int i = 0; i < input.size(); i++)
 		cout << input[i];
+
+}
+
+void printTitle(){
+	//Replace this later
+	vector<string> s;
+	s.push_back(" _________                        __                                    .__            ");	s.push_back(" \\_   ___ \\_______ ___.__._______/  |_  ____   ________________  ______ |  |__ ___.__. ");	s.push_back(" /    \\  \\/\\_  __ <   |  |\\____ \\   __\\/  _ \\ / ___\\_  __ \\__  \\ \\____ \\|  |  <   |  | ");	s.push_back(" \\     \\____|  | \\/\\___  ||  |_> >  | (  <_> ) /_/  >  | \\// __ \\|  |_> >   Y  \\___  | ");	s.push_back("  \\______  /|__|   / ____||   __/|__|  \\____/\\___  /|__|  (____  /   __/|___|  / ____| ");	s.push_back("         \\/        \\/     |__|              /_____/            \\/|__|        \\/\\/      ");
+	printCenter(s);
+
 
 }
 
