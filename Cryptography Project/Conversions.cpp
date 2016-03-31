@@ -30,9 +30,10 @@ vector< vector<int> > toNumbMatrix(vector<char> message) {
 		}
 	return encodedMatrix;
 }
-//Not finished
+
 string matrixToString(vector< vector<int> > input) {
 	string output = "";
+	
 	for (int j = 0; j < input[0].size(); j++)
 		for (int i = 0; i < 3; i++)
 		{

@@ -12,12 +12,85 @@
 // payroll clerk) to enter the appropriate facts your program needs to calculate each
 // employee's pay according to that employee's paycode. 
 
-#include<iostream>
+
+
+
+#include <iostream>
+#include <iomanip>
 using namespace std;
 
-int main(){
-	
-	
-	
-	return 0;
+int main()
+
+{
+    int paycode;
+    double managerWeeklySalary;
+    double totalSalary=0;
+    double hourlyPayRate;
+    int hoursWorked;
+    double grossSales;
+    int itemsProduced;
+    double itemCost;
+    
+    
+
+    
+    cout << "Please enter the paycode for the worker or -1 to exit: ";
+    cin >> paycode;
+    
+    while ( paycode != -1)
+    {
+        switch (paycode)
+        
+        {
+            case 1:
+                cout << "Enter fixed weekly salary for the manager: ";
+                cin >> managerWeeklySalary;
+                totalSalary = managerWeeklySalary;
+                break;
+            
+            case 2:
+                cout << "Enter hours worked by the hourly worker: ";
+                cin >> hoursWorked;
+                cout << "Enter fixed hourly wage for the worker: ";
+                cin >> hourlyPayRate;
+                if (hoursWorked > 40)
+                    totalSalary = (hourlyPayRate * 1.5) * hoursWorked;
+                else
+                    totalSalary = hourlyPayRate * hoursWorked;
+                break;
+                
+                
+            case 3:
+                cout << "Enter gross sales of the comission worker:  ";
+                cin >> grossSales;
+                totalSalary= 250 + (0.057* grossSales);
+                break;
+                
+            case 4:
+                cout << "Enter number of items produced by the piece worker: ";
+                cin >> itemsProduced;
+                cout << "Enter fixed wage for the item: ";
+                cin >> itemCost;
+                totalSalary= itemsProduced * itemCost;
+                break;
+            
+            default:
+                cout << "Invalid input!!!Please try again";
+                continue;
+                //break;
+       
+        }
+    
+        
+        cout << "The total weekly pay is $" << setprecision(4)<< totalSalary << endl;
+        cout << "Please enter the paycode for the worker or -1 to exit: ";
+        cin >> paycode;
+       
+        
+    }
+
+    
+    
+    
+    
 }

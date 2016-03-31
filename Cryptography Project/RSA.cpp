@@ -1,9 +1,9 @@
 #include<string>
 #include <ctime>
 #include <iostream>
-#include "headers\RSA.h"
-#include "headers\IO.h"
-#include "headers\Conversions.h"
+#include "Headers/RSA.h"
+#include "Headers/IO.h"
+#include "Headers/Conversions.h"
 using std::vector;
 using std::cout;
 
@@ -24,7 +24,7 @@ void passwordValues(string password, int&sum, int&product) {
 	for (int i = 0; i < password.size(); i++) {
 		product *= password[i];
 		sum += password[i];
-
+		product =  product % 1000;
 	}
 }
 

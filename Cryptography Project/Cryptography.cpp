@@ -1,15 +1,21 @@
 #include<iostream>
 #include <stdlib.h>
+#include<windows.h>
+#include<WinUser.h>
 using namespace std;
-#include "Headers\MatrixMath.h"
-#include "Headers\KeyGenerate.h"
-#include "Headers\Conversions.h"
-#include "Headers\IO.h"
-#include "Headers\RSA.h"
-#include "Headers\Conversions.h"
-#include "Headers\FileIO.h"
-#include "Headers\Encrypt.h"
-#include "Headers\Decrypt.h"
+#include "Headers/MatrixMath.h"
+#include "Headers/KeyGenerate.h"
+#include "Headers/Conversions.h"
+#include "Headers/IO.h"
+#include "Headers/RSA.h"
+#include "Headers/Conversions.h"
+#include "Headers/FileIO.h"
+#include "Headers/Encrypt.h"
+#include "Headers/Decrypt.h"
+#include "Headers/Sounds.h"
+#include "Headers/Graphics.h"
+
+
 
 void debugMath();
 //Allows user to input matrix to displays the result of transpose, cofactor, and inverse
@@ -23,6 +29,8 @@ void debugDecrypt();
 void debugMultiply();
 void debugToNumbMatrix() {
 	string input = getString();
+	if (!(isASCII(input)))
+		cout << "Not ASCII";
 	vector<char> vec = stringToCharVec(input);
 	printMatrix(toNumbMatrix(vec));
 	cout << matrixToString(toNumbMatrix(vec));
@@ -33,15 +41,23 @@ void debugToNumbMatrix() {
 
 //Further functions will be needed for file I/O. Main function will need a good user interface with additional features as necessary.
 
-int main() {
-	
-	while (true) {
-		
-		printChoices();
 
+	 
+int main() {
+	setFullscreen();
+	
+	playSong('m');
+	while (true) {
+		cls();
+		printTitle();
+		printChoices();
+		
+		
+		
 		char choice = getChar();
 		cls();
-		int sizeI, sizeJ, size, entry;
+		selectChoiceSound();
+		
 		
 		if (choice == '9')
 			debugRandom();
@@ -69,7 +85,8 @@ int main() {
 			toNumbMatrix(stringToCharVec(encryptedMessage));
 		}
 		if (choice == '5') {
-			return 0;
+			exitProgramSound();
+			return 1;
 		}
 
 		
@@ -97,7 +114,7 @@ void debugRandom(){
 	cout << endl;
 	cout << "Inverse: \n";
 	printMatrix(inverse(debugMatrix));
-	
+	exitProgramSound();
 	pause();
 	
 }
