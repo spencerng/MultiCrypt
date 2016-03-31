@@ -26,11 +26,9 @@ void printMatrix(vector< vector<double> > A);
 void printMatrix(vector< vector<int> > A);
 // Displays formatted matrices of either type int or type double.
 
-void printCenter(string s);
-void printCenter(vector<string> s);
-
-void printTitle();
-// Prints some kind of centered header to the project
+// Prints centered text, either as a string or stored in a string array
+void printCenter(std::string);
+void printCenter(std::vector<std::string>);
 
 void printCharVec(vector<char>);
 
