@@ -24,6 +24,7 @@ void inputMatrix(vector< vector<int> >& matrix);
 
 void printMatrix(vector< vector<double> > A);
 void printMatrix(vector< vector<int> > A);
+void printMatrix(vector< vector<unsigned long long> > A);
 // Displays formatted matrices of either type int or type double.
 
 // Prints centered text, either as a string or stored in a string array
@@ -37,6 +38,8 @@ void cls();
 
 void pause();
 //Uses the _getc() function to ask for input to replace the system function call. 
+
+void print(const char*);
 
 
 #endif

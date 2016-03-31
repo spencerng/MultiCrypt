@@ -1,4 +1,5 @@
 #include <string>
+#include<iostream>
 using namespace std;
 #include "Headers/IO.h"
 #include "Headers/Encrypt.h"
@@ -23,3 +24,5 @@ using namespace std;
 	return;
 
 }*/
+
+

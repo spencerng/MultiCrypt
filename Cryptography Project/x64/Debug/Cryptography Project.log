@@ -1,2 +1,5 @@
-﻿  Cryptography.cpp
-  Cryptography Project.vcxproj -> C:\Users\sng\Documents\GitHub\Cryptography-Project\x64\Debug\Cryptography Project.exe
+﻿  RSA.cpp
+c:\users\sng\documents\github\cryptography-project\cryptography project\rsa.cpp(15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+RSA.obj : error LNK2019: unresolved external symbol __gmpz_nextprime referenced in function "void __cdecl generatePrime(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &)" (?generatePrime@@YAXAEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z)
+RSA.obj : error LNK2019: unresolved external symbol __gmpz_set_str referenced in function "void __cdecl generatePrime(class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > &)" (?generatePrime@@YAXAEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z)
+C:\Users\sng\Documents\GitHub\Cryptography-Project\x64\Debug\Cryptography Project.exe : fatal error LNK1120: 2 unresolved externals

@@ -18,6 +18,7 @@ vector< vector<int> > toNumbMatrix(vector<char> message);
 
 // Converts a 3 x m integer matrix to a string based on its ASCII values
 string matrixToString(vector< vector<int> > input);
+string matrixToString(vector< vector<unsigned long long> > input);
 
 
 vector< char > toLowerCase(vector<char> charArray);

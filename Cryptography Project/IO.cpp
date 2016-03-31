@@ -11,6 +11,7 @@ using std::vector;
 using std::setprecision;
 using std::setw;
 using std::endl;
+using std::setfill;
 
 // define DOS for DOS-based OS (Windows) or UNIX (Linux, OS X, etc.)
 #define DOS
@@ -39,8 +40,8 @@ bool isASCII(char c) {
 
 void printChoices() {
 	
-	cout << "(1) Encode a message\n";
-	cout << "(2) Decode a message\n";
+	print("(1) Encode a message\n");
+	cout << '\t' << "(2) Decode a message\n";
 	cout << "(3) Debug Encryption\n";
 	cout << "(4) Debug Decryption\n";
 	cout << "(5) Exit the program\n";
@@ -81,6 +82,15 @@ void printMatrix(vector< vector<int> > A) {
 	return;
 }
 
+void printMatrix(vector< vector<unsigned long long> > A) {
+	for (int i = 0; i < A.size(); i++) {
+		for (int j = 0; j < A[0].size(); j++)
+			cout << setw(40) << A[i][j];
+		cout << endl;
+	}
+	return;
+}
+
 void printCharVec(vector<char> input) {
 	for (int i = 0; i < input.size(); i++)
 		cout << input[i];
@@ -116,5 +126,12 @@ void pause() {
 	cout << "Press any key to continue.";
 	
 	_getch();
+
+}
+
+void print(const char* c) {
+	for (int i = 0; i < 4; i++)
+		cout << ' ';
+	cout << c;
 
 }

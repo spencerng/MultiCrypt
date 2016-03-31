@@ -1,11 +1,34 @@
 #include<string>
 #include <ctime>
 #include <iostream>
+#include<conio.h>
+#pragma warning(disable:4146)
+#include<gmp.h>
 #include "Headers/RSA.h"
 #include "Headers/IO.h"
 #include "Headers/Conversions.h"
 using std::vector;
 using std::cout;
+
+
+void generatePrime(string&p, string&q) {
+	srand(time(NULL));
+	char p1[256];
+	char p2[256];
+	for (int i = 0; i < 256; i++) {
+		p1[i] = (rand() % 2);
+		p2[i] = (rand() % 2);
+	}
+	mpz_t largeInt1;
+	mpz_t largeInt2;
+	mpz_init(largeInt1);
+	mpz_init(largeInt2);
+	mpz_set_str(largeInt1, p1, 2);
+	mpz_set_str(largeInt2, p2, 2);
+	//mpz_nextprime(largeInt1, largeInt1);
+	mpz_nextprime(largeInt2, largeInt2);
+	
+}
 
 char revShift(char input, int multiply, int add) {
 	//return char((((multiInverse(input, 95)*multiply) % 95) + (multiInverse(input, 95)*add) % 95) - 32) % 95) + 32);
@@ -93,6 +116,31 @@ int multiInverse(int num, int base) {
 
 	int x, y, gcd = xGCD(base, num % base, x, y);
 	return y;
+}
+
+string enterPassword() {
+	string password;
+	int charsEntered = 0;
+	char ch = _getch();
+	cout << '\t';
+	while (ch != 13) { //character 13 is enter
+		while (ch == 8) { // character 8 is backspace
+			if (charsEntered != 0) { // Checks if there is anything to delete
+				password.pop_back();
+				cout << '\b' << ' ' << '\b'; // Moves cursor backwards, enters a blank character, then moves the cursor backwards again to prepare for overwrite
+				charsEntered--;
+			}
+			ch = _getch();
+		}
+		if (ch == 13)
+			break;
+		charsEntered++;
+		password.push_back(ch);
+		cout << '*';
+		ch = _getch();
+	}
+
+	return password;
 }
 
 

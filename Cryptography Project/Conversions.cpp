@@ -44,6 +44,20 @@ string matrixToString(vector< vector<int> > input) {
 	return output;
 }
 
+string matrixToString(vector< vector<unsigned long long> > input) {
+	string output = "";
+
+	for (int j = 0; j < input[0].size(); j++)
+		for (int i = 0; i < 3; i++)
+		{
+
+			output += input[i][j];
+
+		}
+	return output;
+}
+
+
 vector<int> charVecToInt(vector<char> input) {
 	vector<int> output;
 	for (int i = 0; i < input.size(); i++)

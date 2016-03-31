@@ -1,7 +1,6 @@
 #include<iostream>
 #include <stdlib.h>
-#include<windows.h>
-#include<WinUser.h>
+
 using namespace std;
 #include "Headers/MatrixMath.h"
 #include "Headers/KeyGenerate.h"
@@ -26,7 +25,7 @@ void debugRandom();
 void debugEncrypt();
 void debugDecrypt();
 
-void debugMultiply();
+
 void debugToNumbMatrix() {
 	string input = getString();
 	if (!(isASCII(input)))
@@ -51,8 +50,9 @@ int main() {
 		cls();
 		printTitle();
 		printChoices();
-		
-		
+		string t;
+		string b;
+		generatePrime(t, b);
 		
 		char choice = getChar();
 		cls();
@@ -63,7 +63,8 @@ int main() {
 			debugRandom();
 		
 		if (choice == '8'){
-			
+			cout << enterPassword();
+			system("pause");
 			
 		}
 		if (choice == '7') {
@@ -72,7 +73,7 @@ int main() {
 
 		}
 		if (choice == '6') {
-			debugMultiply();
+			
 		}
 		if (choice == '3') {
 			debugEncrypt();
@@ -88,6 +89,9 @@ int main() {
 			exitProgramSound();
 			return 1;
 		}
+		if (choice == '1');
+
+			
 
 		
 	}
@@ -99,7 +103,7 @@ int main() {
 
 void debugRandom(){
 	
-	vector< vector<int> > debugMatrix = randomMatrix();
+	vector< vector<unsigned long long> > debugMatrix = randomMatrix();
 	printMatrix(debugMatrix);
 			
 
@@ -113,7 +117,7 @@ void debugRandom(){
 	printMatrix(toCofMatrix(debugMatrix));
 	cout << endl;
 	cout << "Inverse: \n";
-	printMatrix(inverse(debugMatrix));
+	printMatrix(inverseInt(debugMatrix));
 	exitProgramSound();
 	pause();
 	
@@ -147,41 +151,23 @@ void debugMath() {
 
 
 
-void debugMultiply() {
-	int sizeI, sizeJ;
-	cout << "Enter the size of the m x n matrix A: ";
 
-	cin >> sizeI >> sizeJ;
-	vector< vector<int> > A(sizeI, vector<int>(sizeJ));
-	inputMatrix(A);
-
-	cout << "Enter the size of B: ";
-	cin >> sizeI >> sizeJ;
-
-	vector< vector<int> > B(sizeI, vector<int>(sizeJ));
-	inputMatrix(B);
-
-	cout << endl << "A * B =\n\n";
-	vector< vector<int> > product = multiply(A, B);
-	printMatrix(product);
-
-	pause();
-	
-}
 
 
 
 void debugEncrypt() {
-	cout << "Please enter your message.\n";
 
-	string input = getString();
+	// This is how the functions would be implemented, but feel free to change it.
+	string message = getString();
+	vector< vector<int> > matrixMessage = toNumbMatrix(stringToCharVec(message));
+	vector< vector<unsigned long long> > key = randomMatrix();
+	vector< vector<unsigned long long> > encryptedMessage = multiply(key, matrixMessage);
+	cout << matrixToString(encryptedMessage) << endl;
+	vector< vector<unsigned long long> > decodedMessage = multiply(inverseInt(key), encryptedMessage);
+	cout << matrixToString(decodedMessage);
+	system("pause");
+	return;
 
-	vector<char> output = linearCipherEncrypt(stringToCharVec(input));
-	cout << endl;
-	printCharVec(output);
-	cout << endl;
-	pause();
-	
 }
 
 
