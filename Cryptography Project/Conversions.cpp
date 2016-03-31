@@ -33,7 +33,7 @@ vector< vector<int> > toNumbMatrix(vector<char> message) {
 
 string matrixToString(vector< vector<int> > input) {
 	string output = "";
-	output += char(input[0][0]);
+	
 	for (int j = 0; j < input[0].size(); j++)
 		for (int i = 0; i < 3; i++)
 		{

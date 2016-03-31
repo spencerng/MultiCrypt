@@ -1,21 +1,20 @@
 #include<iostream>
 #include <stdlib.h>
+#include<windows.h>
+#include<WinUser.h>
 using namespace std;
-#include "Headers\MatrixMath.h"
-#include "Headers\KeyGenerate.h"
-#include "Headers\Conversions.h"
-#include "Headers\IO.h"
-#include "Headers\RSA.h"
-#include "Headers\Conversions.h"
-#include "Headers\FileIO.h"
-#include "Headers\Encrypt.h"
-#include "Headers\Decrypt.h"
-#include "Headers\Sounds.h"
+#include "Headers/MatrixMath.h"
+#include "Headers/KeyGenerate.h"
+#include "Headers/Conversions.h"
+#include "Headers/IO.h"
+#include "Headers/RSA.h"
+#include "Headers/Conversions.h"
+#include "Headers/FileIO.h"
+#include "Headers/Encrypt.h"
+#include "Headers/Decrypt.h"
+#include "Headers/Sounds.h"
+#include "Headers/Graphics.h"
 
-//To do:
-//Better graphics (GUI?)
-//Sounds
-//Introduct to program
 
 
 void debugMath();
@@ -30,6 +29,8 @@ void debugDecrypt();
 void debugMultiply();
 void debugToNumbMatrix() {
 	string input = getString();
+	if (!(isASCII(input)))
+		cout << "Not ASCII";
 	vector<char> vec = stringToCharVec(input);
 	printMatrix(toNumbMatrix(vec));
 	cout << matrixToString(toNumbMatrix(vec));
@@ -41,14 +42,18 @@ void debugToNumbMatrix() {
 //Further functions will be needed for file I/O. Main function will need a good user interface with additional features as necessary.
 
 
-
-
+	 
 int main() {
+	setFullscreen();
+	
 	playSong('m');
 	while (true) {
-		
+		cls();
+		printTitle();
 		printChoices();
-
+		
+		
+		
 		char choice = getChar();
 		cls();
 		selectChoiceSound();

@@ -1,7 +1,8 @@
 #include<iostream>
 #include <iomanip>
+#include<SDL.h>
 #include <conio.h>
-#include "headers\IO.h"
+#include "Headers/IO.h"
 using std::string;
 using std::getline;
 using std::cin;
@@ -11,6 +12,9 @@ using std::setprecision;
 using std::setw;
 using std::endl;
 
+// define DOS for DOS-based OS (Windows) or UNIX (Linux, OS X, etc.)
+#define DOS
+
 string getString() {
 	string input;
 	cin.ignore();
@@ -18,8 +22,23 @@ string getString() {
 	return input;
 }
 
+bool isASCII(string s) {
+	for (int i = 0; i < s.length(); i++)
+		if (isASCII(s[i]) == false)
+			return false;
+	return true;
+}
+
+bool isASCII(char c) {
+	if (c >= 32 && c < 127)
+		return true;
+	return false;
+
+
+}
+
 void printChoices() {
-	cls();
+	
 	cout << "(1) Encode a message\n";
 	cout << "(2) Decode a message\n";
 	cout << "(3) Debug Encryption\n";
@@ -68,9 +87,29 @@ void printCharVec(vector<char> input) {
 
 }
 
+void printCenter(string s) {
+
+	for (int i = 0; i < ((240 - s.length()) / 2); i++)
+		cout << ' ';
+	cout << s << endl;
+
+}
+
+void printCenter(vector<string> s) {
+
+	for (int i = 0; i < s.size(); i++)
+		printCenter(s[i]);
+
+}
+
 void cls() {
-	
-	cout << "\x1B[2J\x1B[H";
+#ifdef DOS
+	system("cls");
+#endif
+#ifdef UNIX
+	system("clear");
+#endif
+
 }
 
 void pause() {

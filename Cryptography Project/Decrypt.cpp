@@ -1,12 +1,12 @@
 #include <string>
 #include <iostream>
 using namespace std;
-#include "Headers\IO.h"
-#include "Headers\Decrypt.h"
-#include "Headers\FileIO.h"
-#include "Headers\Conversions.h"
-#include "Headers\KeyGenerate.h"
-#include "Headers\MatrixMath.h"
+#include "Headers/IO.h"
+#include "Headers/Decrypt.h"
+#include "Headers/FileIO.h"
+#include "Headers/Conversions.h"
+#include "Headers/KeyGenerate.h"
+#include "Headers/MatrixMath.h"
 
 //Uncomment this when all of the function definitions are present
 

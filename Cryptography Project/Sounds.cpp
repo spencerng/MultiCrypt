@@ -1,16 +1,16 @@
 #pragma comment(lib, "winmm.lib")
 #include<Windows.h>
-#include "Headers\Sounds.h"
+#include "Headers/Sounds.h"
 
 void playSong(char songTitle){
 	if(songTitle=='m')
-		PlaySoundA("\Audio Files\Mission Impossible.wav",
+		PlaySoundA("Audio Files/Mission Impossible.wav",
 		NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 	else if(songTitle=='j')
-		PlaySoundA("\Audio Files\James Bond.wav",
+		PlaySoundA("/Audio Files/James Bond.wav",
 		NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 	else if(songTitle=='p')
-		PlaySoundA("\Audio Files\Pink Panther.wav",
+		PlaySoundA("/Audio Files/Pink Panther.wav",
 		NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
 	
 	
