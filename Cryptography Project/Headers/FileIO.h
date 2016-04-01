@@ -2,7 +2,11 @@
 #define FILE_IO
 #include<vector>
 #include <string>
+#include <sstream>
+#include <cstdio>
+#include<iostream>
 #include <fstream>
+#include "RSA.h"
 using namespace std;
 
 // Allows user to input a file name to create or read from a file, eliminating extra spaces and allowing for input with or without .txt extension
@@ -32,5 +36,7 @@ vector< vector<int> > readKey(string fileName);
 // Reads the 3 x m integer matrix that represents the encrypted message, returning it in integer matrix form
 vector< vector<int> > readMessage(string fileName);
 
-
+// Checks if a file has been modified using hashes
+bool isValidFile(string filePath);
+void addHash(string filePath);
 #endif

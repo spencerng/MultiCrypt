@@ -52,10 +52,7 @@ int main() {
 		
 		printChoices();
 		
-		string c = aesEncrypt("The quick brown fox jumps over the lazy dog", "Hello");
-		
-		string d = aesDecrypt(c, "Hello");
-		cout << d << endl;
+		cout << isValidFile("tet.txt");
 
 		char choice = getChar();
 		cls();
@@ -79,10 +76,10 @@ int main() {
 			
 		}
 		if (choice == '3') {
-			debugEncrypt();
+			
 		}
 		if (choice == '4') {
-			debugDecrypt();
+			
 		}
 		if (choice == '2') {
 			string encryptedMessage;
@@ -126,65 +123,5 @@ void debugRandom(){
 	
 }
 
-void debugMath() {
-	cout << "Enter the size of an n x n matrix: ";
-	int sizeI;
-	cin >> sizeI;
-	vector< vector<int> > debugMatrix(sizeI, vector<int>(sizeI));
-	
-	
-	cout << "\nEnter the " << sizeI << " x " << sizeI << " matrix.\n";
 
-	inputMatrix(debugMatrix);
-
-
-
-	cout << "Determinant: " << det(debugMatrix) << endl;
-	cout << "Transpose: \n";
-	printMatrix(transpose(debugMatrix));
-	cout << endl;
-	cout << "Cofactor: \n";
-	printMatrix(toCofMatrix(debugMatrix));
-	cout << endl;
-	cout << "Inverse: \n";
-	printMatrix(inverse(debugMatrix));
-	pause();
-	
-}
-
-
-
-
-
-
-
-void debugEncrypt() {
-
-	// This is how the functions would be implemented, but feel free to change it.
-	string message = getString();
-	vector< vector<int> > matrixMessage = toNumbMatrix(stringToCharVec(message));
-	vector< vector<unsigned long long> > key = randomMatrix();
-	vector< vector<unsigned long long> > encryptedMessage = multiply(key, matrixMessage);
-	cout << matrixToString(encryptedMessage) << endl;
-	vector< vector<unsigned long long> > decodedMessage = multiply(inverseInt(key), encryptedMessage);
-	cout << matrixToString(decodedMessage);
-	system("pause");
-	return;
-
-}
-
-
-void debugDecrypt() {
-	cout << "Please enter your message.\n";
-
-	string input = getString();
-
-	vector<char> output = linearCipherDecrypt(stringToCharVec(input));
-	cout << endl;
-	printCharVec(output);
-	cout << endl;
-
-	pause();
-
-}
 

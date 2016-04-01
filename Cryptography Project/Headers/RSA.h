@@ -16,21 +16,10 @@
 #include "Crypto++/eccrypto.h"
 #include "Crypto++/md5.h"
 #include "Crypto++/hex.h"
+#include "Crypto++/files.h"
 using std::vector;
 using std::string;
 
-void generatePrime(string&p, string&q);
-
-int xGCD(int a, int b, int &x, int &y);
-
-int gcd(int a, int b);
-int lcm(int a, int b);
-
-
-int multiInverse(int num, int base);
-
-vector<char> linearCipherEncrypt(vector<char> message);
-vector<char> linearCipherDecrypt(vector<char> message);
 
 // Real "enter password" interface
 // Allows user to input and delete characters with asterisks representing each character on screen
@@ -42,5 +31,6 @@ string aesDecrypt(string ciphertext, string password);
 
 void generateKey(byte(&key)[32], byte(&iv)[16], string password);
 void hashToByte(string hash, byte key[], int bytes);
-string md5(string message);
+string md5String(string message);
+string shaFile(string filePath);
 #endif

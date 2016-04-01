@@ -54,3 +54,46 @@ string selectFolder() {
 	return path;
 }
 
+bool isValidFile(string filePath) {
+	// file to read from and verify
+	ifstream file(filePath);
+
+	// temp file to copy to, without hash data
+	ofstream temp("temp.txt");
+
+	string line;
+	string tempStr;
+	string hash;
+
+	while (getline(file, line)) {
+		stringstream buffer(line);
+		buffer >> tempStr;
+		
+		if(tempStr!="Hash:")
+			temp << line << endl;
+		else {
+			buffer >> hash;
+			break;
+		}
+	}
+	string newHash = shaFile("temp.txt");
+	temp.close();
+	if(remove("./temp.txt")!=0)
+		perror("Not deleted");
+	if (hash.length() != 0)
+		if (newHash == hash)
+			return 1;
+
+	return 0;
+
+}
+
+void addHash(string filePath) {
+	
+	ofstream file(filePath, ios_base::app | ios_base::out);
+	file << endl;
+	string hash = shaFile(filePath);
+	file  << "Hash: " << hash;
+
+}
+
