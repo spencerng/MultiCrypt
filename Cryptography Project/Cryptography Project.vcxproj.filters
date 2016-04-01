@@ -83,6 +83,9 @@
     <ClInclude Include="Headers\Graphics.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Media Include="Audio Files\Button Press.wav">
@@ -97,5 +100,18 @@
     <Media Include="Audio Files\Pink Panther.wav">
       <Filter>Resource Files\Audio Files</Filter>
     </Media>
+    <Media Include="Audio Files\Blast.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Cryptography Project.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resource Files\Test Icon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

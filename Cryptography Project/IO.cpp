@@ -3,6 +3,7 @@
 #include<SDL.h>
 #include <conio.h>
 #include "Headers/IO.h"
+#include "Headers/Graphics.h"
 using std::string;
 using std::getline;
 using std::cin;
@@ -40,15 +41,16 @@ bool isASCII(char c) {
 
 void printChoices() {
 	
-	print("(1) Encode a message\n");
+	cout << "\t(1) Encode a message\n";
 	cout << '\t' << "(2) Decode a message\n";
-	cout << "(3) Debug Encryption\n";
-	cout << "(4) Debug Decryption\n";
-	cout << "(5) Exit the program\n";
-	cout << "(6) Multiply two matrices\n";
-	cout << "(7) Debug Math\n";
-	cout << "(8) Debug String to Matrix\n";
-	cout << "(9) Debug Random Matrix Generator\n";
+	cout << "\t(3) Debug Encryption\n";
+	cout << "\t(4) Debug Decryption\n";
+	cout << "\t(5) Exit the program\n";
+	cout << "\t(6) Multiply two matrices\n";
+	cout << "\t(7) Debug Math\n";
+	cout << "\t(8) Debug String to Matrix\n";
+	cout << "\t(9) Debug Random Matrix Generator\n\t";
+
 }
 
 char getChar() {
@@ -119,6 +121,7 @@ void cls() {
 #ifdef UNIX
 	system("clear");
 #endif
+	printTitle();
 
 }
 

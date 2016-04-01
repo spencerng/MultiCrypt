@@ -1,15 +1,30 @@
-#include<string>
-#include <ctime>
-#include <iostream>
-#include<conio.h>
-#pragma warning(disable:4146)
-#include<gmp.h>
 #include "Headers/RSA.h"
 #include "Headers/IO.h"
 #include "Headers/Conversions.h"
+#pragma warning(disable:4996)
 using std::vector;
 using std::cout;
 
+
+string aesEncrypt(string plaintext) {
+	string ciphertext;
+	
+	// 256 bit key
+	byte key[32];
+	// Swap block
+	byte iv[CryptoPP::AES::BLOCKSIZE];
+	memset(key, 0x00, 32);
+	memset(iv, 0x00, CryptoPP::AES::BLOCKSIZE);
+
+	//CryptoPP::AES::Encryption aesEncryption(key, CryptoPP::AES::DEFAULT_KEYLENGTH);
+	//CryptoPP::CBC_Mode_ExternalCipher::Encryption cbcEncryption(aesEncryption, iv);
+
+	//CryptoPP::StreamTransformationFilter stfEncryptor(cbcEncryption, new CryptoPP::StringSink(ciphertext));
+	//stfEncryptor.Put(reinterpret_cast<const unsigned char*>(plaintext.c_str()), plaintext.length() + 1);
+	//stfEncryptor.MessageEnd();
+	cout << ciphertext;
+	return ciphertext;
+}
 
 void generatePrime(string&p, string&q) {
 	srand(time(NULL));
@@ -19,14 +34,14 @@ void generatePrime(string&p, string&q) {
 		p1[i] = (rand() % 2);
 		p2[i] = (rand() % 2);
 	}
-	mpz_t largeInt1;
-	mpz_t largeInt2;
-	mpz_init(largeInt1);
-	mpz_init(largeInt2);
-	mpz_set_str(largeInt1, p1, 2);
-	mpz_set_str(largeInt2, p2, 2);
+	//mpz_t largeInt1;
+	//mpz_t largeInt2;
+	//mpz_init(largeInt1);
+	//mpz_init(largeInt2);
+	//mpz_set_str(largeInt1, p1, 2);
+	//mpz_set_str(largeInt2, p2, 2);
 	//mpz_nextprime(largeInt1, largeInt1);
-	mpz_nextprime(largeInt2, largeInt2);
+	//mpz_nextprime(largeInt2, largeInt2);
 	
 }
 
@@ -118,11 +133,12 @@ int multiInverse(int num, int base) {
 	return y;
 }
 
+// Need to fix input for arrow/function/special keys, which also return an ASCII value
 string enterPassword() {
 	string password;
 	int charsEntered = 0;
-	char ch = _getch();
 	cout << '\t';
+	unsigned char ch = _getch();
 	while (ch != 13) { //character 13 is enter
 		while (ch == 8) { // character 8 is backspace
 			if (charsEntered != 0) { // Checks if there is anything to delete
@@ -130,13 +146,17 @@ string enterPassword() {
 				cout << '\b' << ' ' << '\b'; // Moves cursor backwards, enters a blank character, then moves the cursor backwards again to prepare for overwrite
 				charsEntered--;
 			}
-			ch = _getch();
+			ch = getch();
 		}
 		if (ch == 13)
 			break;
-		charsEntered++;
-		password.push_back(ch);
-		cout << '*';
+		
+		if (isprint(ch)) {
+			charsEntered++;
+			password.push_back(ch);
+			cout << '*';
+		}
+			
 		ch = _getch();
 	}
 

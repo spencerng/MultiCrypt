@@ -1,3 +1,4 @@
+#pragma comment(lib, "winmm.lib")
 #include<iostream>
 #include <stdlib.h>
 
@@ -48,12 +49,9 @@ int main() {
 	playSong('m');
 	while (true) {
 		cls();
-		printTitle();
-		printChoices();
-		string t;
-		string b;
-		generatePrime(t, b);
 		
+		printChoices();
+		aesEncrypt("Hello");
 		char choice = getChar();
 		cls();
 		selectChoiceSound();

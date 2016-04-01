@@ -2,6 +2,18 @@
 #define RSA_H
 #include<string>
 #include<vector>
+#include <ctime>
+#include <iostream>
+#include<cctype>
+#include<conio.h>
+#include "Crypto++/aes.h"
+#include "Crypto++/modes.h"
+#include "Crypto++/filters.h"
+#include "Crypto++/cryptlib.h"
+#include "Crypto++/eccrypto.h"
+
+
+
 using std::vector;
 using std::string;
 
@@ -23,5 +35,5 @@ vector<char> linearCipherDecrypt(vector<char> message);
 // Returns the actual password entered
 string enterPassword();
 
-int rsaEncrypt(string password);
+string aesEncrypt(string plaintext);
 #endif
