@@ -39,18 +39,14 @@ bool isASCII(char c) {
 
 }
 
-void printChoices() {
+string choices() {
+	std::stringstream buffer;
+	buffer << "\t(1) Encrypt a message\n";
+	buffer << "\t(2) Decrypt a message\n";
+	buffer << "\t(3) Turn Music " << (getMusicStatus() ? ("Off") : ("On")) << endl;
+	buffer << "\t(4) Exit the program\n";
 	
-	cout << "\t(1) Encode a message\n";
-	cout << '\t' << "(2) Decode a message\n";
-	cout << "\t(3) Debug Encryption\n";
-	cout << "\t(4) Debug Decryption\n";
-	cout << "\t(5) Exit the program\n";
-	cout << "\t(6) Multiply two matrices\n";
-	cout << "\t(7) Debug Math\n";
-	cout << "\t(8) Debug String to Matrix\n";
-	cout << "\t(9) Debug Random Matrix Generator\n\t";
-
+	return buffer.str();
 }
 
 char getChar() {
@@ -137,4 +133,37 @@ void print(const char* c) {
 		cout << ' ';
 	cout << c;
 
+}
+
+void isValidCharInput(string prompt, vector<char> validInputs, char &input) {
+	while (1) {
+		cls();
+		cout << prompt << endl;
+		cout << '\t';
+		input = tolower(_getch());
+		for (int i = 0; i < validInputs.size(); i++)
+			if (input == validInputs[i])
+				return;
+
+
+		cout << "Invalid input detected. Please try again.\n\t";
+		pause();
+		for (int i = 0; i < 144; i++)
+			cout << '\b';
+		for (int i = 0; i < 72; i++)
+			cout << ' ';
+		for (int i = 0; i < 72; i++)
+			cout << '\b';
+		
+	}
+
+}
+
+void store(std::stringstream &ss, string text) {
+	ss << text << endl;
+}
+
+void printStore(std::stringstream &ss, string text) {
+	ss << text;
+	cout << text;
 }

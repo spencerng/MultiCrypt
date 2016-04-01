@@ -3,6 +3,14 @@
 #include "Headers/Sounds.h"
 #include "resource.h"
 
+bool soundOn = true;
+
+bool getMusicStatus() {
+	
+	return soundOn;
+
+}
+
 void playSong(char songTitle){
 	
 	if(songTitle=='m')
@@ -24,6 +32,13 @@ void muteSounds(){
 	
 }
 
+void toggleSound() {
+	soundOn = !soundOn;
+	if (soundOn)
+		playSong('m');
+	else muteSounds();
+}
+
 void selectChoiceSound(){
 	
 	PlaySoundA("\Audio Files\Button.wav",
@@ -32,9 +47,9 @@ void selectChoiceSound(){
 }
 
 void exitProgramSound(){
-	
-	PlaySoundA("\Audio Files\Blast.wav",
-		NULL, SND_FILENAME | SND_ASYNC);
+	if(soundOn)
+	PlaySoundA("Audio Files/Blast.wav",
+		NULL, SND_FILENAME );
 	
 }
 

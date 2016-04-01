@@ -1,8 +1,10 @@
 #ifndef IO
 #define IO
+#include "Sounds.h"
 #include <string>
 #include <iomanip>
 #include <vector>
+#include <sstream>
 using std::vector;
 using std::string;
 
@@ -13,7 +15,7 @@ bool isASCII(string);
 bool isASCII(char);
 // Defensive programming feature designed to check if an entered string will work with encryption and output to a text file.
 
-void printChoices();
+string choices();
 //Prints the main menu of the program
 
 char getChar();
@@ -41,5 +43,12 @@ void pause();
 
 void print(const char*);
 
+void isValidCharInput(string prompt, vector<char> validInputs, char &input);
+
+//Prints out text and stores it in a buffer to use later with isValidCharInput
+void printStore(std::stringstream &ss, string text);
+
+//Store text from cin into buffer
+void store(std::stringstream &ss,  string);
 
 #endif

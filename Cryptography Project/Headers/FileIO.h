@@ -26,9 +26,11 @@ void createFile(string fileName);
 
 // Given an encrypted numerical message in matrix form (after multiplication), output it to a file, using commas (,) to separate each value
 void outputMessage(vector< vector<int> > message, string fileName);
+void outputMessage(vector< vector<unsigned long long> > message, string fileName);
 
 // Given the encryption key, output it to a file with comma separators
 void outputKey(vector< vector<int> > key, string fileName);
+void outputKey(vector< vector<unsigned long long> > key, string fileName);
 
 // Reads the 3 x 3 encryption key from a file. 
 vector< vector<int> > readKey(string fileName);

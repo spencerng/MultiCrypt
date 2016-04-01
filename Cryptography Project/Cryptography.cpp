@@ -48,55 +48,28 @@ int main() {
 	
 	playSong('m');
 	while (true) {
-		cls();
 		
-		printChoices();
-		
-		cout << isValidFile("tet.txt");
+		char choice;
 
-		char choice = getChar();
-		cls();
-		selectChoiceSound();
+		isValidCharInput(choices(), { '1','2','3','4' }, choice);
 		
 		
-		if (choice == '9')
-			debugRandom();
-		
-		if (choice == '8'){
-			cout << enterPassword();
-			system("pause");
-			
-		}
-		if (choice == '7') {
-			debugToNumbMatrix();
-			//debugMath();
-
-		}
-		if (choice == '6') {
-			
-		}
-		if (choice == '3') {
-			
-		}
-		if (choice == '4') {
-			
-		}
-		if (choice == '2') {
-			string encryptedMessage;
-			toNumbMatrix(stringToCharVec(encryptedMessage));
-		}
-		if (choice == '5') {
+		if (choice == '1')
+			;
+			//encrypt();
+		else if (choice == '2')
+			;
+			//decrypt();
+		else if (choice == '3')
+			toggleSound();
+		else if (choice == '4') {
 			exitProgramSound();
-			return 1;
+			return 0;
 		}
-		if (choice == '1');
-
 			
-
-		
 	}
 
-	return 0;
+	return 666;
 }
 
 
