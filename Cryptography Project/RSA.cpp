@@ -1,29 +1,101 @@
 #include "Headers/RSA.h"
 #include "Headers/IO.h"
 #include "Headers/Conversions.h"
+#include<sstream>
 #pragma warning(disable:4996)
 using std::vector;
 using std::cout;
+using std::endl;
+using namespace CryptoPP;
 
+string md5(string message) {
+	CryptoPP::MD5 hash;
+	byte digest[CryptoPP::MD5::DIGESTSIZE];
+	hash.CalculateDigest(digest, (byte*)message.c_str(), message.length());
+	CryptoPP::HexEncoder encoder;
+	string hashOutput;
+	encoder.Attach(new CryptoPP::StringSink(hashOutput));
+	encoder.Put(digest, sizeof(digest));
+	encoder.MessageEnd();
+	return hashOutput;
 
-string aesEncrypt(string plaintext) {
-	string ciphertext;
+}
+
+void hashToByte(string hash, byte key[], int bytes) {
+	for (int i = 0; i < bytes; i++)
+		key[i] = hash[i];
+
+}
+
+void generateKey(byte (&key)[32], byte (&iv)[16], string password) {
+	hashToByte(md5(password), key, 32);
+	hashToByte(md5(md5(password)), iv, 16);
+	return;
+	/*int seed = 0;
+	for (int i = 0; i < password.length(); i++)
+		seed += (password[i] * 127) % (i + 23);
+	srand(seed);
+
+	string hash1 = md5(password);
+
+	for (int i = 0; i < hash1.length(); i++) 
+		if (isalpha(hash1[i]) && (rand() % 2))
+			hash1[i] = tolower(hash1[i]);
+	hashToByte(hash1, key);
+
+	int seed2 = 0;
+	string hash2 = "";
+	for (int i = 0; i < hash1.length(); i++)
+		hash2 += rand() % 127;
+	hash2 = md5(hash2);
 	
+	hashToByte(hash2, iv);*/
+
+
+}
+
+string aesEncrypt(string plaintext, string password) {
+	string ciphertext;
+	string output;
 	// 256 bit key
-	byte key[32];
-	// Swap block
-	byte iv[CryptoPP::AES::BLOCKSIZE];
-	memset(key, 0x00, 32);
-	memset(iv, 0x00, CryptoPP::AES::BLOCKSIZE);
+	byte key[CryptoPP::AES::MAX_KEYLENGTH];
 
-	//CryptoPP::AES::Encryption aesEncryption(key, CryptoPP::AES::DEFAULT_KEYLENGTH);
-	//CryptoPP::CBC_Mode_ExternalCipher::Encryption cbcEncryption(aesEncryption, iv);
-
-	//CryptoPP::StreamTransformationFilter stfEncryptor(cbcEncryption, new CryptoPP::StringSink(ciphertext));
-	//stfEncryptor.Put(reinterpret_cast<const unsigned char*>(plaintext.c_str()), plaintext.length() + 1);
-	//stfEncryptor.MessageEnd();
-	cout << ciphertext;
+	// Initialization vector
+	byte iv[16];
+	generateKey(key, iv, password);
+	
+		CryptoPP::AES::Encryption aesEncryption(key, 32);
+		CryptoPP::CBC_Mode_ExternalCipher::Encryption cbcEncryption(aesEncryption, iv);
+	
+	CryptoPP::StreamTransformationFilter stfEncryptor(cbcEncryption, new CryptoPP::StringSink(ciphertext));
+	stfEncryptor.Put(reinterpret_cast<const unsigned char*>(plaintext.c_str()), plaintext.length() + 1);
+	stfEncryptor.MessageEnd();
+	
+	
+	for (int i = 0; i < ciphertext.size(); i++)
+	cout << "0x" << std::hex << (0xFF & static_cast<byte>(ciphertext[i])) << " ";
+	
 	return ciphertext;
+	
+}
+
+string aesDecrypt(string ciphertext, string password) {
+
+	// 256 bit key
+	byte key[CryptoPP::AES::MAX_KEYLENGTH];
+
+	// Initialization vector
+	byte iv[16];
+	generateKey(key, iv, password);
+	
+	string output;
+	CryptoPP::AES::Decryption aesDecryption(key, 32);
+	CryptoPP::CBC_Mode_ExternalCipher::Decryption cbcDecryption(aesDecryption, iv);
+	CryptoPP::StreamTransformationFilter stfDecryptor(cbcDecryption, new CryptoPP::StringSink(output));
+	stfDecryptor.Put(reinterpret_cast<const unsigned char*>(ciphertext.c_str()), ciphertext.size());
+	stfDecryptor.MessageEnd();
+	return output;
+
 }
 
 void generatePrime(string&p, string&q) {

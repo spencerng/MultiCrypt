@@ -1,6 +1,6 @@
 #include<iostream>
 #include <iomanip>
-#include<SDL.h>
+
 #include <conio.h>
 #include "Headers/IO.h"
 #include "Headers/Graphics.h"

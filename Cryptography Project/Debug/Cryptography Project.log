@@ -1,6 +1,9 @@
-﻿  Sounds.cpp
-c:\users\sng\documents\github\cryptography-project\cryptography project\sounds.cpp(29): warning C4129: 'A': unrecognized character escape sequence
-c:\users\sng\documents\github\cryptography-project\cryptography project\sounds.cpp(29): warning C4129: 'B': unrecognized character escape sequence
-c:\users\sng\documents\github\cryptography-project\cryptography project\sounds.cpp(36): warning C4129: 'A': unrecognized character escape sequence
-c:\users\sng\documents\github\cryptography-project\cryptography project\sounds.cpp(36): warning C4129: 'B': unrecognized character escape sequence
-  Cryptography Project.vcxproj -> C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\Cryptography Project.exe
+﻿  Cryptography.cpp
+  You may be using a weak algorithm that has been retained for backwards compatibility. Please '#define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1' before including this .h file and prepend the class name with 'Weak::' to remove this warning.
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\cryptography.cpp(95): warning C4390: ';': empty controlled statement found; is this the intent?
+  cryptlid.lib(cryptlib.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
+Conversions.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+  Generating code
+  Finished generating code
+  Cryptography Project.vcxproj -> C:\Users\sng\Documents\Visual Studio 2015\Projects\Cryptography-Project\Debug\Cryptography Project.exe

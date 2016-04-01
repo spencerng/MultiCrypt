@@ -51,7 +51,12 @@ int main() {
 		cls();
 		
 		printChoices();
-		aesEncrypt("Hello");
+		
+		string c = aesEncrypt("The quick brown fox jumps over the lazy dog", "Hello");
+		
+		string d = aesDecrypt(c, "Hello");
+		cout << d << endl;
+
 		char choice = getChar();
 		cls();
 		selectChoiceSound();
