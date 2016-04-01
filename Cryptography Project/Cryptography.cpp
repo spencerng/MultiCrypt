@@ -1,7 +1,7 @@
+#pragma comment(lib, "winmm.lib")
 #include<iostream>
 #include <stdlib.h>
-#include<windows.h>
-#include<WinUser.h>
+
 using namespace std;
 #include "Headers/MatrixMath.h"
 #include "Headers/KeyGenerate.h"
@@ -26,7 +26,7 @@ void debugRandom();
 void debugEncrypt();
 void debugDecrypt();
 
-void debugMultiply();
+
 void debugToNumbMatrix() {
 	string input = getString();
 	if (!(isASCII(input)))
@@ -48,58 +48,35 @@ int main() {
 	
 	playSong('m');
 	while (true) {
-		cls();
-		printTitle();
-		printChoices();
 		
-		
-		
-		char choice = getChar();
-		cls();
-		selectChoiceSound();
-		
-		
-		if (choice == '9')
-			debugRandom();
-		
-		if (choice == '8'){
-			
-			
-		}
-		if (choice == '7') {
-			debugToNumbMatrix();
-			//debugMath();
+		char choice;
 
-		}
-		if (choice == '6') {
-			debugMultiply();
-		}
-		if (choice == '3') {
-			debugEncrypt();
-		}
-		if (choice == '4') {
-			debugDecrypt();
-		}
-		if (choice == '2') {
-			string encryptedMessage;
-			toNumbMatrix(stringToCharVec(encryptedMessage));
-		}
-		if (choice == '5') {
+		isValidCharInput(choices(), { '1','2','3','4' }, choice);
+		
+		
+		if (choice == '1')
+			;
+			//encrypt();
+		else if (choice == '2')
+			;
+			//decrypt();
+		else if (choice == '3')
+			toggleSound();
+		else if (choice == '4') {
 			exitProgramSound();
-			return 1;
+			return 0;
 		}
-
-		
+			
 	}
 
-	return 0;
+	return 666;
 }
 
 
 
 void debugRandom(){
 	
-	vector< vector<int> > debugMatrix = randomMatrix();
+	vector< vector<unsigned long long> > debugMatrix = randomMatrix();
 	printMatrix(debugMatrix);
 			
 
@@ -113,89 +90,11 @@ void debugRandom(){
 	printMatrix(toCofMatrix(debugMatrix));
 	cout << endl;
 	cout << "Inverse: \n";
-	printMatrix(inverse(debugMatrix));
+	printMatrix(inverseInt(debugMatrix));
 	exitProgramSound();
 	pause();
 	
 }
 
-void debugMath() {
-	cout << "Enter the size of an n x n matrix: ";
-	int sizeI;
-	cin >> sizeI;
-	vector< vector<int> > debugMatrix(sizeI, vector<int>(sizeI));
-	
-	
-	cout << "\nEnter the " << sizeI << " x " << sizeI << " matrix.\n";
 
-	inputMatrix(debugMatrix);
-
-
-
-	cout << "Determinant: " << det(debugMatrix) << endl;
-	cout << "Transpose: \n";
-	printMatrix(transpose(debugMatrix));
-	cout << endl;
-	cout << "Cofactor: \n";
-	printMatrix(toCofMatrix(debugMatrix));
-	cout << endl;
-	cout << "Inverse: \n";
-	printMatrix(inverse(debugMatrix));
-	pause();
-	
-}
-
-
-
-void debugMultiply() {
-	int sizeI, sizeJ;
-	cout << "Enter the size of the m x n matrix A: ";
-
-	cin >> sizeI >> sizeJ;
-	vector< vector<int> > A(sizeI, vector<int>(sizeJ));
-	inputMatrix(A);
-
-	cout << "Enter the size of B: ";
-	cin >> sizeI >> sizeJ;
-
-	vector< vector<int> > B(sizeI, vector<int>(sizeJ));
-	inputMatrix(B);
-
-	cout << endl << "A * B =\n\n";
-	vector< vector<int> > product = multiply(A, B);
-	printMatrix(product);
-
-	pause();
-	
-}
-
-
-
-void debugEncrypt() {
-	cout << "Please enter your message.\n";
-
-	string input = getString();
-
-	vector<char> output = linearCipherEncrypt(stringToCharVec(input));
-	cout << endl;
-	printCharVec(output);
-	cout << endl;
-	pause();
-	
-}
-
-
-void debugDecrypt() {
-	cout << "Please enter your message.\n";
-
-	string input = getString();
-
-	vector<char> output = linearCipherDecrypt(stringToCharVec(input));
-	cout << endl;
-	printCharVec(output);
-	cout << endl;
-
-	pause();
-
-}
 

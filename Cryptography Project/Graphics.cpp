@@ -19,7 +19,7 @@ void setFullscreen() {
 	keybd_event(VK_RETURN, 0x1c, KEYEVENTF_KEYUP, 0);
 	keybd_event(VK_MENU, 0x38, KEYEVENTF_KEYUP, 0);
 
-
+	SetConsoleTitle("Cryptography");
 }
 
 
@@ -34,6 +34,6 @@ void printTitle() {
 	s.push_back("  \\______  /|__|   / ____||   __/|__|  \\____/\\___  /|__|  (____  /   __/|___|  / ____| ");
 	s.push_back("         \\/        \\/     |__|              /_____/            \\/|__|        \\/\\/      ");
 	printCenter(s);
-
+	printf("\n\n");
 
 }

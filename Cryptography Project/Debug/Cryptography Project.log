@@ -1,57 +1,80 @@
-<<<<<<< HEAD
-﻿  Sounds.cpp
-  RSA.cpp
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\rsa.cpp(24): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\rsa.cpp(39): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\rsa.cpp(58): warning C4018: '<': signed/unsigned mismatch
-  MatrixMath.cpp
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(8): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(10): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(31): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(39): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(47): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(48): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(97): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(98): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(99): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(107): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(108): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(115): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(116): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(124): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(125): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(133): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(134): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(141): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(142): warning C4018: '<': signed/unsigned mismatch
-  KeyGenerate.cpp
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\keygenerate.cpp(7): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  IO.cpp
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(41): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(42): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(48): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(50): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(57): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(58): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\io.cpp(66): warning C4018: '<': signed/unsigned mismatch
-  FileIO.cpp
+﻿  IO.cpp
+c:\users\sng\documents\github\cryptography-project\cryptography project\io.cpp(28): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\io.cpp(59): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\io.cpp(60): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\io.cpp(66): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\io.cpp(68): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\io.cpp(75): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\io.cpp(76): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\io.cpp(84): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\io.cpp(85): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\io.cpp(93): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\io.cpp(100): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\io.cpp(108): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\io.cpp(144): warning C4018: '<': signed/unsigned mismatch
   Encrypt.cpp
-  Decrypt.cpp
-  Cryptography.cpp
+  You may be using a weak algorithm that has been retained for backwards compatibility. Please '#define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1' before including this .h file and prepend the class name with 'Weak::' to remove this warning.
   Conversions.cpp
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\conversions.cpp(8): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\conversions.cpp(35): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\conversions.cpp(43): warning C4018: '<': signed/unsigned mismatch
-c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\conversions.cpp(50): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\conversions.cpp(8): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\conversions.cpp(24): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\conversions.cpp(37): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\conversions.cpp(50): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\conversions.cpp(54): warning C4244: 'argument': conversion from 'unsigned __int64' to 'char', possible loss of data
+c:\users\sng\documents\github\cryptography-project\cryptography project\conversions.cpp(63): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\conversions.cpp(77): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\conversions.cpp(85): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\conversions.cpp(92): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
-  Cryptography Project.vcxproj -> C:\Users\sng\Documents\Visual Studio 2015\Projects\Cryptography-Project\Debug\Cryptography Project.exe
-=======
-﻿  Conversions.cpp
-c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(8): warning C4018: '<': signed/unsigned mismatch
-c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(24): warning C4018: '<': signed/unsigned mismatch
-c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(36): warning C4018: '<': signed/unsigned mismatch
-c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(48): warning C4018: '<': signed/unsigned mismatch
-c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(56): warning C4018: '<': signed/unsigned mismatch
-c:\users\parth savla\documents\github\cryptography-project\cryptography project\conversions.cpp(63): warning C4018: '<': signed/unsigned mismatch
-  Cryptography Project.vcxproj -> C:\Users\Parth Savla\Documents\GitHub\Cryptography-Project\Debug\Cryptography Project.exe
->>>>>>> develop
+  Compiling...
+  RSA.cpp
+  You may be using a weak algorithm that has been retained for backwards compatibility. Please '#define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1' before including this .h file and prepend the class name with 'Weak::' to remove this warning.
+c:\users\sng\documents\github\cryptography-project\cryptography project\rsa.cpp(40): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\rsa.cpp(46): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\rsa.cpp(48): warning C4242: '=': conversion from 'int' to 'char', possible loss of data
+c:\users\sng\documents\github\cryptography-project\cryptography project\rsa.cpp(53): warning C4018: '<': signed/unsigned mismatch
+c:\users\sng\documents\github\cryptography-project\cryptography project\rsa.cpp(81): warning C4018: '<': signed/unsigned mismatch
+  Graphics.cpp
+  Decrypt.cpp
+  You may be using a weak algorithm that has been retained for backwards compatibility. Please '#define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1' before including this .h file and prepend the class name with 'Weak::' to remove this warning.
+  Cryptography.cpp
+  You may be using a weak algorithm that has been retained for backwards compatibility. Please '#define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1' before including this .h file and prepend the class name with 'Weak::' to remove this warning.
+  Generating Code...
+  cryptlid.lib(cryptlib.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
+Conversions.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+  Generating code
+  Finished generating code
+cryptlid.lib(cryptlib.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(cryptlib.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(misc.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(misc.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(filters.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(filters.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(rijndael.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(rijndael.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(algparam.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(algparam.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(modes.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(modes.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(iterhash.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(iterhash.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(sha.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(sha.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(basecode.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(basecode.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(hex.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(hex.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(files.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(files.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(pch.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(pch.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(queue.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(queue.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(fips140.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(fips140.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(integer.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(integer.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(mqueue.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(mqueue.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(cpu.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(cpu.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(rdtables.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(rdtables.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(dll.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(dll.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(des.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(des.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(asn.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(asn.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(pubkey.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(pubkey.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(nbtheory.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(nbtheory.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(ecp.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(ecp.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(gfpcrypt.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(gfpcrypt.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(ec2n.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(ec2n.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(gf2n.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(gf2n.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(rng.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(rng.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(osrng.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(osrng.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(dessp.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(dessp.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(hmac.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(hmac.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(randpool.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(randpool.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+cryptlid.lib(hrtimer.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlid.lib(hrtimer.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\vc80.pdb'; linking object as if no debug info
+  Cryptography Project.vcxproj -> C:\Users\sng\Documents\GitHub\Cryptography-Project\Debug\Cryptography Project.exe

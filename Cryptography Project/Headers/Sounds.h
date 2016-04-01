@@ -11,4 +11,8 @@ void exitProgramSound();
 
 void errorSound();
 
+bool getMusicStatus();
+
+void toggleSound();
+
 #endif SOUNDS_H

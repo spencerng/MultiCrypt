@@ -3,11 +3,18 @@
 #include<vector>
 using std::vector;
 
-vector< vector<int> > randomMatrix();
 // Generates a random n x n invertible unimodular matrix, with a determinant of 1
-// Allows for up to 7^15^2 possibilities
+// Randomly inverts and multiplies matrices from unimodMatrix together in 50-100 cycles
+vector< vector<unsigned long long> > randomMatrix();
 
-vector< vector<int> > unimodMatrix(int n);
-// Generate a unimodular matrix based on a seed value and a set of predefined parameters.
+// Generate a unimodular matrix, multiplying L and U matrices together
+vector< vector<unsigned long long> > unimodMatrix();
+
+// Generates a random lower-triangular matrix
+vector< vector<unsigned long long> > randomL();
+
+// Generates a random upper-triangular matrix
+vector< vector<unsigned long long> > randomU();
+
 
 #endif

@@ -1,8 +1,9 @@
 #include<iostream>
 #include <iomanip>
-#include<SDL.h>
+
 #include <conio.h>
 #include "Headers/IO.h"
+#include "Headers/Graphics.h"
 using std::string;
 using std::getline;
 using std::cin;
@@ -11,6 +12,7 @@ using std::vector;
 using std::setprecision;
 using std::setw;
 using std::endl;
+using std::setfill;
 
 // define DOS for DOS-based OS (Windows) or UNIX (Linux, OS X, etc.)
 #define DOS
@@ -37,17 +39,14 @@ bool isASCII(char c) {
 
 }
 
-void printChoices() {
+string choices() {
+	std::stringstream buffer;
+	buffer << "\t(1) Encrypt a message\n";
+	buffer << "\t(2) Decrypt a message\n";
+	buffer << "\t(3) Turn Music " << (getMusicStatus() ? ("Off") : ("On")) << endl;
+	buffer << "\t(4) Exit the program\n";
 	
-	cout << "(1) Encode a message\n";
-	cout << "(2) Decode a message\n";
-	cout << "(3) Debug Encryption\n";
-	cout << "(4) Debug Decryption\n";
-	cout << "(5) Exit the program\n";
-	cout << "(6) Multiply two matrices\n";
-	cout << "(7) Debug Math\n";
-	cout << "(8) Debug String to Matrix\n";
-	cout << "(9) Debug Random Matrix Generator\n";
+	return buffer.str();
 }
 
 char getChar() {
@@ -81,6 +80,15 @@ void printMatrix(vector< vector<int> > A) {
 	return;
 }
 
+void printMatrix(vector< vector<unsigned long long> > A) {
+	for (int i = 0; i < A.size(); i++) {
+		for (int j = 0; j < A[0].size(); j++)
+			cout << setw(40) << A[i][j];
+		cout << endl;
+	}
+	return;
+}
+
 void printCharVec(vector<char> input) {
 	for (int i = 0; i < input.size(); i++)
 		cout << input[i];
@@ -109,6 +117,7 @@ void cls() {
 #ifdef UNIX
 	system("clear");
 #endif
+	printTitle();
 
 }
 
@@ -117,4 +126,44 @@ void pause() {
 	
 	_getch();
 
+}
+
+void print(const char* c) {
+	for (int i = 0; i < 4; i++)
+		cout << ' ';
+	cout << c;
+
+}
+
+void isValidCharInput(string prompt, vector<char> validInputs, char &input) {
+	while (1) {
+		cls();
+		cout << prompt << endl;
+		cout << '\t';
+		input = tolower(_getch());
+		for (int i = 0; i < validInputs.size(); i++)
+			if (input == validInputs[i])
+				return;
+
+
+		cout << "Invalid input detected. Please try again.\n\t";
+		pause();
+		for (int i = 0; i < 144; i++)
+			cout << '\b';
+		for (int i = 0; i < 72; i++)
+			cout << ' ';
+		for (int i = 0; i < 72; i++)
+			cout << '\b';
+		
+	}
+
+}
+
+void store(std::stringstream &ss, string text) {
+	ss << text << endl;
+}
+
+void printStore(std::stringstream &ss, string text) {
+	ss << text;
+	cout << text;
 }
