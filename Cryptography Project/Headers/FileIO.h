@@ -38,6 +38,22 @@ vector< vector<int> > readKey(string fileName);
 // Reads the 3 x m integer matrix that represents the encrypted message, returning it in integer matrix form
 vector< vector<int> > readMessage(string fileName);
 
+bool validFileName(string file);
+
+string extension(string);
+
+//Converts key to a space-separated string for easy output
+string keyOutputString(vector< vector<unsigned long long> > input);
+
+string messageOutputString(vector< vector<unsigned long long> > input);
+
+void getFileProperties(string filename,bool& hasPassword, string & key, string& message);
+
+vector<vector<unsigned long long>> keyInputMatrix(string input);
+vector<vector<unsigned long long>> messageInputMatrix(string input);
+
+void outputLine(string filePath, string line);
+
 // Checks if a file has been modified using hashes
 bool isValidFile(string filePath);
 void addHash(string filePath);

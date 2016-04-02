@@ -10,17 +10,20 @@ using namespace std;
 
 // Uncomment this when all of the function definitions are present
 
-/*void encrypt() {
+void encrypt() {
 	// This is how the functions would be implemented, but feel free to change it.
+	string fileName = selectFolder() + "\\" + getFileName();
+	createFile(fileName);
 	
+
 	stringstream log;
-	printStore(log, "Please enter the message to encrypt:\n");
+	cout << "Please enter the message to encrypt:\n";
 
 	string message = getString();
-	store(log, message);
+	
 	vector< vector<int> > matrixMessage = toNumbMatrix(stringToCharVec(message));
 	vector< vector<unsigned long long> > key = randomMatrix();
-	string keyOutput;
+	
 
 	char input;
 	printStore(log, "Would you like to encrypt using a password? (Y/N)\n\n");
@@ -41,22 +44,22 @@ using namespace std;
 
 			}
 		} while (password != temp);
-		keyOutput = aesEncrypt(keyMatrixToString(key), password);
+		outputLine(fileName, "Yes");
+		outputLine(fileName, aesEncrypt(keyOutputString(key), password));
 
 	}
-	else 
-		keyOutput = keyMatrixToString(key);
+	else {
+		outputLine(fileName, "No");
+		outputLine(fileName,keyOutputString(key));
 
+	}
 	
-	cls();
-	string fileName = getFileName();
-	createFile(fileName);
-	outputKey(key, fileName);
+
 	vector< vector<unsigned long long> > encryptedMessage = multiply(key, matrixMessage);
-	outputMessage(encryptedMessage, fileName);
+	outputLine(fileName, messageOutputString(encryptedMessage));
 	addHash(fileName);
 	return;
 
-}*/
+};
 
 

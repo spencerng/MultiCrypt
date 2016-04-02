@@ -19,7 +19,6 @@ using std::setfill;
 
 string getString() {
 	string input;
-	cin.ignore();
 	getline(cin, input);
 	return input;
 }
