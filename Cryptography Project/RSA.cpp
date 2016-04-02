@@ -63,7 +63,7 @@ void generateKey(byte (&key)[32], byte (&iv)[16], string password) {
 	int seed2 = 0;
 	string hash2 = "";
 	for (int i = 0; i < hash1.length(); i++)
-		hash2 += rand() % 127;
+		hash2 += password[rand() % password.length()]+rand();
 	hash2 = insertSpace(md5String(hash2));
 	
 	hashToByte(hash2, iv, 16);
