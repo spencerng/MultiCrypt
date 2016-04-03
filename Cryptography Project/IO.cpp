@@ -2,6 +2,7 @@
 #include <iomanip>
 
 #include <conio.h>
+#include <Windows.h>
 #include "Headers/IO.h"
 #include "Headers/Graphics.h"
 using std::string;
@@ -96,7 +97,7 @@ void printCharVec(vector<char> input) {
 
 void printCenter(string s) {
 
-	for (int i = 0; i < ((240 - s.length()) / 2); i++)
+	for (int i = 0; i < (((GetSystemMetrics(SM_CXSCREEN)/8)- s.length()) / 2); i++)
 		cout << ' ';
 	cout << s << endl;
 
