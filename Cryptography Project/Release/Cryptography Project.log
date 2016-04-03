@@ -1,0 +1,40 @@
+﻿  Encrypt.cpp
+  You may be using a weak algorithm that has been retained for backwards compatibility. Please '#define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1' before including this .h file and prepend the class name with 'Weak::' to remove this warning.
+  Graphics.cpp
+  Generating code
+  6 of 3400 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    7 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+cryptlib.lib(cryptlib.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(cryptlib.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(md5.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(md5.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(algparam.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(algparam.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(modes.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(modes.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(files.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(files.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(filters.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(filters.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(rijndael.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(rijndael.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(hex.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(hex.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(misc.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(misc.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(basecode.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(basecode.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(sha.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(sha.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(iterhash.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(iterhash.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(pch.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(pch.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(queue.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(queue.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(fips140.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(fips140.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(integer.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(integer.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(mqueue.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(mqueue.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(cpu.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(cpu.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(rdtables.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(rdtables.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(dll.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(dll.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(asn.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(asn.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(pubkey.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(pubkey.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(nbtheory.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(nbtheory.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(ecp.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(ecp.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(gfpcrypt.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(gfpcrypt.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(ec2n.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(ec2n.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(gf2n.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(gf2n.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(rng.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(rng.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(osrng.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(osrng.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(randpool.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(randpool.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+cryptlib.lib(hrtimer.obj) : warning LNK4099: PDB 'vc80.pdb' was not found with 'cryptlib.lib(hrtimer.obj)' or at 'C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\vc80.pdb'; linking object as if no debug info
+  Cryptography Project.vcxproj -> C:\Users\sng\Documents\GitHub\Cryptography-Project\Release\Cryptography Project.exe

@@ -1,0 +1,6 @@
+﻿  Sounds.cpp
+c:\users\sng\documents\github\cryptography-project\cryptography project\sounds.cpp(29): warning C4129: 'A': unrecognized character escape sequence
+c:\users\sng\documents\github\cryptography-project\cryptography project\sounds.cpp(29): warning C4129: 'B': unrecognized character escape sequence
+c:\users\sng\documents\github\cryptography-project\cryptography project\sounds.cpp(36): warning C4129: 'A': unrecognized character escape sequence
+c:\users\sng\documents\github\cryptography-project\cryptography project\sounds.cpp(36): warning C4129: 'B': unrecognized character escape sequence
+  Cryptography Project.vcxproj -> C:\Users\sng\Documents\GitHub\Cryptography-Project\x64\Debug\Cryptography Project.exe

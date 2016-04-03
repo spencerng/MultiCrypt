@@ -1,0 +1,35 @@
+﻿  Conversions.cpp
+Conversions.cpp(16): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+Conversions.cpp(54): warning C4244: 'argument': conversion from 'unsigned __int64' to 'char', possible loss of data
+  Cryptography.cpp
+Cryptography.cpp(90): warning C4390: ';': empty controlled statement found; is this the intent?
+  Decrypt.cpp
+  Encrypt.cpp
+  FileIO.cpp
+FileIO.cpp(19): warning C4267: '=': conversion from 'size_t' to 'DWORD', possible loss of data
+  Graphics.cpp
+  IO.cpp
+  KeyGenerate.cpp
+KeyGenerate.cpp(8): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+KeyGenerate.cpp(9): warning C4101: 'seed': unreferenced local variable
+KeyGenerate.cpp(30): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+KeyGenerate.cpp(43): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  MatrixMath.cpp
+MatrixMath.cpp(63): warning C4244: '=': conversion from 'unsigned __int64' to 'int', possible loss of data
+MatrixMath.cpp(66): warning C4244: '+=': conversion from 'unsigned __int64' to 'int', possible loss of data
+MatrixMath.cpp(73): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+MatrixMath.cpp(78): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  RSA.cpp
+RSA.cpp(30): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+RSA.cpp(78): warning C4242: 'argument': conversion from 'int' to 'char', possible loss of data
+  Sounds.cpp
+Sounds.cpp(26): warning C4129: 'A': unrecognized character escape sequence
+Sounds.cpp(26): warning C4129: 'B': unrecognized character escape sequence
+Sounds.cpp(33): warning C4129: 'A': unrecognized character escape sequence
+Sounds.cpp(33): warning C4129: 'B': unrecognized character escape sequence
+  Generating code
+  12 of 675 functions ( 1.8%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    18 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Cryptography Project.vcxproj -> C:\Users\sng\Documents\GitHub\Cryptography-Project\x64\Release\Cryptography Project.exe
