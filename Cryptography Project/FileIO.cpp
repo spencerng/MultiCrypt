@@ -90,7 +90,7 @@ bool isValidFile(string filePath) {
 
 string getFileName()
 {
-	cout << "Enter a file name: ";
+	cout << "\tEnter a file name: ";
 	string file;
 	getline(cin, file);
 	if (validFileName(file) == false)

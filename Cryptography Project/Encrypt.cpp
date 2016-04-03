@@ -12,12 +12,13 @@ using namespace std;
 
 void encrypt() {
 	// This is how the functions would be implemented, but feel free to change it.
+	
 	string fileName = selectFolder() + "\\" + getFileName();
 	createFile(fileName);
 	
 
 	stringstream log;
-	cout << "Please enter the message to encrypt:\n";
+	cout << "\n\tPlease enter the message to encrypt:\n\t";
 
 	string message = getString();
 	
@@ -26,20 +27,20 @@ void encrypt() {
 	
 
 	char input;
-	printStore(log, "Would you like to encrypt using a password? (Y/N)\n\n");
+	printStore(log, "\n\tWould you like to encrypt using a password? (Y/N)\n\n");
 	isValidCharInput(log.str(), { 'y', 'n' }, input);
 	if (input == 'y') {
 		string password, temp;
 		do {
 			cls();
 			log.str("");
-			cout << "Enter password: ";
+			cout << "\tEnter password: ";
 			password = enterPassword();
 
-			printStore(log, "\nConfirm your password: ");
+			printStore(log, "\n\tConfirm your password: ");
 			temp = enterPassword();
 			if (password != temp) {
-				cout << "\n Passwords mismatch. Please try again.\n";
+				cout << "\n\n\tPasswords mismatch. Please try again.\n\n\t";
 				pause();
 
 			}

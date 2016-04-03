@@ -26,6 +26,7 @@ void setFullscreen() {
 
 void printTitle() {
 	//Replace this later
+	std::cout << "\n";
 	vector<string> s;
 	s.push_back(" _________                        __                                    .__            ");
 	s.push_back(" \\_   ___ \\_______ ___.__._______/  |_  ____   ________________  ______ |  |__ ___.__. ");
@@ -34,6 +35,10 @@ void printTitle() {
 	s.push_back("  \\______  /|__|   / ____||   __/|__|  \\____/\\___  /|__|  (____  /   __/|___|  / ____| ");
 	s.push_back("         \\/        \\/     |__|              /_____/            \\/|__|        \\/\\/      ");
 	printCenter(s);
+	std::cout << "\n\n";
+	printCenter("by Spencer Ng, Sahar Sami, Parth Savla");
+	std::cout << "\n";
+	printCenter("Version 0.1 - ALPHA");
 	printf("\n\n");
 
 }

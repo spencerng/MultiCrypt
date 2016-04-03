@@ -138,14 +138,14 @@ void isValidCharInput(string prompt, vector<char> validInputs, char &input) {
 	while (1) {
 		cls();
 		cout << prompt << endl;
-		cout << '\t';
+		
 		input = tolower(_getch());
 		for (int i = 0; i < validInputs.size(); i++)
 			if (input == validInputs[i])
 				return;
 
 
-		cout << "Invalid input detected. Please try again.\n\t";
+		cout << "\tInvalid input detected. Please try again.\n\t";
 		pause();
 		for (int i = 0; i < 144; i++)
 			cout << '\b';
