@@ -5,6 +5,8 @@
 #include<sstream>
 using std::vector;
 using std::string;
+using std::to_string;
+using std::stringstream;
 
 vector<char> stringToCharVec(string input);
 

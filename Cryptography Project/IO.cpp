@@ -146,7 +146,7 @@ string enterPassword() {
 	int charsEntered = 0;
 	cout << '\t';
 	unsigned char ch = _getch();
-	while (ch != 13) { //character 13 is enter
+	while (ch != 10) { //character 10 is new line
 		while (ch == 8) { // character 8 is backspace
 			if (charsEntered != 0) { // Checks if there is anything to delete
 				password.pop_back();

@@ -7,17 +7,13 @@
 #include <conio.h>
 #pragma warning(disable:4996)
 
-using std::string;
 using std::getline;
 using std::cin;
-using std::cout;
-using std::vector;
 using std::setprecision;
 using std::setw;
 using std::endl;
 using std::setfill;
-using std::vector;
-using std::string;
+
 
 string getString();
 //Returns a user inputted string

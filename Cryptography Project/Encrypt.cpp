@@ -1,5 +1,4 @@
 #include "Headers/Encrypt.h"
-using std::stringstream;
 
 void encrypt() {
 	// This is how the functions would be implemented, but feel free to change it.

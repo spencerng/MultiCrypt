@@ -1,10 +1,5 @@
 #include "Headers/FileIO.h"
-using std::ifstream;
-using std::ofstream;
-using std::stringstream;
-using std::endl;
-using std::cout;
-using std::getline;
+
 
 string selectFile() {
 
@@ -53,7 +48,7 @@ string selectFolder() {
 	
 	LPITEMIDLIST p = SHBrowseForFolder(&bi);
 	SHGetPathFromIDList(p, path);
-	string pa = path;
+	
 	
 	return path;
 }

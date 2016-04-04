@@ -7,9 +7,14 @@
 #include <cstdio>
 #include<iostream>
 #include <fstream>
-
 #include<Windows.h>
 #include<ShlObj.h>
+using std::ifstream;
+using std::ofstream;
+using std::stringstream;
+using std::endl;
+using std::cout;
+using std::getline;
 
 
 // Allows user to input a file name, returns "ERROR" if it is not valid
