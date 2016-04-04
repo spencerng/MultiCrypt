@@ -1,7 +1,9 @@
 #ifndef KEYGENERATE_H
 #define KEYGENERATE_H
-#include<vector>
+#include "Headers/MatrixMath.h"
+#include <ctime>
 using std::vector;
+
 
 // Generates a random n x n invertible unimodular matrix, with a determinant of 1
 // Randomly inverts and multiplies matrices from unimodMatrix together in 50-100 cycles

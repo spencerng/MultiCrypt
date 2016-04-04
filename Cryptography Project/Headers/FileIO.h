@@ -1,15 +1,23 @@
 #ifndef FILE_IO
 #define FILE_IO
+#include "HashAES.h"
+#include<iostream>
 #include<vector>
 #include <string>
-#include <sstream>
 #include <cstdio>
 #include<iostream>
 #include <fstream>
-#include "RSA.h"
-using namespace std;
+#include<Windows.h>
+#include<ShlObj.h>
+using std::ifstream;
+using std::ofstream;
+using std::stringstream;
+using std::endl;
+using std::cout;
+using std::getline;
 
-// Allows user to input a file name to create or read from a file, eliminating extra spaces and allowing for input with or without .txt extension
+
+// Allows user to input a file name, returns "ERROR" if it is not valid
 string getFileName();
 
 // Creates a popup Explorer window prompting the user to select a text file.
@@ -24,37 +32,24 @@ string selectFolder();
 // Creates a file if it does not exist
 void createFile(string fileName);
 
-// Given an encrypted numerical message in matrix form (after multiplication), output it to a file, using commas (,) to separate each value
-void outputMessage(vector< vector<int> > message, string fileName);
-void outputMessage(vector< vector<unsigned long long> > message, string fileName);
-
-// Given the encryption key, output it to a file with comma separators
-void outputKey(vector< vector<int> > key, string fileName);
-void outputKey(vector< vector<unsigned long long> > key, string fileName);
-
-// Reads the 3 x 3 encryption key from a file. 
-vector< vector<int> > readKey(string fileName);
-
-// Reads the 3 x m integer matrix that represents the encrypted message, returning it in integer matrix form
-vector< vector<int> > readMessage(string fileName);
-
+// Checks if a file name contains illegal characters
 bool validFileName(string file);
 
+// Appends the ".txt" extension to a file if not present, retains the same string if it contains it - needs to be fixed
 string extension(string);
 
-//Converts key to a space-separated string for easy output
-string keyOutputString(vector< vector<unsigned long long> > input);
-
-string messageOutputString(vector< vector<unsigned long long> > input);
-
+// Passes the three essential lines of the program (has a password, key, message) by reading a file
 void getFileProperties(string filename,bool& hasPassword, string & key, string& message);
 
-vector<vector<unsigned long long>> keyInputMatrix(string input);
-vector<vector<unsigned long long>> messageInputMatrix(string input);
-
+// Appends a single line of text to a file
 void outputLine(string filePath, string line);
 
-// Checks if a file has been modified using hashes
+// Checks if a file has been modified using a SHA-1 checksum and creating a temporary copy of the file
 bool isValidFile(string filePath);
+
+// Hashes a given file and appends the SHA-1 hash to the end of the file
 void addHash(string filePath);
+
+// Checks if a file has been successfully created
+bool fileExists(string fileName);
 #endif

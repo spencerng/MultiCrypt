@@ -1,6 +1,6 @@
 #include "Headers/MatrixMath.h"
-#include <cmath>
-using std::vector;
+#pragma warning(disable:4018)
+
 
 vector< vector<int> > toMMatrix(vector< vector<int> > A, int row, int column) {
 	int m = 0, n = 0;
@@ -57,25 +57,25 @@ int det(vector< vector<int> > A) {
 }
 
 int det(vector< vector<unsigned long long> > A) {
-	int determinant = 0;
+	unsigned int determinant = 0;
 
 	if (A.size() == 2)
-		determinant = A[0][0] * A[1][1] - A[0][1] * A[1][0];
+		determinant = int(A[0][0] * A[1][1] - A[0][1] * A[1][0]);
 
 	else for (int j = 0; j < A.size(); j++)
-		determinant += A[0][j] * cofactor(A, 0, j);
+		determinant +=(int) A[0][j] * (unsigned)cofactor(A, 0, j);
 
 
 	return determinant;
 }
 
 int cofactor(vector< vector<int> > A, int row, int column) {
-	int cof = pow(-1, row + column + 2) * det(toMMatrix(A, row, column));
+	int cof = int(pow(-1, row + column + 2)) * det(toMMatrix(A, row, column));
 	return cof;
 }
 
 int cofactor(vector< vector<unsigned long long> > A, int row, int column) {
-	int cof = pow(-1, row + column + 2) * det(toMMatrix(A, row, column));
+	int cof = int(pow(-1, row + column + 2)) * det(toMMatrix(A, row, column));
 	return cof;
 }
 

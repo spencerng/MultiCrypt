@@ -1,7 +1,5 @@
-#pragma comment(lib, "winmm.lib")
-#include<Windows.h>
 #include "Headers/Sounds.h"
-#include "resource.h"
+
 
 bool soundOn = true;
 

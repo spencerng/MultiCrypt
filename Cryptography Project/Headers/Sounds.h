@@ -1,5 +1,7 @@
 #ifndef SOUNDS_H
 #define SOUNDS_H
+#pragma comment(lib, "winmm.lib")
+#include<Windows.h>
 
 void playSong(char songTitle);
 
