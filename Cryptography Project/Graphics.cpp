@@ -1,6 +1,5 @@
-#include <Windows.h>
 #include "Headers/Graphics.h"
-#include "Headers/IO.h"
+
 using std::string;
 using std::vector;
 
@@ -40,5 +39,22 @@ void printTitle() {
 	std::cout << "\n";
 	printCenter("Version 0.1 - ALPHA");
 	printf("\n\n");
+
+}
+
+void printCenter(string s) {
+	CONSOLE_SCREEN_BUFFER_INFO csbi;
+	HANDLE hand = GetStdHandle(STD_OUTPUT_HANDLE);
+	GetConsoleScreenBufferInfo(hand, &csbi);
+	for (int i = 0; i < ((csbi.dwMaximumWindowSize.X - s.length()) / 2); i++)
+		cout << ' ';
+	cout << s << endl;
+
+}
+
+void printCenter(vector<string> s) {
+
+	for (int i = 0; i < s.size(); i++)
+		printCenter(s[i]);
 
 }

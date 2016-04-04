@@ -1,7 +1,6 @@
-#include<vector>
-#include <string>
-using std::string;
-using std::vector;
+#include "Headers/Conversions.h"
+using std::to_string;
+using std::stringstream;
 
 vector<char> stringToCharVec(string input) {
 	vector<char> output;
@@ -10,7 +9,6 @@ vector<char> stringToCharVec(string input) {
 	return output;
 
 }
-
 
 vector< vector<int> > toNumbMatrix(vector<char> message) {
 	int dimension = message.size();
@@ -80,5 +78,46 @@ vector< char > toLowerCase(vector<char> charArray) {
 			output[i] = tolower(output[i]);
 	}
 
+	return output;
+}
+
+string keyOutputString(vector< vector<unsigned long long> > input) {
+	string output = "";
+
+	for (int i = 0; i < input[0].size(); i++) {
+		for (int j = 0; j < 3; j++)
+			output += to_string(input[i][j]) + " ";
+	}
+	return output;
+}
+
+vector<vector<unsigned long long>> keyInputMatrix(string input) {
+	vector<vector<unsigned long long> > output(3, vector<unsigned long long>(3));
+	stringstream buffer(input);
+	for (int i = 0; i < 3; i++)
+		for (int j = 0; j < 3; j++)
+			buffer >> output[i][j];
+	return output;
+
+}
+
+vector<vector<unsigned long long>> messageInputMatrix(string input) {
+
+	stringstream buffer(input);
+	int col;
+	buffer >> col;
+	vector<vector<unsigned long long> > output(3, vector<unsigned long long>(col));
+	for (int i = 0; i < 3; i++)
+		for (int j = 0; j < col; j++)
+			buffer >> output[i][j];
+	return output;
+
+}
+string messageOutputString(vector< vector<unsigned long long> > input) {
+	string output = to_string(input[0].size()) + " ";
+
+	for (int i = 0; i < 3; i++)
+		for (int j = 0; j < input[0].size(); j++)
+			output += to_string(input[i][j]) + " ";
 	return output;
 }

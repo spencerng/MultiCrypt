@@ -1,11 +1,21 @@
 #ifndef IO
 #define IO
 #include "Sounds.h"
-#include <string>
+#include "Graphics.h"
 #include <iomanip>
-#include <vector>
 #include <sstream>
-#include <iostream>
+#include <conio.h>
+#pragma warning(disable:4996)
+
+using std::string;
+using std::getline;
+using std::cin;
+using std::cout;
+using std::vector;
+using std::setprecision;
+using std::setw;
+using std::endl;
+using std::setfill;
 using std::vector;
 using std::string;
 
@@ -22,17 +32,13 @@ string choices();
 char getChar();
 //Returns a user inputted char
 
-void inputMatrix(vector< vector<int> >& matrix);
+/*void inputMatrix(vector< vector<int> >& matrix);
 //Allows user to replace all values of a matrix of any size. Used primarily for debugging
 
 void printMatrix(vector< vector<double> > A);
 void printMatrix(vector< vector<int> > A);
 void printMatrix(vector< vector<unsigned long long> > A);
-// Displays formatted matrices of either type int or type double.
-
-// Prints centered text, either as a string or stored in a string array
-void printCenter(std::string);
-void printCenter(std::vector<std::string>);
+// Displays formatted matrices of either type int or type double.*/
 
 void printCharVec(vector<char>);
 
@@ -42,8 +48,6 @@ void cls();
 void pause();
 //Uses the _getc() function to ask for input to replace the system function call. 
 
-void print(const char*);
-
 void isValidCharInput(string prompt, vector<char> validInputs, char &input);
 
 //Prints out text and stores it in a buffer to use later with isValidCharInput
@@ -51,5 +55,10 @@ void printStore(std::stringstream &ss, string text);
 
 //Store text from cin into buffer
 void store(std::stringstream &ss,  string);
+
+// Real "enter password" interface
+// Allows user to input and delete characters with asterisks representing each character on screen
+// Returns the actual password entered
+string enterPassword();
 
 #endif

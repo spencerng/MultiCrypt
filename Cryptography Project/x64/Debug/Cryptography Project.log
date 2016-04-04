@@ -1,6 +1,37 @@
 ﻿  Sounds.cpp
-c:\users\sng\documents\github\cryptography-project\cryptography project\sounds.cpp(29): warning C4129: 'A': unrecognized character escape sequence
-c:\users\sng\documents\github\cryptography-project\cryptography project\sounds.cpp(29): warning C4129: 'B': unrecognized character escape sequence
-c:\users\sng\documents\github\cryptography-project\cryptography project\sounds.cpp(36): warning C4129: 'A': unrecognized character escape sequence
-c:\users\sng\documents\github\cryptography-project\cryptography project\sounds.cpp(36): warning C4129: 'B': unrecognized character escape sequence
-  Cryptography Project.vcxproj -> C:\Users\sng\Documents\GitHub\Cryptography-Project\x64\Debug\Cryptography Project.exe
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\sounds.cpp(42): warning C4129: 'A': unrecognized character escape sequence
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\sounds.cpp(42): warning C4129: 'B': unrecognized character escape sequence
+  MatrixMath.cpp
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(63): warning C4244: '=': conversion from 'unsigned __int64' to 'int', possible loss of data
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(66): warning C4244: '+=': conversion from 'unsigned __int64' to 'int', possible loss of data
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(73): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\matrixmath.cpp(78): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+  KeyGenerate.cpp
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\keygenerate.cpp(5): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\keygenerate.cpp(6): warning C4101: 'seed': unreferenced local variable
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\keygenerate.cpp(27): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\keygenerate.cpp(40): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  IO.cpp
+  HashAES.cpp
+  You may be using a weak algorithm that has been retained for backwards compatibility. Please '#define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1' before including this .h file and prepend the class name with 'Weak::' to remove this warning.
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\hashaes.cpp(53): warning C4242: '=': conversion from 'int' to 'char', possible loss of data
+  Graphics.cpp
+  FileIO.cpp
+  You may be using a weak algorithm that has been retained for backwards compatibility. Please '#define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1' before including this .h file and prepend the class name with 'Weak::' to remove this warning.
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\fileio.cpp(23): warning C4267: '=': conversion from 'size_t' to 'DWORD', possible loss of data
+  Encrypt.cpp
+  You may be using a weak algorithm that has been retained for backwards compatibility. Please '#define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1' before including this .h file and prepend the class name with 'Weak::' to remove this warning.
+  Decrypt.cpp
+  You may be using a weak algorithm that has been retained for backwards compatibility. Please '#define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1' before including this .h file and prepend the class name with 'Weak::' to remove this warning.
+  Cryptography.cpp
+  You may be using a weak algorithm that has been retained for backwards compatibility. Please '#define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1' before including this .h file and prepend the class name with 'Weak::' to remove this warning.
+  Conversions.cpp
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\conversions.cpp(14): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+c:\users\sng\documents\visual studio 2015\projects\cryptography-project\cryptography project\conversions.cpp(52): warning C4244: 'argument': conversion from 'unsigned __int64' to 'char', possible loss of data
+  Generating Code...
+  cryptlib_x64_debug.lib(cryptlib.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
+Conversions.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+  Generating code
+  Finished generating code
+  Cryptography Project.vcxproj -> C:\Users\sng\Documents\Visual Studio 2015\Projects\Cryptography-Project\x64\Debug\Cryptography Project.exe

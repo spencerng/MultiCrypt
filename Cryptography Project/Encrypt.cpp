@@ -1,20 +1,28 @@
-#include <string>
-#include<iostream>
-using namespace std;
-#include "Headers/IO.h"
 #include "Headers/Encrypt.h"
-#include "Headers/FileIO.h"
-#include "Headers/Conversions.h"
-#include "Headers/KeyGenerate.h"
-#include "Headers/MatrixMath.h"
-
-// Uncomment this when all of the function definitions are present
+using std::stringstream;
 
 void encrypt() {
 	// This is how the functions would be implemented, but feel free to change it.
-	
-	string fileName = selectFolder() + "\\" + getFileName();
-	createFile(fileName);
+	string file;
+	do {
+		cls();
+		file = getFileName();
+		if (file == "ERROR") {
+			cout << "\tIllegal file name. Please try again.\n\n\t";
+			pause();
+		}
+
+	} while (file == "ERROR");
+	string fileName;
+	do {
+		cls();
+		fileName = selectFolder() + "\\" + file;
+		createFile(fileName);
+		if (!fileExists(fileName)) {
+			cout << "\tFile could not be created. Invalid folder selected or could not obtain permissions. Please select a new directory.\n\n\t";
+			pause();
+		}
+	} while (!fileExists(fileName));
 	
 
 	stringstream log;
@@ -61,6 +69,4 @@ void encrypt() {
 	addHash(fileName);
 	return;
 
-};
-
-
+}

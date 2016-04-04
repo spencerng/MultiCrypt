@@ -1,12 +1,9 @@
 #include "Headers/KeyGenerate.h"
-#include "Headers/MatrixMath.h"
-#include <ctime>
-using std::vector;
 
 
 vector< vector<unsigned long long> > randomMatrix() {
 	srand(time(NULL));
-	int seed;
+	
 	vector< vector<unsigned long long> > randomM;	
 		
 		randomM = unimodMatrix();

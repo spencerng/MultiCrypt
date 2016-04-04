@@ -1,19 +1,4 @@
-#include<iostream>
-#include <iomanip>
-
-#include <conio.h>
-#include <Windows.h>
 #include "Headers/IO.h"
-#include "Headers/Graphics.h"
-using std::string;
-using std::getline;
-using std::cin;
-using std::cout;
-using std::vector;
-using std::setprecision;
-using std::setw;
-using std::endl;
-using std::setfill;
 
 // define DOS for DOS-based OS (Windows) or UNIX (Linux, OS X, etc.)
 #define DOS
@@ -55,39 +40,39 @@ char getChar() {
 	return input;
 }
 
-void inputMatrix(vector< vector<int> >& matrix) {
-	for (int i = 0; i < matrix.size(); i++)
-		for (int j = 0; j < matrix[0].size(); j++)
-			cin >> matrix[i][j];
-
-}
-
-void printMatrix(vector< vector<double> > A) {
-	for (int i = 0; i < A.size(); i++) {
-		cout << setprecision(3);
-		for (int j = 0; j < A[0].size(); j++)
-			cout << setw(15) << A[i][j];
-		cout << endl;
-	}
-}
-
-void printMatrix(vector< vector<int> > A) {
-	for (int i = 0; i < A.size(); i++) {
-		for (int j = 0; j < A[0].size(); j++)
-			cout << setw(10) << A[i][j];
-		cout << endl;
-	}
-	return;
-}
-
-void printMatrix(vector< vector<unsigned long long> > A) {
-	for (int i = 0; i < A.size(); i++) {
-		for (int j = 0; j < A[0].size(); j++)
-			cout << setw(40) << A[i][j];
-		cout << endl;
-	}
-	return;
-}
+//void inputMatrix(vector< vector<int> >& matrix) {
+//	for (int i = 0; i < matrix.size(); i++)
+//		for (int j = 0; j < matrix[0].size(); j++)
+//			cin >> matrix[i][j];
+//
+//}
+//
+//void printMatrix(vector< vector<double> > A) {
+//	for (int i = 0; i < A.size(); i++) {
+//		cout << setprecision(3);
+//		for (int j = 0; j < A[0].size(); j++)
+//			cout << setw(15) << A[i][j];
+//		cout << endl;
+//	}
+//}
+//
+//void printMatrix(vector< vector<int> > A) {
+//	for (int i = 0; i < A.size(); i++) {
+//		for (int j = 0; j < A[0].size(); j++)
+//			cout << setw(10) << A[i][j];
+//		cout << endl;
+//	}
+//	return;
+//}
+//
+//void printMatrix(vector< vector<unsigned long long> > A) {
+//	for (int i = 0; i < A.size(); i++) {
+//		for (int j = 0; j < A[0].size(); j++)
+//			cout << setw(40) << A[i][j];
+//		cout << endl;
+//	}
+//	return;
+//}
 
 void printCharVec(vector<char> input) {
 	for (int i = 0; i < input.size(); i++)
@@ -95,20 +80,7 @@ void printCharVec(vector<char> input) {
 
 }
 
-void printCenter(string s) {
 
-	for (int i = 0; i < (((GetSystemMetrics(SM_CXSCREEN)/8)- s.length()) / 2); i++)
-		cout << ' ';
-	cout << s << endl;
-
-}
-
-void printCenter(vector<string> s) {
-
-	for (int i = 0; i < s.size(); i++)
-		printCenter(s[i]);
-
-}
 
 void cls() {
 #ifdef DOS
@@ -128,12 +100,12 @@ void pause() {
 
 }
 
-void print(const char* c) {
-	for (int i = 0; i < 4; i++)
-		cout << ' ';
-	cout << c;
-
-}
+//void print(const char* c) {
+//	for (int i = 0; i < 4; i++)
+//		cout << ' ';
+//	cout << c;
+//
+//}
 
 void isValidCharInput(string prompt, vector<char> validInputs, char &input) {
 	while (1) {
@@ -166,4 +138,34 @@ void store(std::stringstream &ss, string text) {
 void printStore(std::stringstream &ss, string text) {
 	ss << text;
 	cout << text;
+}
+
+// Need to fix input for arrow/function/special keys, which also return an ASCII value
+string enterPassword() {
+	string password;
+	int charsEntered = 0;
+	cout << '\t';
+	unsigned char ch = _getch();
+	while (ch != 13) { //character 13 is enter
+		while (ch == 8) { // character 8 is backspace
+			if (charsEntered != 0) { // Checks if there is anything to delete
+				password.pop_back();
+				cout << '\b' << ' ' << '\b'; // Moves cursor backwards, enters a blank character, then moves the cursor backwards again to prepare for overwrite
+				charsEntered--;
+			}
+			ch = getch();
+		}
+		if (ch == 13)
+			break;
+
+		if (isprint(ch)) {
+			charsEntered++;
+			password.push_back(ch);
+			cout << '*';
+		}
+
+		ch = _getch();
+	}
+
+	return password;
 }
