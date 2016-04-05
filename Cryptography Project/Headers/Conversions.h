@@ -20,7 +20,6 @@ vector< vector<int> > toNumbMatrix(vector<char> message);
 string matrixToString(vector< vector<int> > input);
 string matrixToString(vector< vector<unsigned long long> > input);
 
-string keyMatrixToString(vector< vector<unsigned long long> > input);
 
 vector< char > toLowerCase(vector<char> charArray);
 

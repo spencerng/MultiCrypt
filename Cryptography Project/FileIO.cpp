@@ -88,6 +88,58 @@ bool isValidFile(string filePath) {
 
 }
 
+string getFileName()
+{
+	cout << "\tEnter a file name: ";
+	string file;
+	getline(cin, file);
+	if (validFileName(file) == false)
+		return "ERROR";
+	file = extension(file);
+	return file;
+}
+
+string extension(string fileName)
+{
+	string search = ".txt";
+	size_t found = fileName.find(search, (fileName.length()-4));
+	if (found != string::npos)
+	{
+		return fileName;
+	}
+	else
+		return fileName + search;
+}
+
+bool validFileName(string file)
+{
+	vector <char> invalid = { '#', '%', '&', '/',
+		'<', '>', '\\', '*', '?', ' ', '$', '!',
+		'\'', '\"', ':', '@', '+', '`', '|', '=', '{', '}' };
+	for (int i = 0; i < file.length(); i++)
+		for (int j = 0; j < invalid.size(); j++)
+			if (file[i] == invalid[j])
+				return false;
+	return true;
+}
+
+bool fileExists(string fileName)
+{
+	ifstream in_stream;
+	in_stream.open(fileName);
+	if (in_stream.fail())
+		return false;
+	else
+		return true;
+}
+
+void createFile(string fileName)
+{
+	ofstream out_stream;
+	out_stream.open(fileName);
+	out_stream.close();
+}
+
 void addHash(string filePath) {
 	
 	ofstream file(filePath, ios_base::app | ios_base::out);
@@ -97,3 +149,63 @@ void addHash(string filePath) {
 
 }
 
+void outputLine(string filePath, string line) {
+	ofstream file(filePath, ios_base::app | ios_base::out);
+	
+	file << line << endl;
+
+}
+
+string keyOutputString(vector< vector<unsigned long long> > input) {
+	string output = "";
+
+	for (int i = 0; i < input[0].size(); i++) {
+		for (int j = 0; j < 3; j++)
+			output += to_string(input[i][j]) + " ";
+	}
+	return output;
+}
+
+vector<vector<unsigned long long>> keyInputMatrix(string input) {
+	vector<vector<unsigned long long> > output(3, vector<unsigned long long>(3));
+	stringstream buffer(input);
+	for (int i = 0; i < 3; i++)
+		for (int j = 0; j < 3; j++)
+			buffer >> output[i][j];
+	return output;
+
+}
+
+vector<vector<unsigned long long>> messageInputMatrix(string input) {
+	
+	stringstream buffer(input);
+	int col;
+	buffer >> col;
+	vector<vector<unsigned long long> > output(3, vector<unsigned long long>(col));
+	for (int i = 0; i < 3; i++)
+		for (int j = 0; j < col; j++)
+			buffer >> output[i][j];
+	return output;
+
+}
+
+void getFileProperties(string filename, bool& hasPassword, string & key, string& message) {
+	ifstream file(filename);
+	string tempString;
+	getline(file, tempString);
+	if (tempString == "Yes")
+		hasPassword = true;
+	else hasPassword = false;
+	getline(file, key);
+	getline(file, message);
+
+}
+
+string messageOutputString(vector< vector<unsigned long long> > input) {
+	string output = to_string(input[0].size()) + " ";
+
+	for (int i = 0; i < 3; i++)
+		for (int j = 0; j < input[0].size(); j++)
+			output += to_string(input[i][j]) + " ";
+	return output;
+}

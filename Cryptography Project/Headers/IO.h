@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <vector>
 #include <sstream>
+#include <iostream>
 using std::vector;
 using std::string;
 

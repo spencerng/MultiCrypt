@@ -8,7 +8,7 @@ using std::endl;
 using namespace CryptoPP;
 
 string md5String(string message) {
-	CryptoPP::SHA1 hash;
+	CryptoPP::MD5 hash;
 	byte digest[CryptoPP::MD5::DIGESTSIZE];
 	hash.CalculateDigest(digest, (byte*)message.c_str(), message.length());
 	CryptoPP::HexEncoder encoder;
@@ -29,9 +29,19 @@ string shaFile(string filePath) {
 }
 
 void hashToByte(string hash, byte key[], int bytes) {
-	for (int i = 0; i < bytes; i++)
-		key[i] = hash[i];
+	std::stringstream ss(hash);
+	int temp;
+	for (int i = 0; i < bytes; i++) {
+		ss >> std::hex >> temp;
+		key[i] = char(temp);
+	}
 
+}
+
+string insertSpace(string s) {
+	for (int i = 2; i < s.length(); i += 3)
+		s.insert(i, 1, ' ');
+	return s;
 }
 
 void generateKey(byte (&key)[32], byte (&iv)[16], string password) {
@@ -41,7 +51,9 @@ void generateKey(byte (&key)[32], byte (&iv)[16], string password) {
 		seed += (password[i] * 127) % (i + 23);
 	srand(seed);
 
-	string hash1 = md5String(password);
+	string hash1 = insertSpace(md5String(password));
+	
+	hash1 += insertSpace(md5String(hash1));
 
 	for (int i = 0; i < hash1.length(); i++) 
 		if (isalpha(hash1[i]) && (rand() % 2))
@@ -51,8 +63,8 @@ void generateKey(byte (&key)[32], byte (&iv)[16], string password) {
 	int seed2 = 0;
 	string hash2 = "";
 	for (int i = 0; i < hash1.length(); i++)
-		hash2 += rand() % 127;
-	hash2 = md5String(hash2);
+		hash2 += password[rand() % password.length()]+rand();
+	hash2 = insertSpace(md5String(hash2));
 	
 	hashToByte(hash2, iv, 16);
 
@@ -75,7 +87,7 @@ string aesEncrypt(string plaintext, string password) {
 	CryptoPP::StreamTransformationFilter stfEncryptor(cbcEncryption, new CryptoPP::StringSink(ciphertext));
 	stfEncryptor.Put(reinterpret_cast<const unsigned char*>(plaintext.c_str()), plaintext.length() + 1);
 	stfEncryptor.MessageEnd();
-	cout << ciphertext << endl;
+	
 	std::stringstream buffer;
 	
 	for (int i = 0; i < ciphertext.size(); i++)

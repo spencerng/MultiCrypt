@@ -16,29 +16,6 @@ using namespace std;
 #include "Headers/Graphics.h"
 
 
-
-void debugMath();
-//Allows user to input matrix to displays the result of transpose, cofactor, and inverse
-
-void debugRandom();
-// Generates a random unimodular matrix and displays it, along with debugMath functions
-
-void debugEncrypt();
-void debugDecrypt();
-
-
-void debugToNumbMatrix() {
-	string input = getString();
-	if (!(isASCII(input)))
-		cout << "Not ASCII";
-	vector<char> vec = stringToCharVec(input);
-	printMatrix(toNumbMatrix(vec));
-	cout << matrixToString(toNumbMatrix(vec));
-	pause();
-
-
-}
-
 //Further functions will be needed for file I/O. Main function will need a good user interface with additional features as necessary.
 
 
@@ -50,16 +27,15 @@ int main() {
 	while (true) {
 		
 		char choice;
-
+		
 		isValidCharInput(choices(), { '1','2','3','4' }, choice);
 		
 		
 		if (choice == '1')
-			;
-			//encrypt();
+			
+			encrypt();
 		else if (choice == '2')
-			;
-			//decrypt();
+			decrypt();
 		else if (choice == '3')
 			toggleSound();
 		else if (choice == '4') {
