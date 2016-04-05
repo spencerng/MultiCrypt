@@ -3,6 +3,9 @@
 // define DOS for DOS-based OS (Windows) or UNIX (Linux, OS X, etc.)
 #define DOS
 
+int errors = 0;
+string mode;
+
 string getString() {
 	string input;
 	getline(cin, input);
@@ -24,6 +27,46 @@ bool isASCII(char c) {
 
 }
 
+void error(string errorMessage) {
+	printf("\n\t%s\n\n", errorMessage.c_str());
+	errors++;
+	
+	if (errors >= 3) {
+		char choice;
+		isValidCharInput("\tWould you like to (c)ontinue or (q)uit to the main menu?\n", { 'c','q' }, choice);
+		if (choice == 'c')
+			return;
+		else {
+			restartCryptProgram();
+			exit(0);
+		}
+	}
+	pause();
+	
+	cls();
+
+}
+
+void error(string errorMessage, string fileName) {
+	printf("\n\t%s\n\n", errorMessage.c_str());
+	errors++;
+
+	if (errors >= 3) {
+		char choice;
+		isValidCharInput("\tWould you like to (c)ontinue or (q)uit to the main menu?", { 'c','q' }, choice);
+		if (choice == 'c')
+			return;
+		else {
+			remove(fileName.c_str());
+			restartCryptProgram();
+			exit(0);
+		}
+	}
+	pause();
+
+	cls();
+
+}
 string choices() {
 	std::stringstream buffer;
 	buffer << "\t(1) Encrypt a message\n";
@@ -32,12 +75,6 @@ string choices() {
 	buffer << "\t(4) Exit the program\n";
 	
 	return buffer.str();
-}
-
-char getChar() {
-	char input;
-	cin >> input;
-	return input;
 }
 
 //void inputMatrix(vector< vector<int> >& matrix) {
@@ -82,11 +119,16 @@ void cls() {
 	system("clear");
 #endif
 	printTitle();
+	printRight(mode);
 
 }
 
+void changeMode(string inMode) {
+	mode = inMode;
+}
+
 void pause() {
-	cout << "Press any key to continue.";
+	printf("\tPress any key to continue.");
 	
 	_getch();
 
@@ -101,8 +143,8 @@ void pause() {
 
 void isValidCharInput(string prompt, vector<char> validInputs, char &input) {
 	while (1) {
-		cls();
-		cout << prompt << endl;
+		
+		printf("%s\n", prompt.c_str());
 		
 		input = tolower(_getch());
 		for (int i = 0; i < validInputs.size(); i++)
@@ -110,15 +152,10 @@ void isValidCharInput(string prompt, vector<char> validInputs, char &input) {
 				return;
 
 
-		cout << "\tInvalid input detected. Please try again.\n\t";
+		printf("\tInvalid input detected. Please try again.\n");
 		pause();
-		for (int i = 0; i < 144; i++)
-			cout << '\b';
-		for (int i = 0; i < 72; i++)
-			cout << ' ';
-		for (int i = 0; i < 72; i++)
-			cout << '\b';
 		
+		cls();
 	}
 
 }
@@ -129,20 +166,20 @@ void store(std::stringstream &ss, string text) {
 
 void printStore(std::stringstream &ss, string text) {
 	ss << text;
-	cout << text;
+	printf("%s", text.c_str());
 }
 
 // Need to fix input for arrow/function/special keys, which also return an ASCII value
 string enterPassword() {
 	string password;
 	int charsEntered = 0;
-	cout << '\t';
+	printf("\t");
 	unsigned char ch = _getch();
 	while (ch != 10) { //character 10 is new line
 		while (ch == 8) { // character 8 is backspace
 			if (charsEntered != 0) { // Checks if there is anything to delete
 				password.pop_back();
-				cout << '\b' << ' ' << '\b'; // Moves cursor backwards, enters a blank character, then moves the cursor backwards again to prepare for overwrite
+				printf("\b \b");
 				charsEntered--;
 			}
 			ch = getch();
@@ -153,11 +190,41 @@ string enterPassword() {
 		if (isprint(ch)) {
 			charsEntered++;
 			password.push_back(ch);
-			cout << '*';
+			printf("*");
 		}
 
 		ch = _getch();
 	}
 
 	return password;
+}
+
+int restartCryptProgram() {
+	errors = 0;
+	
+	while (true) {
+		changeMode("Main Menu");
+		cls();
+		char choice;
+
+		isValidCharInput(choices(), { '1','2','3','4' }, choice);
+
+		if (choice == '1')
+
+			encrypt();
+		else if (choice == '2')
+			decrypt();
+		else if (choice == '3')
+			toggleSound();
+		else if (choice == '4') {
+			isValidCharInput("\tAre you sure you want to quit? (Y/N)", { 'y','n' }, choice);
+			if (choice == 'y') {
+				exitProgramSound();
+				return 0;
+			}
+			
+		}
+
+	}
+
 }

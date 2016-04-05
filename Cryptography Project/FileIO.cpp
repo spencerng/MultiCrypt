@@ -16,27 +16,33 @@ string selectFile() {
 	// Where to put the filename the user selects
 	ofn.lpstrFile = LPSTR(filename.c_str());
 	ofn.nMaxFile = filename.size();
+	ofn.lpstrDefExt = "*.txt";
 	
 
 	// Title of the dialog
 	ofn.lpstrTitle = "Select file to open";
 
 
-	ofn.Flags = OFN_FILEMUSTEXIST | OFN_PATHMUSTEXIST;
-
+	ofn.Flags = OFN_FILEMUSTEXIST |OFN_HIDEREADONLY| OFN_PATHMUSTEXIST | OFN_EXTENSIONDIFFERENT;
+	string newFile;
 	// Shows the dialog
-	GetOpenFileName(&ofn);
+	do {
+		printf("\tPlease select a text file.\n\n");
+		GetOpenFileName(&ofn);
 
-	// Removes null characters from filename
-	string newFile = "";
-	for (int i = 0; i < filename.size(); i++) {
-		if (filename[i] != '\0')
-			newFile += filename[i];
-	}
-
+		// Removes null characters from filename
+		newFile = "";
+		for (int i = 0; i < filename.size(); i++) {
+			if (filename[i] != '\0')
+				newFile += filename[i];
+		}
+		if (newFile == "")
+			error("Window closed without selecting a file. Please try again.");
+	} while (newFile == "");
 	return newFile;
 }
 
+// Deprecated by saveFile
 string selectFolder() {
 	BROWSEINFO bi = { 0 };
 	TCHAR path[MAX_PATH];
@@ -51,6 +57,51 @@ string selectFolder() {
 	
 	
 	return path;
+}
+
+string saveFile() {
+	
+	// Buffer string where the filename user selection is stored
+	string filename(MAX_PATH, '\0');
+
+	OPENFILENAME ofn;
+	ZeroMemory(&ofn, sizeof(OPENFILENAME));
+	ofn.lStructSize = sizeof(OPENFILENAME);
+
+	// Filter for text files and all files
+	ofn.lpstrFilter = "Text File\0*.txt\0All Files\0*.*\0\0";
+
+	// Where to put the filename the user selects
+	ofn.lpstrFile = LPSTR(filename.c_str());
+	ofn.nMaxFile = filename.size();
+	ofn.lpstrDefExt = "txt";
+
+
+	// Title of the dialog
+	ofn.lpstrTitle = "Save text file";
+
+
+	ofn.Flags =  OFN_PATHMUSTEXIST | OFN_EXTENSIONDIFFERENT | OFN_NOREADONLYRETURN | OFN_OVERWRITEPROMPT;
+
+	// Shows the dialog
+	string newFile;
+	do {
+		printf("\tPlease type in the name of the file where the encrypted message is saved.\n");
+		GetSaveFileName(&ofn);
+					
+		// Removes null characters from filename
+		newFile = "";
+		for (int i = 0; i < filename.size(); i++) 
+			if (filename[i] != '\0')
+				newFile += filename[i];
+		
+		if (newFile == "")
+			error("Windows closed without saving a file. Please try again.");
+		else if (ofn.Flags &OFN_EXTENSIONDIFFERENT)
+			error("Please save file as a text file, with a .txt extension.");
+		
+	} while (newFile == "" || ofn.Flags&OFN_EXTENSIONDIFFERENT);
+	return newFile;
 }
 
 bool isValidFile(string filePath) {
@@ -87,9 +138,10 @@ bool isValidFile(string filePath) {
 
 }
 
+// Deprecated by saveFile
 string getFileName()
 {
-	cout << "\tEnter a file name: ";
+	printf("\tEnter a file name: ");
 	string file;
 	std::getline(std::cin, file);
 	if (validFileName(file) == false)
@@ -98,6 +150,7 @@ string getFileName()
 	return file;
 }
 
+// Deprecated by saveFile
 string extension(string fileName)
 {
 	string search = ".txt";
@@ -110,6 +163,7 @@ string extension(string fileName)
 		return fileName + search;
 }
 
+// Deprecated by saveFile
 bool validFileName(string file)
 {
 	vector <char> invalid = { '#', '%', '&', '/',

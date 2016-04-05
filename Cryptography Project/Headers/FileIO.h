@@ -1,11 +1,9 @@
 #ifndef FILE_IO
 #define FILE_IO
 #include "HashAES.h"
+#include "IO.h"
 #include<iostream>
-#include<vector>
-#include <string>
 #include <cstdio>
-#include<iostream>
 #include <fstream>
 #include<Windows.h>
 #include<ShlObj.h>
@@ -13,12 +11,13 @@ using std::ifstream;
 using std::ofstream;
 using std::stringstream;
 using std::endl;
-using std::cout;
 using std::getline;
 
 
 // Allows user to input a file name, returns "ERROR" if it is not valid
 string getFileName();
+
+string saveFile();
 
 // Creates a popup Explorer window prompting the user to select a text file.
 // Returns the path of the selected file (may not be a text file, however)

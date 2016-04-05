@@ -1,8 +1,7 @@
-﻿  Cryptography.cpp
-  You may be using a weak algorithm that has been retained for backwards compatibility. Please '#define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1' before including this .h file and prepend the class name with 'Weak::' to remove this warning.
+﻿  Encrypt.cpp
   Generating code
-  2 of 3401 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  102 of 3340 functions ( 3.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    12 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Cryptography Project.vcxproj -> C:\Users\sng\Documents\Visual Studio 2015\Projects\Cryptography-Project\x64\Release\Cryptography Project.exe

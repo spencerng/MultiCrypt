@@ -46,12 +46,13 @@ void generateKey(byte (&key)[32], byte (&iv)[16], string password) {
 	hash1 += insertSpace(shaString(hash1));
 
 	hashToByte(hash1, key, 32);
-
 	string hash2 = "";
-	for (int i = 0; i < hash1.length(); i++)
-		hash2 += password[rand() % password.length()]+rand();
-	hash2 = insertSpace(shaString(hash2));
-	
+	if (password.length() != 0) {
+		
+		for (int i = 0; i < hash1.length(); i++)
+			hash2 += password[rand() % password.length()] + rand();
+		hash2 = insertSpace(shaString(hash2)) + insertSpace(shaString(insertSpace(shaString(hash2))));
+	}
 	hashToByte(hash2, iv, 16);
 	return;
 }

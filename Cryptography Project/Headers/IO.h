@@ -2,6 +2,8 @@
 #define IO
 #include "Sounds.h"
 #include "Graphics.h"
+#include "Encrypt.h"
+#include "Decrypt.h"
 #include <iomanip>
 #include <sstream>
 #include <conio.h>
@@ -14,6 +16,8 @@ using std::setw;
 using std::endl;
 using std::setfill;
 
+void error(string errorMessage);
+void error(string errorMessage, string fileName);
 
 string getString();
 //Returns a user inputted string
@@ -25,9 +29,6 @@ bool isASCII(char);
 string choices();
 //Prints the main menu of the program
 
-char getChar();
-//Returns a user inputted char
-
 /*void inputMatrix(vector< vector<int> >& matrix);
 //Allows user to replace all values of a matrix of any size. Used primarily for debugging
 
@@ -35,8 +36,6 @@ void printMatrix(vector< vector<double> > A);
 void printMatrix(vector< vector<int> > A);
 void printMatrix(vector< vector<unsigned long long> > A);
 // Displays formatted matrices of either type int or type double.*/
-
-void printCharVec(vector<char>);
 
 void cls();
 //Utilizes an ANSI escape sequence to clear the screen. Works only on 32-bit applications. Preprocessor derivatives control output for DOS/UNIX OSes
@@ -56,5 +55,9 @@ void store(std::stringstream &ss,  string);
 // Allows user to input and delete characters with asterisks representing each character on screen
 // Returns the actual password entered
 string enterPassword();
+
+
+int restartCryptProgram();
+void changeMode(string inMode);
 
 #endif
