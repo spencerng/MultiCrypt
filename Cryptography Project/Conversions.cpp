@@ -1,16 +1,9 @@
 #include "Headers/Conversions.h"
 
 
-vector<char> stringToCharVec(string input) {
-	vector<char> output;
-	for (int i = 0; i < input.size(); i++)
-		output.push_back(input[i]);
-	return output;
 
-}
-
-vector< vector<int> > toNumbMatrix(vector<char> message) {
-	int dimension = message.size();
+vector< vector<int> > toNumbMatrix(string message) {
+	int dimension = message.length();
 	while (dimension % 3 != 0)
 	{
 		dimension++;
@@ -54,22 +47,6 @@ string matrixToString(vector< vector<unsigned long long> > input) {
 	return output;
 }
 
-
-vector<int> charVecToInt(vector<char> input) {
-	vector<int> output;
-	for (int i = 0; i < input.size(); i++)
-		output.push_back(int(input[i]));
-	return output;
-
-}
-
-vector<char> intVecToChar(vector<int> input) {
-	vector<char> output;
-	for (int i = 0; i < input.size(); i++)
-		output.push_back(char(input[i]));
-	return output;
-
-}
 vector< char > toLowerCase(vector<char> charArray) {
 	vector<char> output = charArray;
 	for (int i = 0; i < charArray.size(); i++) {
@@ -87,6 +64,15 @@ string keyOutputString(vector< vector<unsigned long long> > input) {
 		for (int j = 0; j < 3; j++)
 			output += to_string(input[i][j]) + " ";
 	}
+	return output;
+}
+
+string messageOutputString(vector< vector<unsigned long long> > input) {
+	string output = to_string(input[0].size()) + " ";
+
+	for (int i = 0; i < 3; i++)
+		for (int j = 0; j < input[0].size(); j++)
+			output += to_string(input[i][j]) + " ";
 	return output;
 }
 
@@ -111,12 +97,4 @@ vector<vector<unsigned long long>> messageInputMatrix(string input) {
 			buffer >> output[i][j];
 	return output;
 
-}
-string messageOutputString(vector< vector<unsigned long long> > input) {
-	string output = to_string(input[0].size()) + " ";
-
-	for (int i = 0; i < 3; i++)
-		for (int j = 0; j < input[0].size(); j++)
-			output += to_string(input[i][j]) + " ";
-	return output;
 }

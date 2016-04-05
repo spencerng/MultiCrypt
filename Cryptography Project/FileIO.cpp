@@ -16,8 +16,6 @@ string selectFile() {
 	// Where to put the filename the user selects
 	ofn.lpstrFile = LPSTR(filename.c_str());
 	ofn.nMaxFile = filename.size();
-
-	// Folder to start in
 	
 
 	// Title of the dialog
@@ -42,9 +40,11 @@ string selectFile() {
 string selectFolder() {
 	BROWSEINFO bi = { 0 };
 	TCHAR path[MAX_PATH];
+	WCHAR userPath[MAX_PATH];
+	SHGetFolderPathW(NULL, CSIDL_PROFILE, NULL, 0, userPath);
 	
 	bi.lpszTitle = "Select folder to save to\0";
-	bi.ulFlags = BIF_EDITBOX | BIF_VALIDATE | BIF_USENEWUI;
+	bi.ulFlags = BIF_EDITBOX | BIF_NEWDIALOGSTYLE | BIF_RETURNONLYFSDIRS | BIF_VALIDATE ;
 	
 	LPITEMIDLIST p = SHBrowseForFolder(&bi);
 	SHGetPathFromIDList(p, path);

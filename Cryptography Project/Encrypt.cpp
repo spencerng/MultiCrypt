@@ -1,7 +1,7 @@
 #include "Headers/Encrypt.h"
 
 void encrypt() {
-	// This is how the functions would be implemented, but feel free to change it.
+	
 	string file;
 	do {
 		cls();
@@ -18,7 +18,7 @@ void encrypt() {
 		fileName = selectFolder() + "\\" + file;
 		createFile(fileName);
 		if (!fileExists(fileName)) {
-			cout << "\tFile could not be created. Invalid folder selected or could not obtain permissions. Please select a new directory.\n\n\t";
+			cout << "\tFile could not be created. Could not obtain permissions. Please select a new directory.\n\n\t";
 			pause();
 		}
 	} while (!fileExists(fileName));
@@ -29,7 +29,7 @@ void encrypt() {
 
 	string message = getString();
 	
-	vector< vector<int> > matrixMessage = toNumbMatrix(stringToCharVec(message));
+	vector< vector<int> > matrixMessage = toNumbMatrix(message);
 	vector< vector<unsigned long long> > key = randomMatrix();
 	
 

@@ -74,14 +74,6 @@ char getChar() {
 //	return;
 //}
 
-void printCharVec(vector<char> input) {
-	for (int i = 0; i < input.size(); i++)
-		cout << input[i];
-
-}
-
-
-
 void cls() {
 #ifdef DOS
 	system("cls");
