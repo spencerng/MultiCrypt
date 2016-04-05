@@ -102,7 +102,7 @@ string getFileName()
 string extension(string fileName)
 {
 	string search = ".txt";
-	size_t found = fileName.find(search);
+	size_t found = fileName.find(search, (fileName.length()-4));
 	if (found != string::npos)
 	{
 		return fileName;
