@@ -10,8 +10,8 @@
 
 void encrypt();
 
-void getPathInterface(string&fileName);
+int getPathInterface(string&fileName);
 
-void passwordPromptOutput(string fileName, vector<vector<unsigned long long>> key);
+int passwordPromptOutput(string fileName, vector<vector<unsigned long long>> key);
 
 #endif

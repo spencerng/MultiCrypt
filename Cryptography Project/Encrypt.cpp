@@ -6,18 +6,16 @@ void encrypt() {
 	cls();
 	stringstream buffer;
 	string fileName;
-	getPathInterface(fileName);
+	if (getPathInterface(fileName))
+		return;
 	store(buffer, "\tPlease save the output file: " + fileName + "\n");
 	
 	changeMode("Encrypt - Enter Message");
 	cls();
-	printStore(buffer,"\n\tPlease enter the message to encrypt:\n\t");
+	printStore(buffer,"\n\tPlease enter the message to encrypt. Press enter twice to end the message:\n\t");
 
 	
-	string message = getString();
-	
-	
-
+	string message = multiLineInput();
 
 	vector< vector<int> > matrixMessage = toNumbMatrix(message);
 	vector< vector<unsigned long long> > key = randomMatrix();
@@ -25,10 +23,10 @@ void encrypt() {
 	
 	char input;
 	isValidCharInput("\n\tWould you like to encrypt using a password? (Y/N)\n\n", { 'y', 'n' }, input);
-	if (input == 'y') 
-		passwordPromptOutput(fileName, key);
-
-	
+	if (input == 'y') {
+		if (passwordPromptOutput(fileName, key))
+			return;
+	}
 	else {
 		outputLine(fileName, "No");
 		outputLine(fileName, keyOutputString(key));
@@ -46,39 +44,43 @@ void encrypt() {
 
 }
 
-void getPathInterface(string&fileName) {
+int getPathInterface(string&fileName) {
 	do {
 		changeMode("Encrypt - Save File");
 		cls();
 		
 		fileName = saveFile();
+		if (fileName == "1")
+			return ABORT;
 		createFile(fileName);
 		if (!fileExists(fileName))
-			error("File could not be created. Could not obtain permissions. Please select a new directory.");
+			if (error("File could not be created. Could not obtain permissions. Please select a new directory."))
+				return ABORT;
 
 
 	} while (!fileExists(fileName));
-
+	return CONTINUE;
 }
 
-void passwordPromptOutput(string fileName, vector<vector<unsigned long long>> key) {
+int passwordPromptOutput(string fileName, vector<vector<unsigned long long>> key) {
 	string password, temp;
 	do {
 		changeMode("Encrypt - Enter Password");
 		cls();
-
+		capsLockWarning();
 		printf("\tEnter password: ");
 		password = enterPassword();
 
 		printf("\n\tConfirm your password: ");
 		temp = enterPassword();
-		if (password != temp) 
-			error("\n\tPasswords mismatch. Please try again.", fileName);		
+		if (password != temp)
+			if (error("\n\n\tPasswords mismatch. Please try again.", fileName))
+				return ABORT;
 
 		
 	} while (password != temp);
 	outputLine(fileName, "Yes");
 	outputLine(fileName, aesEncrypt(keyOutputString(key), password));
 
-
+	return CONTINUE;
 }

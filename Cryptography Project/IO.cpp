@@ -11,7 +11,40 @@ string getString() {
 	getline(cin, input);
 	return input;
 }
+string multiLineInput() {
+	string input = "";
+	char lastCh = ' ';
+	int lineLength = 0;
+	char ch;
+	while (1) {
+		ch = _getch();
+		if (ch == 13) {
+			if (lastCh == 13)
+				break;
+			input += "\n\t";
+			printf("\n\t");
+			lineLength = 0;
 
+		}
+		else if (ch == 8) {
+			if (lineLength != 0) {
+				printf("\b \b");
+				input.pop_back();
+				lineLength--;
+			}
+			
+		}
+		else {
+			printf("%c", ch);
+			input.push_back(ch);
+			lineLength++;
+		}
+		lastCh = ch;
+	}
+	input.pop_back();
+	input.pop_back();
+	return input;
+}
 bool isASCII(string s) {
 	for (int i = 0; i < s.length(); i++)
 		if (isASCII(s[i]) == false)
@@ -27,44 +60,54 @@ bool isASCII(char c) {
 
 }
 
-void error(string errorMessage) {
+void capsLockWarning(){
+	if (GetKeyState(VK_CAPITAL))
+		printf("\tWarning: Caps Lock is currently on.\n\n");
+	
+}
+
+int error(string errorMessage) {
 	printf("\n\t%s\n\n", errorMessage.c_str());
 	errors++;
 	
 	if (errors >= 3) {
 		char choice;
 		isValidCharInput("\tWould you like to (c)ontinue or (q)uit to the main menu?\n", { 'c','q' }, choice);
-		if (choice == 'c')
-			return;
+		if (choice == 'c') {
+			cls();
+			return CONTINUE;
+		}
 		else {
-			restartCryptProgram();
-			exit(0);
+			return ABORT;
 		}
 	}
 	pause();
 	
 	cls();
+	return CONTINUE;
 
 }
 
-void error(string errorMessage, string fileName) {
+int error(string errorMessage, string fileName) {
 	printf("\n\t%s\n\n", errorMessage.c_str());
 	errors++;
 
 	if (errors >= 3) {
 		char choice;
 		isValidCharInput("\tWould you like to (c)ontinue or (q)uit to the main menu?", { 'c','q' }, choice);
-		if (choice == 'c')
-			return;
+		if (choice == 'c') {
+			cls();
+			return CONTINUE;
+		}
 		else {
 			remove(fileName.c_str());
-			restartCryptProgram();
-			exit(0);
+			return ABORT;
 		}
 	}
 	pause();
 
 	cls();
+	return CONTINUE;
 
 }
 string choices() {
@@ -147,18 +190,17 @@ void pause() {
 //}
 
 void isValidCharInput(string prompt, vector<char> validInputs, char &input) {
+	bool incorrect = 0;
 	while (1) {
 		
 		printf("%s\n", prompt.c_str());
-		
+		if (incorrect)
+			printf("\tInvalid input detected. Please try again.\n");
 		input = tolower(_getch());
 		for (int i = 0; i < validInputs.size(); i++)
 			if (input == validInputs[i])
 				return;
-
-
-		printf("\tInvalid input detected. Please try again.\n");
-		pause();
+		incorrect = 1;
 		
 		cls();
 	}
@@ -205,12 +247,13 @@ string enterPassword() {
 }
 
 int restartCryptProgram() {
-	errors = 0;
+	playSong(JAMES_BOND);
 	
 	while (true) {
 		changeMode("Main Menu");
 		cls();
 		char choice;
+		errors = 0;
 		playSong(JAMES_BOND);
 		isValidCharInput(choices(), { '1','2','3','4' }, choice);
 
@@ -230,6 +273,7 @@ int restartCryptProgram() {
 			}
 			
 		}
+		
 
 	}
 

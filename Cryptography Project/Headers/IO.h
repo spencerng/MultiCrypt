@@ -16,8 +16,11 @@ using std::setw;
 using std::endl;
 using std::setfill;
 
-void error(string errorMessage);
-void error(string errorMessage, string fileName);
+#define CONTINUE 0
+#define ABORT	 1
+
+int error(string errorMessage);
+int error(string errorMessage, string fileName);
 
 void passBuffer(stringstream input);
 
@@ -61,5 +64,9 @@ string enterPassword();
 
 int restartCryptProgram();
 void changeMode(string inMode);
+
+void capsLockWarning();
+
+string multiLineInput();
 
 #endif

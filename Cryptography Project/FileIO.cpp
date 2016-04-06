@@ -37,9 +37,11 @@ string selectFile() {
 				newFile += filename[i];
 		}
 		if (newFile == "")
-			error("Window closed without selecting a file. Please try again.");
+			if (error("Window closed without selecting a file. Please try again."))
+				return to_string(ABORT);
 	} while (newFile == "");
 	return newFile;
+	
 }
 
 // Deprecated by saveFile
@@ -95,10 +97,13 @@ string saveFile() {
 			if (filename[i] != '\0')
 				newFile += filename[i];
 		
-		if (newFile == "")
-			error("Windows closed without saving a file. Please try again.");
+		if (newFile == "") {
+			if (error("Windows closed without saving a file. Please try again."))
+				return to_string(ABORT);
+		}
 		else if (ofn.Flags &OFN_EXTENSIONDIFFERENT)
-			error("Please save file as a text file, with a .txt extension.");
+			if (error("Please save file as a text file, with a .txt extension."))
+				return to_string(ABORT);
 		
 	} while (newFile == "" || ofn.Flags&OFN_EXTENSIONDIFFERENT);
 	return newFile;
@@ -136,44 +141,6 @@ bool isValidFile(string filePath) {
 
 	return 0;
 
-}
-
-// Deprecated by saveFile
-string getFileName()
-{
-	printf("\tEnter a file name: ");
-	string file;
-	std::getline(std::cin, file);
-	if (validFileName(file) == false)
-		return "ERROR";
-	file = extension(file);
-	return file;
-}
-
-// Deprecated by saveFile
-string extension(string fileName)
-{
-	string search = ".txt";
-	size_t found = fileName.find(search);
-	if (found != string::npos)
-	{
-		return fileName;
-	}
-	else
-		return fileName + search;
-}
-
-// Deprecated by saveFile
-bool validFileName(string file)
-{
-	vector <char> invalid = { '#', '%', '&', '/',
-		'<', '>', '\\', '*', '?',  '$', '!',
-		'\'', '\"', ':', '@', '+', '`', '|', '=', '{', '}' };
-	for (unsigned int i = 0; i < file.length(); i++)
-		for (unsigned int j = 0; j < invalid.size(); j++)
-			if (file[i] == invalid[j])
-				return false;
-	return true;
 }
 
 bool fileExists(string fileName)
