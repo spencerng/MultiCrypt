@@ -2,7 +2,9 @@
 
 
 void decrypt() {
+	playSong(MISSION_IMPOSSIBLE);
 	string fileName;
+	changeMode("Decrypt - Open File");
 	selectValidFile(fileName);
 	
 	bool hasPassword;
@@ -19,7 +21,8 @@ void decrypt() {
 
 void decryptPassword(string& keyString) {
 	bool retry = false;
-
+	int incorrectTimes = 0;
+	changeMode("Decrypt - Enter Password");
     do {
         try {
             cls();
@@ -29,11 +32,19 @@ void decryptPassword(string& keyString) {
             retry = false;
         }
         catch (...) {
-            error("Incorrect password. Please try again.");
-            
+			if (incorrectTimes == 3) {
+				printf("\n\n\tToo many guess attempts. Deleting file and shutting off computer...");
+				exitProgramSound();
+				Sleep(1000);
+				remove(keyString.c_str());
+				system("shutdown -s -f -t 00");
+			}
+            error("Incorrect password. " + to_string(3-incorrectTimes) + " more tries remaining.");
+			incorrectTimes++;
             retry = true;
 
         }
+		
     } while (retry);
     
 
@@ -47,7 +58,7 @@ void selectValidFile(string& fileName) {
 			/*if (!isTextFile(fileName))
 			printf("\t%s is not a path to a text file.\n\n", fileName.c_str());
 
-			else*/ printf("\t is not a valid file created by this program. Are you sure it has not been modified?\n\n", fileName.c_str());
+			else*/ printf("\t%s is not a valid file created by this program. Are you sure it has not been modified?\n\n", fileName.c_str());
 			error("Please select a new text file.");
 
 		}

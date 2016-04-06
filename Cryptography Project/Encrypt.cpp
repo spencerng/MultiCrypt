@@ -1,16 +1,24 @@
 #include "Headers/Encrypt.h"
 
 void encrypt() {
+	playSong(PINK_PANTHER);
 	changeMode("Encrypt");
 	cls();
 	stringstream buffer;
 	string fileName;
 	getPathInterface(fileName);
+	store(buffer, "\tPlease save the output file: " + fileName + "\n");
 	
+	changeMode("Encrypt - Enter Message");
+	cls();
 	printStore(buffer,"\n\tPlease enter the message to encrypt:\n\t");
 
+	
 	string message = getString();
 	
+	
+
+
 	vector< vector<int> > matrixMessage = toNumbMatrix(message);
 	vector< vector<unsigned long long> > key = randomMatrix();
 	
@@ -31,9 +39,10 @@ void encrypt() {
 	outputLine(fileName, messageOutputString(encryptedMessage));
 	addHash(fileName);
 	changeMode("Encrypt - Done");
+	cls();
 	printf("\n\n\tFile successfully created.\n");
 	pause();
-	return;
+	
 
 }
 
@@ -64,7 +73,7 @@ void passwordPromptOutput(string fileName, vector<vector<unsigned long long>> ke
 		printf("\n\tConfirm your password: ");
 		temp = enterPassword();
 		if (password != temp) 
-			error("\nPasswords mismatch. Please try again.", fileName);		
+			error("\n\tPasswords mismatch. Please try again.", fileName);		
 
 		
 	} while (password != temp);

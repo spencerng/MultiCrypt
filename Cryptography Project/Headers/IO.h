@@ -19,6 +19,8 @@ using std::setfill;
 void error(string errorMessage);
 void error(string errorMessage, string fileName);
 
+void passBuffer(stringstream input);
+
 string getString();
 //Returns a user inputted string
 

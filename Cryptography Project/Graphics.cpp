@@ -24,19 +24,24 @@ void setFullscreen() {
 
 void printTitle() {
 	//Replace this later
-	printf("\n");
-	vector<string> s;
-	s.push_back(" _________                        __                                    .__            ");
-	s.push_back(" \\_   ___ \\_______ ___.__._______/  |_  ____   ________________  ______ |  |__ ___.__. ");
-	s.push_back(" /    \\  \\/\\_  __ <   |  |\\____ \\   __\\/  _ \\ / ___\\_  __ \\__  \\ \\____ \\|  |  <   |  | ");
-	s.push_back(" \\     \\____|  | \\/\\___  ||  |_> >  | (  <_> ) /_/  >  | \\// __ \\|  |_> >   Y  \\___  | ");
-	s.push_back("  \\______  /|__|   / ____||   __/|__|  \\____/\\___  /|__|  (____  /   __/|___|  / ____| ");
-	s.push_back("         \\/        \\/     |__|              /_____/            \\/|__|        \\/\\/      ");
+	printf("\n\n\n");
+	vector<string> s = {
+
+" $$.    $$$            $$    $$     $$   +++  .+.                          ++     ",
+" $$$.  I$$$            $$    $$         ++         . ....     .. .. .,     ++     ",
+" $$$$ .$,$$  $$   $$   $$  $$$$$Z   $$  ++.       +==, . +. .~+  ++=  ++.,++++++  ",
+" $$ $$$$.$$  $$   $$   $$    $$     $$ .++.       ++     ++  +=  ++    +   ++     ",
+" $$  $$  $$  $$   $$   $$    $$     $$  ++        ++     .+.++.  ++    +.  ++     ",
+" $$      $$  $$$ Z$$   $$    Z$     $$   ++=.. ,  ++      :++.   ++.  ++   ++ .   ",
+"                              $$I          ,++= . ,,       +~    ++ =+..   .:++   ",
+"                                                          ++     ++               ",
+"                                                          +      ++               " };
 	printCenter(s);
 	printf("\n\n");
-	printCenter("by Spencer Ng, Sahar Sami, Parth Savla");
+	printCenter("Spencer Ng, Sahar Sami, Parth Savla");
+	
 	printf( "\n");
-	printCenter("Version 0.2 - ALPHA");
+	printCenter("Version 1.0 - RELEASE");
 	printf("\n\n");
 
 }
@@ -65,4 +70,10 @@ void printRight(string s) {
 
 	printf("%*s\n", csbi.dwMaximumWindowSize.X - s.length()-10,s.c_str());
 
+}
+
+void setColors() {
+	WORD wColor = ((0 & 0x0F) << 4) + (15 & 0x0F);
+	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(handle, wColor);
 }

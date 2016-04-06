@@ -18,5 +18,5 @@ void printCenter(std::vector<std::string>);
 void printTitle();
 
 void printRight(string s);
-
+void setColors();
 #endif

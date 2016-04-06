@@ -86,7 +86,7 @@ string saveFile() {
 	// Shows the dialog
 	string newFile;
 	do {
-		printf("\tPlease type in the name of the file where the encrypted message is saved.\n");
+		printf("\tPlease save the output file: \n");
 		GetSaveFileName(&ofn);
 					
 		// Removes null characters from filename

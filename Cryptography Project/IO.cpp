@@ -5,7 +5,7 @@
 
 int errors = 0;
 string mode;
-
+stringstream buffer;
 string getString() {
 	string input;
 	getline(cin, input);
@@ -120,7 +120,12 @@ void cls() {
 #endif
 	printTitle();
 	printRight(mode);
+	std::cout << buffer.str();
 
+}
+
+void passBuffer(stringstream input) {
+	buffer.str(input.str());
 }
 
 void changeMode(string inMode) {
@@ -206,7 +211,7 @@ int restartCryptProgram() {
 		changeMode("Main Menu");
 		cls();
 		char choice;
-
+		playSong(JAMES_BOND);
 		isValidCharInput(choices(), { '1','2','3','4' }, choice);
 
 		if (choice == '1')
@@ -217,7 +222,8 @@ int restartCryptProgram() {
 		else if (choice == '3')
 			toggleSound();
 		else if (choice == '4') {
-			isValidCharInput("\tAre you sure you want to quit? (Y/N)", { 'y','n' }, choice);
+			changeMode("Exit Program");
+			isValidCharInput("\tAre you sure you want to quit? (Y/N)\n", { 'y','n' }, choice);
 			if (choice == 'y') {
 				exitProgramSound();
 				return 0;

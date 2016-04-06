@@ -31,17 +31,17 @@ LINK : fatal error LNK1000: Internal error during IMAGE::BuildImage
   
     ExceptionCode            = C0000005
     ExceptionFlags           = 00000000
-    ExceptionAddress         = 506748A7 (50300000) "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\c2.dll"
+    ExceptionAddress         = 501448A7 (4FDD0000) "C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\c2.dll"
     NumberParameters         = 00000002
     ExceptionInformation[ 0] = 00000000
     ExceptionInformation[ 1] = 0000002C
   
   CONTEXT:
-    Eax    = 00000000  Esp    = 004FE600
-    Ebx    = 00000000  Ebp    = 004FE620
-    Ecx    = 00002392  Esi    = 12F5A13C
-    Edx    = 070D9C7C  Edi    = 12F5A134
-    Eip    = 506748A7  EFlags = 00010246
+    Eax    = 00000000  Esp    = 0018E410
+    Ebx    = 00000000  Ebp    = 0018E430
+    Ecx    = 00002392  Esi    = 151E361C
+    Edx    = 10ABACA4  Edi    = 151E3614
+    Eip    = 501448A7  EFlags = 00010246
     SegCs  = 00000023  SegDs  = 0000002B
     SegSs  = 0000002B  SegEs  = 0000002B
     SegFs  = 00000053  SegGs  = 0000002B

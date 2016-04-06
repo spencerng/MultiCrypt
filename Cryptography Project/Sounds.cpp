@@ -9,19 +9,19 @@ bool getMusicStatus() {
 
 }
 
-void playSong(char songTitle){
-	
-	if(songTitle=='m')
-		PlaySoundA("Audio Files/Mission Impossible.wav", NULL,
-			SND_FILENAME | SND_ASYNC | SND_LOOP );
-	
-	else if(songTitle=='j')
-		PlaySoundA("/Audio Files/James Bond.wav",
-		NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
-	else if(songTitle=='p')
-		PlaySoundA("/Audio Files/Pink Panther.wav",
-		NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
-	
+void playSong(int songTitle){
+	if (soundOn) {
+		if (songTitle == MISSION_IMPOSSIBLE)
+			PlaySoundA("Audio Files/Mission Impossible.wav", NULL,
+				SND_FILENAME | SND_ASYNC | SND_LOOP);
+
+		else if (songTitle == JAMES_BOND)
+			PlaySoundA("Audio Files/James Bond.wav",
+				NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+		else if (songTitle == PINK_PANTHER)
+			PlaySoundA("Audio Files/Pink Panther.wav",
+				NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+	}
 	
 }
 
@@ -33,13 +33,13 @@ void muteSounds(){
 void toggleSound() {
 	soundOn = !soundOn;
 	if (soundOn)
-		playSong('m');
+		playSong(JAMES_BOND);
 	else muteSounds();
 }
 
 void selectChoiceSound(){
 	
-	PlaySoundA("\Audio Files\Button.wav",
+	PlaySoundA("Audio Files/Button.wav",
 		NULL, SND_FILENAME | SND_ASYNC);
 	
 }
@@ -47,11 +47,11 @@ void selectChoiceSound(){
 void exitProgramSound(){
 	if(soundOn)
 	PlaySoundA("Audio Files/Blast.wav",
-		NULL, SND_FILENAME );
+		NULL, SND_FILENAME | SND_ASYNC );
 	
 }
 
 void errorSound(){
 	
-	PlaySoundA("b.wav", NULL, SND_FILENAME | SND_ASYNC );
+	PlaySoundA("SystemExclamation", NULL,SND_ASYNC );
 }
