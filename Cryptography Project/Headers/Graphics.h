@@ -2,11 +2,9 @@
 #define GRAPHICS
 #include<string>
 #include<vector>
-#include <iostream>
 #include<Windows.h>
 using std::string;
 using std::vector;
-using std::cout;
 using std::endl;
 
 // Simulates setting console to fullscreen with a buffer resize and Alt+Enter combo
@@ -19,4 +17,8 @@ void printCenter(std::vector<std::string>);
 // Prints some kind of centered header to the project
 void printTitle();
 
+void printRight(string s);
+void setColors();
+
+void showCursor(bool showFlag);
 #endif

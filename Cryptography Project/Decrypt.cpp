@@ -1,58 +1,77 @@
 #include "Headers/Decrypt.h"
 
+
 void decrypt() {
+	playSong(MISSION_IMPOSSIBLE);
 	string fileName;
-	selectValidFile(fileName);
+	changeMode("Decrypt - Open File");
+	cls();
+	if (selectValidFile(fileName))
+		return;
 	
 	bool hasPassword;
 	string keyString, messageString;
 	getFileProperties(fileName, hasPassword, keyString, messageString);
-	bool retry = false;
+	
 	if (hasPassword)
-		decryptPassword(keyString);
+		if (decryptPassword(keyString))
+			return;
 	
 	string decryptMessage = matrixToString(multiply(inverseInt(keyInputMatrix(keyString)), messageInputMatrix(messageString)));
-	cout << "\n\n\tYour decrypted message is:\n\t" << decryptMessage << "\n\n\t";
+	printf("\n\n\tYour decrypted message is:\n\n\t%s\n\n", decryptMessage.c_str());
 	pause();
 }
 
-void decryptPassword(string& keyString) {
+int decryptPassword(string& keyString) {
 	bool retry = false;
-
+	int incorrectTimes = 0;
+	changeMode("Decrypt - Enter Password");
     do {
         try {
             cls();
-            cout << "\tThe file is encrypted using a password.\n\tEnter password: ";
+			capsLockWarning();
+			printf("\tThe file is encrypted using a password.\n\n\tEnter password: ");
             string password = enterPassword();
             keyString = aesDecrypt(keyString, password);
             retry = false;
         }
         catch (...) {
-            cout << "\n\tIncorrect password. Please try again.\n\n\t";
-            pause();
+			if (incorrectTimes == 3) {
+				printf("\n\n\tToo many guess attempts. Deleting file and shutting off computer...");
+				exitProgramSound();
+				Sleep(1000);
+				remove(keyString.c_str());
+				system("shutdown -s -f -t 00");
+			}
+			if (error("Incorrect password. " + to_string(3 - incorrectTimes) + " more tries remaining."))
+				return ABORT;
+			incorrectTimes++;
             retry = true;
 
         }
+		
     } while (retry);
-    
+	return CONTINUE;
 
 }
 
-void selectValidFile(string& fileName) {
+int selectValidFile(string& fileName) {
 	do {
-		cout << "\tPlease select a text file.\n\n";
+		
 		fileName = selectFile();
+		if (fileName == "1")
+			return ABORT;
 		if (/*!isTextFile(fileName) ||*/ !isValidFile(fileName)) {
 			/*if (!isTextFile(fileName))
-			cout << "\t" << fileName << " is not a path to a text file.\n\n";
+			printf("\t%s is not a path to a text file.\n\n", fileName.c_str());
 
-			else*/ cout << "\t" << fileName << " is not a valid file created by this program. Are you sure it has not been modified?\n\n";
-		cout << "\tPlease select a new text file.\n\t";
-		pause();
+			else*/ printf("\t%s is not a valid file created by this program. Are you sure it has not been modified?\n\n", fileName.c_str());
+		if (error("Please select a new text file."))
+			return ABORT;
 
 		}
 		cls();
 
 	} while (!isValidFile(fileName) /*|| !isTextFile(fileName)*/);
-
+	return CONTINUE;
 }
