@@ -8,14 +8,9 @@ using std::string;
 using std::to_string;
 using std::stringstream;
 
-vector<char> stringToCharVec(string input);
-
-vector<int> charVecToInt(vector<char>);
-
-vector<char> intVecToChar(vector<int>);
 
 //Converts a string to a 3 x m integer matrix, based on its ASCII values
-vector< vector<int> > toNumbMatrix(vector<char> message);
+vector< vector<int> > toNumbMatrix(string message);
 
 // Converts a 3 x m integer matrix to a string based on its ASCII values
 string matrixToString(vector< vector<int> > input);

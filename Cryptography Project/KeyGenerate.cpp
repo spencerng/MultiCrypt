@@ -3,19 +3,23 @@
 
 vector< vector<unsigned long long> > randomMatrix() {
 	srand(time(NULL));
-	
+	printf("\n\tEncrypting");
 	vector< vector<unsigned long long> > randomM;	
 		
 		randomM = unimodMatrix();
-		int iterations = rand() % 100 + 50;
-		for (int i = 0; i < iterations; i++) {
+		int iterations = rand() % 1000;
+		for (int i = 1; i <= iterations; i++) {
 			int isInverted = rand();
 			if (isInverted % 2 == 0)
 				randomM = inverseInt(randomM);
 			
 			randomM = multiply(randomM, unimodMatrix());
+			if (i % 10 == 0)
+				
+				printf(".");
 		}
-
+		
+		printf("\n");
 	return randomM;
 }
 

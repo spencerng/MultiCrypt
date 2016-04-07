@@ -6,10 +6,12 @@
 #include "Headers/KeyGenerate.h"
 #include "Headers/MatrixMath.h"
 
+
+
 void encrypt();
 
+int getPathInterface(string&fileName);
 
-// Encrypt the key using a password with AES
-void encryptPassword(string key);
+int passwordPromptOutput(string fileName, vector<vector<unsigned long long>> key);
 
 #endif
