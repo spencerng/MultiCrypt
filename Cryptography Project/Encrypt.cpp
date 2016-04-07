@@ -4,15 +4,15 @@ void encrypt() {
 	playSong(PINK_PANTHER);
 	changeMode("Encrypt");
 	cls();
-	stringstream buffer;
+	
 	string fileName;
 	if (getPathInterface(fileName))
 		return;
-	store(buffer, "\tPlease save the output file: " + fileName + "\n");
+	printf("\tPlease save the output file: %s\n", fileName.c_str());
 	
 	changeMode("Encrypt - Enter Message");
 	cls();
-	printStore(buffer,"\n\tPlease enter the message to encrypt. Press enter twice to end the message:\n\t");
+	printf("\n\tPlease enter the message to encrypt. Press enter twice to end the message:\n\n\t");
 
 	
 	string message = multiLineInput();
@@ -24,8 +24,10 @@ void encrypt() {
 	char input;
 	isValidCharInput("\n\tWould you like to encrypt using a password? (Y/N)\n\n", { 'y', 'n' }, input);
 	if (input == 'y') {
-		if (passwordPromptOutput(fileName, key))
+		if (passwordPromptOutput(fileName, key)) {
+
 			return;
+		}
 	}
 	else {
 		outputLine(fileName, "No");
@@ -74,8 +76,10 @@ int passwordPromptOutput(string fileName, vector<vector<unsigned long long>> key
 		printf("\n\tConfirm your password: ");
 		temp = enterPassword();
 		if (password != temp)
-			if (error("\n\n\tPasswords mismatch. Please try again.", fileName))
+			if (error("\n\n\tPasswords mismatch. Please try again.")) {
+				remove(fileName.c_str());
 				return ABORT;
+			}
 
 		
 	} while (password != temp);

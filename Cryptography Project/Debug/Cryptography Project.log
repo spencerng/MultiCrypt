@@ -1,6 +1,6 @@
-﻿  Decrypt.cpp
-c:\users\sng\documents\github\cryptography-project\cryptography project\decrypt.cpp(59): warning C4474: 'printf' : too many arguments passed for format string
-  c:\users\sng\documents\github\cryptography-project\cryptography project\decrypt.cpp(59): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+﻿  Sounds.cpp
+  Cryptography.cpp
+  Generating Code...
   cryptlid.lib(cryptlib.obj) : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
 Conversions.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification

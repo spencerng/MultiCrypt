@@ -19,4 +19,6 @@ void printTitle();
 
 void printRight(string s);
 void setColors();
+
+void showCursor(bool showFlag);
 #endif

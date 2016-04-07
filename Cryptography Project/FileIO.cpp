@@ -38,7 +38,7 @@ string selectFile() {
 		}
 		if (newFile == "")
 			if (error("Window closed without selecting a file. Please try again."))
-				return to_string(ABORT);
+				return std::to_string(ABORT);
 	} while (newFile == "");
 	return newFile;
 	
@@ -99,11 +99,11 @@ string saveFile() {
 		
 		if (newFile == "") {
 			if (error("Windows closed without saving a file. Please try again."))
-				return to_string(ABORT);
+				return std::to_string(ABORT);
 		}
 		else if (ofn.Flags &OFN_EXTENSIONDIFFERENT)
 			if (error("Please save file as a text file, with a .txt extension."))
-				return to_string(ABORT);
+				return std::to_string(ABORT);
 		
 	} while (newFile == "" || ofn.Flags&OFN_EXTENSIONDIFFERENT);
 	return newFile;

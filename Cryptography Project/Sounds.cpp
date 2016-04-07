@@ -10,17 +10,18 @@ bool getMusicStatus() {
 }
 
 void playSong(int songTitle){
+	muteSounds();
+	
 	if (soundOn) {
 		if (songTitle == MISSION_IMPOSSIBLE)
 			PlaySoundA("Audio Files/Mission Impossible.wav", NULL,
-				SND_FILENAME | SND_ASYNC | SND_LOOP);
-
+				SND_FILENAME | SND_ASYNC | SND_LOOP | SND_NODEFAULT);
 		else if (songTitle == JAMES_BOND)
 			PlaySoundA("Audio Files/James Bond.wav",
-				NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+				 NULL, SND_NODEFAULT | SND_ASYNC | SND_LOOP);
 		else if (songTitle == PINK_PANTHER)
 			PlaySoundA("Audio Files/Pink Panther.wav",
-				NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+				NULL, SND_FILENAME | SND_ASYNC | SND_NODEFAULT | SND_LOOP);
 	}
 	
 }

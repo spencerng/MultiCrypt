@@ -2,7 +2,6 @@
 #define FILE_IO
 #include "HashAES.h"
 #include "IO.h"
-#include<iostream>
 #include <cstdio>
 #include <fstream>
 #include<Windows.h>
@@ -13,9 +12,6 @@ using std::stringstream;
 using std::endl;
 using std::getline;
 
-
-// Allows user to input a file name, returns "ERROR" if it is not valid
-string getFileName();
 
 string saveFile();
 
@@ -30,9 +26,6 @@ string selectFolder();
 
 // Creates a file if it does not exist
 void createFile(string fileName);
-
-// Checks if a file name contains illegal characters
-bool validFileName(string file);
 
 // Appends the ".txt" extension to a file if not present, retains the same string if it contains it - needs to be fixed
 string extension(string);

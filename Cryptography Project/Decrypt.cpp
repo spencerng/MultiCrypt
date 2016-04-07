@@ -18,7 +18,7 @@ void decrypt() {
 			return;
 	
 	string decryptMessage = matrixToString(multiply(inverseInt(keyInputMatrix(keyString)), messageInputMatrix(messageString)));
-	printf("\n\n\tYour decrypted message is:\n\t%s\n\n", decryptMessage.c_str());
+	printf("\n\n\tYour decrypted message is:\n\n\t%s\n\n", decryptMessage.c_str());
 	pause();
 }
 
@@ -30,7 +30,7 @@ int decryptPassword(string& keyString) {
         try {
             cls();
 			capsLockWarning();
-			printf("\tThe file is encrypted using a password.\n\tEnter password: ");
+			printf("\tThe file is encrypted using a password.\n\n\tEnter password: ");
             string password = enterPassword();
             keyString = aesDecrypt(keyString, password);
             retry = false;

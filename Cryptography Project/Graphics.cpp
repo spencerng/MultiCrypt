@@ -5,19 +5,22 @@
 void setFullscreen() {
 	//Changes the window buffer size to exclude the scrollbar
 	HANDLE hand = GetStdHandle(STD_OUTPUT_HANDLE);
+	
 	CONSOLE_SCREEN_BUFFER_INFO info;
 	GetConsoleScreenBufferInfo(hand, &info);
-	info.dwSize.X = info.dwMaximumWindowSize.X;
+	info.dwSize.X = 1900;
 	info.dwSize.Y = info.dwMaximumWindowSize.Y;
 	SetConsoleScreenBufferSize(hand, info.dwSize);
-
+	
+	
 	//Simulates the Alt+Enter keypress to enter fullscreen console mode
 	keybd_event(VK_MENU, 0x38, 0x0000, 0);
 	keybd_event(VK_RETURN, 0x1c, 0x0000, 0);
 	keybd_event(VK_RETURN, 0x1c, KEYEVENTF_KEYUP, 0);
 	keybd_event(VK_MENU, 0x38, KEYEVENTF_KEYUP, 0);
 
-	SetConsoleTitle("Cryptography");
+	SetConsoleTitle("MultiCrypt");
+	
 }
 
 
@@ -41,9 +44,18 @@ void printTitle() {
 	printCenter("Spencer Ng, Sahar Sami, Parth Savla");
 	
 	printf( "\n");
-	printCenter("Version 1.0 - RELEASE");
+	printCenter("Version 1.0");
 	printf("\n\n");
 
+}
+void showCursor(bool showFlag) {
+	HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	CONSOLE_CURSOR_INFO     cursorInfo;
+
+	GetConsoleCursorInfo(out, &cursorInfo);
+	cursorInfo.bVisible = showFlag; // set the cursor visibility
+	SetConsoleCursorInfo(out, &cursorInfo);
 }
 
 void printCenter(string s) {
