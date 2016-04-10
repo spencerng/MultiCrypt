@@ -6,11 +6,27 @@
 // array to solve this problem. 
 
 #include<iostream>
+#include<vector>
+#include <algorithm>
 using namespace std;
 
-int main(){
-	
-	
-	
+int main() {
+	vector<int> numbers;
+	int num;
+	for (int i = 0; i < 20; i++) {
+		cout << "Enter #" << i + 1 << ": ";
+		cin >> num;
+		if (find(numbers.begin(), numbers.end(), num) == numbers.end())
+			numbers.push_back(num);
+	}
+
+	sort(numbers.begin(), numbers.end());
+
+	cout << "\n\nThe unique values are:\n\n";
+	for (int i = 0; i < numbers.size()-1; i++)
+		cout << numbers[i] << ", ";
+
+	cout << numbers[numbers.size() - 1] << endl << endl;
+
 	return 0;
 }
