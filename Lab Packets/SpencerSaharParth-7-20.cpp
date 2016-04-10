@@ -19,11 +19,77 @@
 // in 3 hours". 
 
 #include<iostream>
+#include<vector>
+#include<string>
+#include <algorithm>
 using namespace std;
 
-int main(){
+void printPass(int seat, string status);
+
+int main() {
 	
-	
-	
-	return 0;
+	int firstPos = 0, ecoPos = 5;
+	while (1) {
+		system("cls");
+		int choice;
+		char chChoice;
+
+		if (firstPos==5 && ecoPos==10) {
+			cout << "All seats are now full. Goodbye.\n";
+			system("pause");
+			return 0;
+		}
+
+		cout << "Please type '1' for \"Economy\"\nPlease type '2' for \"First Class\"\nType -1 to quit\n";
+		cin >> choice;
+		cout << endl;
+		if (choice == 1) {
+			if (ecoPos != 10) {
+				cout << "Your boarding pass is:\n";
+				printPass(ecoPos++ + 1, "Economy");
+			}
+			else {
+				cout << "All economy seats are full.\nIs it acceptable to be placed in first class? (Y/N)\n";
+				cin >> chChoice;
+				if (tolower(chChoice) == 'y'&&firstPos!=5) {
+					cout << "Your boarding pass is:\n";
+					printPass(firstPos++ + 1, "First Class");
+
+				}
+				else cout << "\nNext flight leaves in 3 hours.\n\n";
+					
+			}
+		}
+		else if (choice == 2) {
+			if (firstPos != 5) {
+				cout << "Your boarding pass is:\n";
+				printPass(firstPos++ + 1, "First Class");
+			}
+			else {
+				cout << "All seats in first class are full.\nIs it acceptable to be placed in the economy section? (Y/N)\n";
+				cin >> chChoice;
+				if (tolower(chChoice) == 'y'&&ecoPos != 10) {
+					cout << "Your boarding pass is:\n";
+					printPass(ecoPos++ + 1, "Economy");
+
+				}
+				else cout << "\nNext flight leaves in 3 hours.\n\n";
+
+			}
+		}
+		else return 0;
+		system("pause");
+	}
+
+}
+
+void printPass(int seat, string status) {
+	cout << " ______________________________________" << endl;
+	cout << "|                                      |" << endl;
+	cout << (seat==10 ? ("|               Seat " + to_string(seat) + "                |") : ("|               Seat " + to_string(seat) + "                 |")) << endl;
+	cout << "|                                      |" << endl;
+	cout << (status=="First Class" ? ("|             " + status + "              |" ):("|               " + status + "                |")) << endl;
+	cout << "|                                      |" << endl;
+	cout << "|______________________________________|" << endl;
+
 }
