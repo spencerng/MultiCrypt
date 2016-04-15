@@ -8,10 +8,9 @@ void setFullscreen() {
 	
 	CONSOLE_SCREEN_BUFFER_INFO info;
 	GetConsoleScreenBufferInfo(hand, &info);
-	info.dwSize.X = 1900;
+	info.dwSize.X = info.dwMaximumWindowSize.X;
 	info.dwSize.Y = info.dwMaximumWindowSize.Y;
 	SetConsoleScreenBufferSize(hand, info.dwSize);
-	
 	
 	//Simulates the Alt+Enter keypress to enter fullscreen console mode
 	keybd_event(VK_MENU, 0x38, 0x0000, 0);
@@ -26,32 +25,34 @@ void setFullscreen() {
 
 
 void printTitle() {
-	//Replace this later
-	printf("\n\n\n");
-	vector<string> s = {
 
-"$$.    $$$            $$    $$     $$   +++ ++.                           ++  ",
-"$$$.  I$$$            $$    $$         ++         +++++      +  .....     ++  ",
-"$$$$ .$,$$  $$   $$   $$  $$$$$$   $$  ++        +==,  ++    +  ++=  ++ ++++++",
-"$$ $$$$.$$  $$   $$   $$    $$     $$  ++        ++     ++  +=  ++    +   ++  ",
-"$$  $$  $$  $$   $$   $$    $$     $$  ++        ++      +.++   ++    +   ++  ",
-"$$      $$  $$$ Z$$   $$    Z$     $$   ++=..    ++       ++.   ++.  ++   ++ .",
-"                             $$I           ++=   ,,       +~    ++ =+.    .:++",
-"                                                         ++     ++            ",
-"                                                         +      ++            " };
-	printCenter(s);
+	printf("\n\n\n");
+	vector<string> title = {
+
+		"$$.    $$$            $$    $$     $$   +++ ++.                           ++  ",
+		"$$$.   $$$            $$    $$         ++         +++++      +  .....     ++  ",
+		"$$$$ .$,$$  $$   $$   $$  $$$$$$   $$  ++        +==,  ++    +  ++=  ++ ++++++",
+		"$$ $$$$.$$  $$   $$   $$    $$     $$  ++        ++     ++  +=  ++    +   ++  ",
+		"$$  $$  $$  $$   $$   $$    $$     $$  ++        ++      +.++   ++    +   ++  ",
+		"$$      $$  $$$ Z$$   $$    Z$     $$   ++=..    ++       ++.   ++.  ++   ++ .",
+		"                             $$I           ++=   ,,       +~    ++ =+.    .:++",
+		"                                                         ++     ++            ",
+		"                                                         +      ++            " };
+
+	printCenter(title);
 	printf("\n\n");
 	printCenter("Spencer Ng, Sahar Sami, Parth Savla");
 	
 	printf( "\n");
-	printCenter("Version 1.0");
+	printCenter("Version 1.1");
 	printf("\n\n");
 
 }
 void showCursor(bool showFlag) {
 	HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	CONSOLE_CURSOR_INFO     cursorInfo;
+	// Structure contains cursor properties
+	CONSOLE_CURSOR_INFO cursorInfo;
 
 	GetConsoleCursorInfo(out, &cursorInfo);
 	cursorInfo.bVisible = showFlag; // set the cursor visibility
@@ -61,7 +62,11 @@ void showCursor(bool showFlag) {
 void printCenter(string s) {
 	CONSOLE_SCREEN_BUFFER_INFO csbi;
 	HANDLE hand = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	// Gets the size for the calculations and stores it into csbi
 	GetConsoleScreenBufferInfo(hand, &csbi);
+
+	// Essentially divides the buffer size into two to create a centered print
 	for (int i = 0; i < ((csbi.dwMaximumWindowSize.X - s.length()) / 1.85); i++)
 		printf(" ");
 	printf("%s\n", s.c_str());
@@ -80,11 +85,14 @@ void printRight(string s) {
 	HANDLE hand = GetStdHandle(STD_OUTPUT_HANDLE);
 	GetConsoleScreenBufferInfo(hand, &csbi);
 
+	// Sets a 10 character padding from the right margin
 	printf("%*s\n", csbi.dwMaximumWindowSize.X - s.length()-10,s.c_str());
 
 }
 
 void setColors() {
+
+	// First part indicates background, second indicates text color
 	WORD wColor = ((0 & 0x0F) << 4) + (15 & 0x0F);
 	HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(handle, wColor);

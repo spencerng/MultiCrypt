@@ -28,7 +28,7 @@ vector<vector<unsigned long long>> keyInputMatrix(string input);
 // Converts the encrypted message into a matrix from a string
 vector<vector<unsigned long long>> messageInputMatrix(string input);
 
-
+// Converts a string to all lowercase
 vector< char > toLowerCase(vector<char> charArray);
 
 #endif

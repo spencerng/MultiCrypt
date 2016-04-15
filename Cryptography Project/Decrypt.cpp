@@ -3,10 +3,13 @@
 
 void decrypt() {
 	playSong(MISSION_IMPOSSIBLE);
-	string fileName;
+	
 	changeMode("Decrypt - Open File");
 	cls();
+
+	string fileName;
 	if (selectValidFile(fileName))
+		// If ABORT is returned
 		return;
 	
 	bool hasPassword;
@@ -17,7 +20,11 @@ void decrypt() {
 		if (decryptPassword(keyString))
 			return;
 	
+	/* Converts the string key and message to a matrix, computes the inverse of the key, 
+	multiplies the two together, then converts the plaintext matrix to a string*/
 	string decryptMessage = matrixToString(multiply(inverseInt(keyInputMatrix(keyString)), messageInputMatrix(messageString)));
+
+	// %s signifies a (legacy) string variable 
 	printf("\n\n\tYour decrypted message is:\n\n\t%s\n\n", decryptMessage.c_str());
 	pause();
 }
@@ -27,6 +34,7 @@ int decryptPassword(string& keyString) {
 	int incorrectTimes = 0;
 	changeMode("Decrypt - Enter Password");
     do {
+		// try-catch statement catches the exception throw when the password is incorrect
         try {
             cls();
 			capsLockWarning();
@@ -35,12 +43,16 @@ int decryptPassword(string& keyString) {
             keyString = aesDecrypt(keyString, password);
             retry = false;
         }
+
+		// Ellipses catch all exceptions
         catch (...) {
+
+			// Force-shut the system when the password is entered incorrectly 3 or more times
 			if (incorrectTimes == 3) {
 				printf("\n\n\tToo many guess attempts. Deleting file and shutting off computer...");
-				exitProgramSound();
+				exitProgramSound(); // Explosion
 				Sleep(1000);
-				remove(keyString.c_str());
+				remove(keyString.c_str()); // Deletes the file
 				system("shutdown -s -f -t 00");
 			}
 			if (error("Incorrect password. " + to_string(3 - incorrectTimes) + " more tries remaining."))
@@ -59,19 +71,18 @@ int selectValidFile(string& fileName) {
 	do {
 		
 		fileName = selectFile();
+
+		// selectFile's version of returning ABORT
 		if (fileName == "1")
 			return ABORT;
-		if (/*!isTextFile(fileName) ||*/ !isValidFile(fileName)) {
-			/*if (!isTextFile(fileName))
-			printf("\t%s is not a path to a text file.\n\n", fileName.c_str());
+		if (!isValidFile(fileName)) {
 
-			else*/ printf("\t%s is not a valid file created by this program. Are you sure it has not been modified?\n\n", fileName.c_str());
-		if (error("Please select a new text file."))
-			return ABORT;
-
+			printf("\t%s is not a valid file created by this program. Are you sure it has not been modified?\n\n", fileName.c_str());
+			if (error("Please select a new text file."))
+				return ABORT;
 		}
 		cls();
 
-	} while (!isValidFile(fileName) /*|| !isTextFile(fileName)*/);
+	} while (!isValidFile(fileName));
 	return CONTINUE;
 }

@@ -2,10 +2,10 @@
 
 #ifndef CRYPTOGRAPHY
 #define CRYPTOGRAPHY
+
 #include "Encrypt.h"
 #include "Decrypt.h"
 #include <cstdlib>
-#include "IO.h"
 
 
 #endif
