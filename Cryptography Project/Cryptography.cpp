@@ -1,29 +1,31 @@
 #include "Headers/Cryptography.h"
-#define VERSION 1.0
+#define VERSION 1.1
 
 int main() {
+
+	//Program initialization
 	setFullscreen();
 	setColors();
-	
-	
 
 	while (true) {
 		changeMode("Main Menu");
 		cls();
-		char choice;
+
 		playSong(JAMES_BOND);
+		
 		resetErrors();
+
+		char choice;
 		isValidCharInput(choices(), { '1','2','3','4' }, choice);
 
-		if (choice == '1') {
+		if (choice == '1') 
 			encrypt();
-			continue;
-		}
 		else if (choice == '2')
 			decrypt();
 		else if (choice == '3')
 			toggleSound();
 		else if (choice == '4') {
+
 			changeMode("Exit Program");
 			isValidCharInput("\tAre you sure you want to quit? (Y/N)\n", { 'y','n' }, choice);
 			if (choice == 'y') {
@@ -35,5 +37,7 @@ int main() {
 
 
 	}
+	//This should never happen
+	return 1;
 }
 

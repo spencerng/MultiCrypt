@@ -80,11 +80,12 @@ int main()
 		min = 0;
 		break;
 	case 2:
-		max = 89;
+	
+		max = 100;
 		min = 10;
 		break;
 	case 3:
-		max = 99;
+		max = 100;
 		min = 0;
 		break;
 	default:

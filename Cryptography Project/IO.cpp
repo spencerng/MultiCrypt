@@ -1,8 +1,5 @@
 #include "Headers/IO.h"
 
-// define DOS for DOS-based OS (Windows) or UNIX (Linux, OS X, etc.)
-#define DOS
-
 int errors = 0;
 string mode;
 

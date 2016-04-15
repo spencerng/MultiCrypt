@@ -4,6 +4,8 @@
 vector< vector<unsigned long long> > toMMatrix(vector< vector<unsigned long long> > A, int row, int column) {
 	int m = 0, n = 0;
 	vector< vector<unsigned long long> > mMatrix(A.size() - 1, vector<unsigned long long>(A.size() - 1));
+
+	
 	for (int i = 0; i < A.size(); i++) {
 		if (i != row) {
 			for (int j = 0; j < A.size(); j++) {
@@ -12,6 +14,8 @@ vector< vector<unsigned long long> > toMMatrix(vector< vector<unsigned long long
 					n++;
 				}
 			}
+
+			// Increments position in output matrix while the row/column is not in the input
 			m++;
 			n = 0;
 
@@ -60,17 +64,22 @@ vector< vector<unsigned long long> > toAdjMatrix(vector< vector<unsigned long lo
 vector< vector<unsigned long long> > inverseInt(vector< vector<unsigned long long> > A) {
 	vector< vector<unsigned long long> > result = A;
 
+	// Definition of 2 x 2
 	if (A.size() == 2) {
 		result[0][0] = A[1][1];
 		result[0][1] = -1 * A[0][1];
 		result[1][0] = -1 * A[1][0];
 		result[1][1] = A[0][0];
 	}
-	else result = toAdjMatrix(A);
 
-	result = scalarMultiplyInt((1 / det(A)), result);
+	// Recursive step
+	else {
+		result = toAdjMatrix(A);
 
-	return result;
+		result = scalarMultiplyInt((1 / det(A)), result);
+
+		return result;
+	}
 
 }
 

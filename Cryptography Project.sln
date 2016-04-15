@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 14 for Windows Desktop
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cryptography Project", "Cryptography Project\Cryptography Project.vcxproj", "{D44D8A6D-780B-4BB7-A78A-DE3AA950BF55}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Cryptography Project", "Cryptography Project.vcxproj", "{D44D8A6D-780B-4BB7-A78A-DE3AA950BF55}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

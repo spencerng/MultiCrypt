@@ -7,10 +7,10 @@ vector< vector<unsigned long long> > randomMatrix() {
 	vector< vector<unsigned long long> > randomM;	
 		
 		randomM = unimodMatrix();
-		int iterations = rand() % 1000;
+		int iterations = rand() % 500+500; // 500-1000 iterations
 		for (int i = 1; i <= iterations; i++) {
 			int isInverted = rand();
-			if (isInverted % 2 == 0)
+			if (isInverted % 2 == 0) // Randomly invert for complexity
 				randomM = inverseInt(randomM);
 			
 			randomM = multiply(randomM, unimodMatrix());
@@ -33,7 +33,7 @@ vector< vector<unsigned long long> > randomL() {
 	randomM[0][0] = 1;
 	randomM[1][1] = 1;
 	randomM[2][2] = 1;
-	randomM[0][1] = rand() % 1000000 + 1;
+	randomM[0][1] = rand() % 1000000 + 1; // Generates entries 1-1000000
 	randomM[0][2] = rand() % 1000000 + 1;
 	randomM[1][2] = rand() % 1000000 + 1;
 	return randomM;
