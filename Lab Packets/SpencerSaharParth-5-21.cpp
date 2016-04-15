@@ -82,7 +82,7 @@ int main()
         }
     
         
-        cout << "The total weekly pay is $" << setprecision(4)<< totalSalary << endl;
+        cout << "The total weekly pay is $" << setprecision(2) << fixed << totalSalary << endl;
         cout << "Please enter the paycode for the worker or -1 to exit: ";
         cin >> paycode;
        
