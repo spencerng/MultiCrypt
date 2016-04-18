@@ -2,11 +2,4 @@
 
 A C++ program to encrypt and decrypt messages using the Hill cipher
 
-By Spencer Ng, Sahar Sami, and Parth Savla
-
-Open the "MultiCrypt v1.1 - Release" folder for the release executable
-
-Open "Cryptography Project.sln" for the Visual Studio project
-
-Source code is located in the "Cryptography Project" folder
-
+By Spencer Ng ([spencerng](https://github.com/spencerng)), Sahar Sami ([sahars-13](https://github.com/sahars-13)), and Parth Savla ([Parth7350](https://github.com/Parth7350))
